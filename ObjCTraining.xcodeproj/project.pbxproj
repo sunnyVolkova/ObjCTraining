@@ -16,6 +16,8 @@
 		CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */; };
 		CE704DC21CA2824700098DE5 /* ObjCTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DC11CA2824700098DE5 /* ObjCTrainingTests.m */; };
 		CE704DCD1CA2824700098DE5 /* ObjCTrainingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */; };
+		CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */; };
+		CE704DE01CA2A97A00098DE5 /* HouseTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		CE704DC81CA2824700098DE5 /* ObjCTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTrainingUITests.m; sourceTree = "<group>"; };
 		CE704DCE1CA2824700098DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeTableViewCell.h; sourceTree = "<group>"; };
+		CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeTableViewCell.m; sourceTree = "<group>"; };
+		CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseTypeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,9 @@
 				CE704DAD1CA2824600098DE5 /* SecondViewController.h */,
 				CE704DAE1CA2824600098DE5 /* SecondViewController.m */,
 				CE704DB01CA2824600098DE5 /* Main.storyboard */,
+				CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */,
+				CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */,
+				CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */,
 				CE704DB31CA2824600098DE5 /* Assets.xcassets */,
 				CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */,
 				CE704DB81CA2824600098DE5 /* Info.plist */,
@@ -251,6 +259,7 @@
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
+				CE704DE01CA2A97A00098DE5 /* HouseTypeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +286,7 @@
 			files = (
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
+				CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */,
 				CE704DAC1CA2824600098DE5 /* FirstViewController.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
 			);
@@ -420,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
