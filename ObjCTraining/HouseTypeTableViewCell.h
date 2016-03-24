@@ -11,5 +11,4 @@
 @interface HouseTypeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *typeImage;
 @property (weak, nonatomic) IBOutlet UILabel *typeName;
-
 @end

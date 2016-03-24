@@ -10,7 +10,5 @@
 
 @interface AddPropertyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-
 @end
 

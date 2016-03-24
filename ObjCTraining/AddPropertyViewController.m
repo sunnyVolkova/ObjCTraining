@@ -15,17 +15,6 @@
 @end
 
 @implementation AddPropertyViewController
-
-- (IBAction)addYourOwnButtonPressed:(id)sender {
-    NSLog(@"addYourOwnButtonPressed");
-}
-- (IBAction)addFromButtonPressed:(id)sender {
-    NSLog(@"addFromButtonPressed");
-}
-- (IBAction)continueButtonPressed:(id)sender {
-    NSLog(@"continueButtonPressed");
-}
-
 static NSString *houseTypeCellIdentifier = @"HouseTypeTableViewCell";
 
 - (void)viewDidLoad {
@@ -36,25 +25,32 @@ static NSString *houseTypeCellIdentifier = @"HouseTypeTableViewCell";
     self.tableView.delegate=self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
+#pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datasource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HouseTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier];
-    if ([_datasource objectAtIndex: indexPath.row]) {
-        cell.typeName.text = [_datasource objectAtIndex:indexPath.row].typeDescription;
-        cell.typeImage.image = [UIImage imageNamed:[_datasource objectAtIndex:indexPath.row].imageName];
-    }
+    HouseTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
+    HouseTypeDescription *desription = [_datasource objectAtIndex: indexPath.row];
+    cell.typeName.text = desription.typeDescription;
+    cell.typeImage.image = [UIImage imageNamed:desription.imageName];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return tableView.frame.size.width/3;
+}
+
+#pragma mark actions
+- (IBAction)addYourOwnButtonPressed:(id)sender {
+    NSLog(@"addYourOwnButtonPressed");
+}
+- (IBAction)addFromButtonPressed:(id)sender {
+    NSLog(@"addFromButtonPressed");
+}
+- (IBAction)continueButtonPressed:(id)sender {
+    NSLog(@"continueButtonPressed");
 }
 
 - (void) initDataSource {
