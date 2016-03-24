@@ -12,18 +12,15 @@
 @end
 @implementation HouseTypeTableViewCell
 CGRect imageFrame;
-- (void)awakeFromNib {
-    
-    // Initialization code
-}
 
-- (void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
     imageFrame = _typeImage.frame;
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     CGFloat borderWidth = 4.0f;
     
     if(selected) {
