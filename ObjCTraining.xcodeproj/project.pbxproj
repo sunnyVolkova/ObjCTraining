@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
-		CE704DAC1CA2824600098DE5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAB1CA2824600098DE5 /* FirstViewController.m */; };
+		CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */; };
 		CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAE1CA2824600098DE5 /* SecondViewController.m */; };
 		CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB01CA2824600098DE5 /* Main.storyboard */; };
 		CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB31CA2824600098DE5 /* Assets.xcassets */; };
@@ -18,6 +18,7 @@
 		CE704DCD1CA2824700098DE5 /* ObjCTrainingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */; };
 		CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */; };
 		CE704DE01CA2A97A00098DE5 /* HouseTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */; };
+		CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,8 @@
 		CE704DA51CA2824600098DE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE704DA71CA2824600098DE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE704DA81CA2824600098DE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE704DAA1CA2824600098DE5 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CE704DAB1CA2824600098DE5 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		CE704DAA1CA2824600098DE5 /* AddPropertyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPropertyViewController.h; sourceTree = "<group>"; };
+		CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPropertyViewController.m; sourceTree = "<group>"; };
 		CE704DAD1CA2824600098DE5 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		CE704DAE1CA2824600098DE5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		CE704DB11CA2824600098DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +60,8 @@
 		CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeTableViewCell.h; sourceTree = "<group>"; };
 		CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeTableViewCell.m; sourceTree = "<group>"; };
 		CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseTypeTableViewCell.xib; sourceTree = "<group>"; };
+		CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeDescription.h; sourceTree = "<group>"; };
+		CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeDescription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,16 +112,12 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				CE704DE31CA2C8CF00098DE5 /* Models */,
+				CE704DE21CA2C8C100098DE5 /* Views */,
+				CE704DE11CA2C8AA00098DE5 /* ViewControllers */,
 				CE704DA71CA2824600098DE5 /* AppDelegate.h */,
 				CE704DA81CA2824600098DE5 /* AppDelegate.m */,
-				CE704DAA1CA2824600098DE5 /* FirstViewController.h */,
-				CE704DAB1CA2824600098DE5 /* FirstViewController.m */,
-				CE704DAD1CA2824600098DE5 /* SecondViewController.h */,
-				CE704DAE1CA2824600098DE5 /* SecondViewController.m */,
 				CE704DB01CA2824600098DE5 /* Main.storyboard */,
-				CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */,
-				CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */,
-				CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */,
 				CE704DB31CA2824600098DE5 /* Assets.xcassets */,
 				CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */,
 				CE704DB81CA2824600098DE5 /* Info.plist */,
@@ -151,6 +150,36 @@
 				CE704DCE1CA2824700098DE5 /* Info.plist */,
 			);
 			path = ObjCTrainingUITests;
+			sourceTree = "<group>";
+		};
+		CE704DE11CA2C8AA00098DE5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DAA1CA2824600098DE5 /* AddPropertyViewController.h */,
+				CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */,
+				CE704DAD1CA2824600098DE5 /* SecondViewController.h */,
+				CE704DAE1CA2824600098DE5 /* SecondViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE704DE21CA2C8C100098DE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */,
+				CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */,
+				CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CE704DE31CA2C8CF00098DE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */,
+				CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
+				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
 				CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */,
-				CE704DAC1CA2824600098DE5 /* FirstViewController.m in Sources */,
+				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +546,7 @@
 				CE704DD31CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE704DD41CA2824700098DE5 /* Build configuration list for PBXNativeTarget "ObjCTrainingTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +555,7 @@
 				CE704DD61CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE704DD71CA2824700098DE5 /* Build configuration list for PBXNativeTarget "ObjCTrainingUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +564,7 @@
 				CE704DD91CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
