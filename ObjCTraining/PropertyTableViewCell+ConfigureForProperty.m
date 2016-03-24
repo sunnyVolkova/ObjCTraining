@@ -10,6 +10,8 @@
 @implementation PropertyTableViewCell (ConfigureForProperty)
 - (void)setCellValuesWithProperty: (id<Property>) property {
     self.name.text = property.text;
-    self.image.image = [UIImage imageNamed:property.imageName];
+    if ([property respondsToSelector:@selector(imageName)]) {
+        self.image.image = [UIImage imageNamed:property.imageName];
+    }
 }
 @end

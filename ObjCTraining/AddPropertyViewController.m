@@ -25,29 +25,32 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
     self.tableView.delegate=self;
 }
 
-#pragma mark UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _datasource.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
     HouseTypeDescription *desription = [_datasource objectAtIndex: indexPath.row];
     [cell setCellValuesWithProperty: desription];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return tableView.frame.size.width/3;
 }
 
-#pragma mark actions
+#pragma mark - Actions
+
 - (IBAction)addYourOwnButtonPressed:(id)sender {
     NSLog(@"addYourOwnButtonPressed");
 }
+
 - (IBAction)addFromButtonPressed:(id)sender {
     NSLog(@"addFromButtonPressed");
 }
+
 - (IBAction)continueButtonPressed:(id)sender {
     NSLog(@"continueButtonPressed");
 }

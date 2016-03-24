@@ -9,8 +9,7 @@
 #import "HouseTypeDescription.h"
 
 @implementation HouseTypeDescription
-- (instancetype)initWithDescription: (NSString*) description
-{
+- (instancetype)initWithDescription: (NSString*) description {
     self = [super init];
     if (self) {
         self.text = description;
@@ -18,8 +17,7 @@
     return self;
 }
 
-- (instancetype)initWithDescription: (NSString*) description imageName: (NSString*) imageName
-{
+- (instancetype)initWithDescription: (NSString*) description imageName: (NSString*) imageName {
     self = [super init];
     if (self) {
         self.text = description;
