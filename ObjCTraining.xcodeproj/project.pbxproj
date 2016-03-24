@@ -16,9 +16,10 @@
 		CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */; };
 		CE704DC21CA2824700098DE5 /* ObjCTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DC11CA2824700098DE5 /* ObjCTrainingTests.m */; };
 		CE704DCD1CA2824700098DE5 /* ObjCTrainingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */; };
-		CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */; };
-		CE704DE01CA2A97A00098DE5 /* HouseTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */; };
+		CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */; };
+		CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */; };
 		CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */; };
+		CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,11 +58,14 @@
 		CE704DC81CA2824700098DE5 /* ObjCTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTrainingUITests.m; sourceTree = "<group>"; };
 		CE704DCE1CA2824700098DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeTableViewCell.h; sourceTree = "<group>"; };
-		CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeTableViewCell.m; sourceTree = "<group>"; };
-		CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseTypeTableViewCell.xib; sourceTree = "<group>"; };
+		CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTableViewCell.h; sourceTree = "<group>"; };
+		CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyTableViewCell.m; sourceTree = "<group>"; };
+		CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyTableViewCell.xib; sourceTree = "<group>"; };
 		CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeDescription.h; sourceTree = "<group>"; };
 		CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeDescription.m; sourceTree = "<group>"; };
+		CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertyTableViewCell+ConfigureForProperty.h"; sourceTree = "<group>"; };
+		CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertyTableViewCell+ConfigureForProperty.m"; sourceTree = "<group>"; };
+		CE704DEE1CA406D800098DE5 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				CE704DE71CA401E600098DE5 /* Categories */,
 				CE704DE31CA2C8CF00098DE5 /* Models */,
 				CE704DE21CA2C8C100098DE5 /* Views */,
 				CE704DE11CA2C8AA00098DE5 /* ViewControllers */,
@@ -166,9 +171,9 @@
 		CE704DE21CA2C8C100098DE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE704DDC1CA2A97A00098DE5 /* HouseTypeTableViewCell.h */,
-				CE704DDD1CA2A97A00098DE5 /* HouseTypeTableViewCell.m */,
-				CE704DDE1CA2A97A00098DE5 /* HouseTypeTableViewCell.xib */,
+				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
+				CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */,
+				CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -178,8 +183,18 @@
 			children = (
 				CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */,
 				CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */,
+				CE704DEE1CA406D800098DE5 /* Property.h */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		CE704DE71CA401E600098DE5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */,
+				CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +303,7 @@
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
-				CE704DE01CA2A97A00098DE5 /* HouseTypeTableViewCell.xib in Resources */,
+				CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +331,8 @@
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
-				CE704DDF1CA2A97A00098DE5 /* HouseTypeTableViewCell.m in Sources */,
+				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,
+				CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */,
 				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
 			);

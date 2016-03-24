@@ -13,7 +13,7 @@
 {
     self = [super init];
     if (self) {
-        self.typeDescription = description;
+        self.text = description;
     }
     return self;
 }
@@ -22,7 +22,7 @@
 {
     self = [super init];
     if (self) {
-        self.typeDescription = description;
+        self.text = description;
         self.imageName = imageName;
     }
     return self;

@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HouseTypeTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *typeImage;
-@property (weak, nonatomic) IBOutlet UILabel *typeName;
+@interface PropertyTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *name;
 @end

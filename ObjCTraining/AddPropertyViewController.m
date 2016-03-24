@@ -7,7 +7,7 @@
 //
 
 #import "AddPropertyViewController.h"
-#import "HouseTypeTableViewCell.h"
+#import "PropertyTableViewCell.h"
 #import "HouseTypeDescription.h"
 
 @interface AddPropertyViewController ()
@@ -15,11 +15,11 @@
 @end
 
 @implementation AddPropertyViewController
-static NSString *houseTypeCellIdentifier = @"HouseTypeTableViewCell";
+static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName: @"HouseTypeTableViewCell" bundle:nil] forCellReuseIdentifier:houseTypeCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName: @"PropertyTableViewCell" bundle:nil] forCellReuseIdentifier:houseTypeCellIdentifier];
     [self initDataSource];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
@@ -31,10 +31,9 @@ static NSString *houseTypeCellIdentifier = @"HouseTypeTableViewCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HouseTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
+    PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
     HouseTypeDescription *desription = [_datasource objectAtIndex: indexPath.row];
-    cell.typeName.text = desription.typeDescription;
-    cell.typeImage.image = [UIImage imageNamed:desription.imageName];
+    [cell setCellValuesWithProperty: desription];
     return cell;
 }
 

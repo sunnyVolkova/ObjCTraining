@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HouseTypeDescription : NSObject
-@property NSString* typeDescription;
+#import "Property.h"
+@interface HouseTypeDescription : NSObject<Property>
+@property NSString* text;
 @property NSString* imageName;
 - (instancetype)initWithDescription: (NSString*) description imageName: (NSString*) imageName;
 - (instancetype)initWithDescription: (NSString*) description;
