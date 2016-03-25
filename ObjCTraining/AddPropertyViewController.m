@@ -19,19 +19,6 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, 320, 22)];
-//    statusBarView.backgroundColor = [UIColor yellowColor];
-//    [self.navigationController.navigationBar addSubview:statusBarView];
-//    UIView *statusBarView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
-//    statusBarView.backgroundColor  =  [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
-//    [self.view addSubview:statusBarView];
-//    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 20)];
-//    view.backgroundColor= [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
-//    [self.window.rootViewController.view addSubview:view];
-   // UIColor *color = [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
-
-   
-    //[self.setStatusBarBackgroundColor [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f]];
     [self.tableView registerNib:[UINib nibWithNibName: @"PropertyTableViewCell" bundle:nil] forCellReuseIdentifier:houseTypeCellIdentifier];
     [self initDataSource];
     self.tableView.dataSource=self;
