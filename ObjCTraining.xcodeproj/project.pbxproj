@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
-		CE704DAC1CA2824600098DE5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAB1CA2824600098DE5 /* FirstViewController.m */; };
+		CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */; };
 		CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DAE1CA2824600098DE5 /* SecondViewController.m */; };
 		CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB01CA2824600098DE5 /* Main.storyboard */; };
 		CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB31CA2824600098DE5 /* Assets.xcassets */; };
 		CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */; };
 		CE704DC21CA2824700098DE5 /* ObjCTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DC11CA2824700098DE5 /* ObjCTrainingTests.m */; };
 		CE704DCD1CA2824700098DE5 /* ObjCTrainingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */; };
+		CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */; };
+		CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */; };
+		CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */; };
+		CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,8 @@
 		CE704DA51CA2824600098DE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE704DA71CA2824600098DE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE704DA81CA2824600098DE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE704DAA1CA2824600098DE5 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CE704DAB1CA2824600098DE5 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		CE704DAA1CA2824600098DE5 /* AddPropertyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPropertyViewController.h; sourceTree = "<group>"; };
+		CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPropertyViewController.m; sourceTree = "<group>"; };
 		CE704DAD1CA2824600098DE5 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		CE704DAE1CA2824600098DE5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		CE704DB11CA2824600098DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 		CE704DC81CA2824700098DE5 /* ObjCTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE704DCC1CA2824700098DE5 /* ObjCTrainingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTrainingUITests.m; sourceTree = "<group>"; };
 		CE704DCE1CA2824700098DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTableViewCell.h; sourceTree = "<group>"; };
+		CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyTableViewCell.m; sourceTree = "<group>"; };
+		CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyTableViewCell.xib; sourceTree = "<group>"; };
+		CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseTypeDescription.h; sourceTree = "<group>"; };
+		CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseTypeDescription.m; sourceTree = "<group>"; };
+		CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertyTableViewCell+ConfigureForProperty.h"; sourceTree = "<group>"; };
+		CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertyTableViewCell+ConfigureForProperty.m"; sourceTree = "<group>"; };
+		CE704DEE1CA406D800098DE5 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +116,12 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				CE704DE71CA401E600098DE5 /* Categories */,
+				CE704DE31CA2C8CF00098DE5 /* Models */,
+				CE704DE21CA2C8C100098DE5 /* Views */,
+				CE704DE11CA2C8AA00098DE5 /* ViewControllers */,
 				CE704DA71CA2824600098DE5 /* AppDelegate.h */,
 				CE704DA81CA2824600098DE5 /* AppDelegate.m */,
-				CE704DAA1CA2824600098DE5 /* FirstViewController.h */,
-				CE704DAB1CA2824600098DE5 /* FirstViewController.m */,
-				CE704DAD1CA2824600098DE5 /* SecondViewController.h */,
-				CE704DAE1CA2824600098DE5 /* SecondViewController.m */,
 				CE704DB01CA2824600098DE5 /* Main.storyboard */,
 				CE704DB31CA2824600098DE5 /* Assets.xcassets */,
 				CE704DB51CA2824600098DE5 /* LaunchScreen.storyboard */,
@@ -143,6 +155,46 @@
 				CE704DCE1CA2824700098DE5 /* Info.plist */,
 			);
 			path = ObjCTrainingUITests;
+			sourceTree = "<group>";
+		};
+		CE704DE11CA2C8AA00098DE5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DAA1CA2824600098DE5 /* AddPropertyViewController.h */,
+				CE704DAB1CA2824600098DE5 /* AddPropertyViewController.m */,
+				CE704DAD1CA2824600098DE5 /* SecondViewController.h */,
+				CE704DAE1CA2824600098DE5 /* SecondViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE704DE21CA2C8C100098DE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
+				CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */,
+				CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CE704DE31CA2C8CF00098DE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */,
+				CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */,
+				CE704DEE1CA406D800098DE5 /* Property.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CE704DE71CA401E600098DE5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */,
+				CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +303,7 @@
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
+				CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +329,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
+				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
-				CE704DAC1CA2824600098DE5 /* FirstViewController.m in Sources */,
+				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,
+				CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */,
+				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +488,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,6 +562,7 @@
 				CE704DD31CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE704DD41CA2824700098DE5 /* Build configuration list for PBXNativeTarget "ObjCTrainingTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +571,7 @@
 				CE704DD61CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE704DD71CA2824700098DE5 /* Build configuration list for PBXNativeTarget "ObjCTrainingUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +580,7 @@
 				CE704DD91CA2824700098DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
