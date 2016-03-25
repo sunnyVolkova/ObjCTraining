@@ -25,8 +25,6 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
     self.tableView.delegate=self;
 }
 
-
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _datasource.count;
@@ -44,7 +42,6 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 }
 
 #pragma mark - Actions
-
 - (IBAction)addYourOwnButtonPressed:(id)sender {
     NSLog(@"addYourOwnButtonPressed");
 }
