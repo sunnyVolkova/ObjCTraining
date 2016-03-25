@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    [self setStatusBarBackgroundColor: [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f]];
     // Override point for customization after application launch.
     return YES;
 }
@@ -42,4 +45,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)setStatusBarBackgroundColor: (UIColor *)color {
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
+    }
+}
 @end
