@@ -38,7 +38,7 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return tableView.frame.size.width/3;
+    return 168;
 }
 
 #pragma mark - Actions

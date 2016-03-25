@@ -16,18 +16,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtT-r5-H2T" userLabel="BorderView">
-                        <rect key="frame" x="-48" y="8" width="606" height="367"/>
+                        <rect key="frame" x="-25" y="2" width="561" height="379"/>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.70980392156862748" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-Z0-kbG">
-                        <rect key="frame" x="-44" y="12" width="598" height="359"/>
+                        <rect key="frame" x="-19" y="8" width="549" height="367"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="1ah-Z0-kbG" secondAttribute="height" multiplier="5:3" id="y5r-Ol-ZlE"/>
+                            <constraint firstAttribute="width" secondItem="1ah-Z0-kbG" secondAttribute="height" multiplier="455:304" id="y5r-Ol-ZlE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drn-lA-aQD">
-                        <rect key="frame" x="-28" y="192" width="566" height="0.0"/>
+                        <rect key="frame" x="-3" y="192" width="517" height="0.0"/>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -35,17 +35,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="leading" secondItem="XtT-r5-H2T" secondAttribute="leading" constant="4" id="0Fs-6g-t5A"/>
-                    <constraint firstAttribute="bottom" secondItem="XtT-r5-H2T" secondAttribute="bottom" constant="8" id="0Q1-iV-DkL"/>
-                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="top" secondItem="XtT-r5-H2T" secondAttribute="top" constant="4" id="BKY-3K-0m9"/>
+                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="leading" secondItem="XtT-r5-H2T" secondAttribute="leading" constant="6" id="0Fs-6g-t5A" userLabel="Image.leading = BorderView.leading + 6"/>
+                    <constraint firstAttribute="bottom" secondItem="XtT-r5-H2T" secondAttribute="bottom" constant="2" id="0Q1-iV-DkL" userLabel="bottom = BorderView.bottom + 2"/>
+                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="top" secondItem="XtT-r5-H2T" secondAttribute="top" constant="6" id="BKY-3K-0m9" userLabel="Image.top = BorderView.top + 6"/>
                     <constraint firstItem="drn-lA-aQD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Dht-da-JYt"/>
-                    <constraint firstItem="XtT-r5-H2T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ezp-qE-HBX"/>
+                    <constraint firstItem="XtT-r5-H2T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Ezp-qE-HBX" userLabel="BorderView.top = top + 2"/>
                     <constraint firstItem="drn-lA-aQD" firstAttribute="leading" secondItem="1ah-Z0-kbG" secondAttribute="leading" constant="16" id="IY9-zq-ZRY"/>
                     <constraint firstItem="1ah-Z0-kbG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Mv2-HP-jU5"/>
                     <constraint firstItem="drn-lA-aQD" firstAttribute="trailing" secondItem="1ah-Z0-kbG" secondAttribute="trailing" constant="-16" id="NiK-gj-ogp"/>
-                    <constraint firstItem="XtT-r5-H2T" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="P1g-Sn-QRf"/>
-                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="bottom" secondItem="XtT-r5-H2T" secondAttribute="bottom" constant="-4" id="UHV-h0-pa5"/>
-                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="trailing" secondItem="XtT-r5-H2T" secondAttribute="trailing" constant="-4" id="whB-gx-Rfg"/>
+                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="bottom" secondItem="XtT-r5-H2T" secondAttribute="bottom" constant="-6" id="UHV-h0-pa5" userLabel="Image.bottom = BorderView.bottom - 6"/>
+                    <constraint firstItem="1ah-Z0-kbG" firstAttribute="trailing" secondItem="XtT-r5-H2T" secondAttribute="trailing" constant="-6" id="whB-gx-Rfg" userLabel="Image.trailing = BorderView.trailing - 6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
