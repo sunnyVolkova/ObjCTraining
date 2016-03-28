@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P29-gz-HTP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="382"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="403"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-I5-BqP" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="335"/>
@@ -368,16 +368,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="continueButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="t8N-PY-MNj"/>
+                                    <action selector="buttonContinueTapped:" destination="F87-4k-X4r" eventType="touchUpInside" id="aw1-Uj-khG"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter Full Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv0-yy-9BL">
-                                <rect key="frame" x="203" y="390" width="194" height="21"/>
+                                <rect key="frame" x="203" y="411" width="194" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="BJa-cR-pia"/>
+                                    <constraint firstAttribute="height" id="BJa-cR-pia"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -401,10 +401,12 @@
                         <outlet property="address1Title" destination="TE4-KZ-ASX" id="s1Q-Lu-EGo"/>
                         <outlet property="address2TextField" destination="OUr-td-McP" id="nxn-3H-6hp"/>
                         <outlet property="address2Title" destination="Knt-39-TaB" id="yrP-lP-YoJ"/>
+                        <outlet property="buttonContinue" destination="MWx-bb-fWb" id="IGN-Ln-4gM"/>
                         <outlet property="cityTextField" destination="7Gd-P4-40B" id="RaO-g7-146"/>
                         <outlet property="cityTitle" destination="m41-n1-pRE" id="SeH-t3-9Tk"/>
                         <outlet property="countryTextField" destination="DXu-cT-P1u" id="1v8-qK-shw"/>
                         <outlet property="countryTitle" destination="jY9-Wf-LEF" id="OZC-kF-XFm"/>
+                        <outlet property="errorMessage" destination="Bv0-yy-9BL" id="Lpl-CX-ni5"/>
                         <outlet property="scrollView" destination="P29-gz-HTP" id="hLe-iw-MhC"/>
                         <outlet property="stateTextField" destination="zyb-nA-7e0" id="luc-Oc-c07"/>
                         <outlet property="stateTitle" destination="v4A-Mw-ch2" id="08N-W9-MrM"/>

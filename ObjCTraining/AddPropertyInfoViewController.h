@@ -10,6 +10,7 @@
 @interface AddPropertyInfoViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ErrorMessageHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *address1Title;
+@property (weak, nonatomic) IBOutlet UITextField *address1TextField;
 @property (weak, nonatomic) IBOutlet UILabel *address2Title;
 @property (weak, nonatomic) IBOutlet UITextField *address2TextField;
 @property (weak, nonatomic) IBOutlet UILabel *cityTitle;
@@ -21,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *countryTitle;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITextField *address1TextField;
-
+@property (weak, nonatomic) IBOutlet UILabel *errorMessage;
+@property (weak, nonatomic) IBOutlet UIButton *buttonContinue;
 
 @end
