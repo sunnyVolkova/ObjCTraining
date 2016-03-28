@@ -195,17 +195,17 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCV-u1-Bxg">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCV-u1-Bxg">
                                                 <rect key="frame" x="20" y="73" width="560" height="36"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="2AC-Nu-R3q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <action selector="address1DidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="lNb-oJ-eJo"/>
-                                                    <action selector="address1DidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="RWT-Dv-a4N"/>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="Gnr-Uu-pik"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="mmy-bm-qui"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knt-39-TaB">
@@ -214,30 +214,17 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-td-McP">
-                                                <rect key="frame" x="20" y="143" width="560" height="36"/>
-                                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="6oR-AJ-MEb"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="address2DidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="Xeu-M9-DvT"/>
-                                                    <action selector="address2DidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="Fnk-6l-8pr"/>
-                                                </connections>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Gd-P4-40B">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Gd-P4-40B">
                                                 <rect key="frame" x="20" y="213" width="301" height="36"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="uGg-5C-oP8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <action selector="cityDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="3j8-kh-9f1"/>
-                                                    <action selector="cityDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="wPO-mT-Nrp"/>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="m74-wN-0ij"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="Lmq-Vd-cEA"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4A-Mw-ch2">
@@ -246,17 +233,17 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyb-nA-7e0">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyb-nA-7e0">
                                                 <rect key="frame" x="329" y="213" width="251" height="36"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="PFu-gK-PBe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <action selector="stateDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="PT8-AE-Uev"/>
-                                                    <action selector="stateDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="eiE-8j-nWq"/>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="Iki-TL-OvV"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="hIj-Ld-yUE"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AN7-L2-LcK">
@@ -265,17 +252,17 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNg-K1-L2J">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNg-K1-L2J">
                                                 <rect key="frame" x="20" y="283" width="208" height="36"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="wxb-QR-y9A"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <action selector="zipDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="6LV-zg-R3V"/>
-                                                    <action selector="zipDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="c3J-YA-SJF"/>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="E6w-xQ-PAM"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="gDf-uA-1cD"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY9-Wf-LEF">
@@ -284,17 +271,17 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXu-cT-P1u">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXu-cT-P1u">
                                                 <rect key="frame" x="236" y="283" width="344" height="36"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="tdd-u3-dLS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <connections>
-                                                    <action selector="countryDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="YB0-nq-gWA"/>
-                                                    <action selector="countryDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="3Xz-gq-8cX"/>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="J7Y-9h-efR"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="bxh-8c-N3y"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m41-n1-pRE">
@@ -303,6 +290,19 @@
                                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-td-McP">
+                                                <rect key="frame" x="20" y="143" width="560" height="36"/>
+                                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="6oR-AJ-MEb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="Ulg-sg-Pz3"/>
+                                                    <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="wSh-k8-who"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="7Gd-P4-40B" firstAttribute="width" secondItem="NcL-I5-BqP" secondAttribute="width" multiplier="376/750" id="4vK-Yk-9NK"/>
@@ -397,7 +397,7 @@
                     <navigationItem key="navigationItem" title="Create a Property" id="gXX-wQ-xGS"/>
                     <connections>
                         <outlet property="ErrorMessageHeightConstraint" destination="BJa-cR-pia" id="wKE-Da-h3a"/>
-                        <outlet property="address1TextField" destination="zCV-u1-Bxg" id="g6P-KE-aQZ"/>
+                        <outlet property="address1TextField" destination="zCV-u1-Bxg" id="Yct-RE-cK3"/>
                         <outlet property="address1Title" destination="TE4-KZ-ASX" id="s1Q-Lu-EGo"/>
                         <outlet property="address2TextField" destination="OUr-td-McP" id="nxn-3H-6hp"/>
                         <outlet property="address2Title" destination="Knt-39-TaB" id="yrP-lP-YoJ"/>

@@ -14,12 +14,15 @@
 @implementation AddPropertyInfoViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.address1TextField.delegate = self;
+    self.address2TextField.delegate = self;
+    self.cityTextField.delegate = self;
+    self.stateTextField.delegate = self;
+    self.zipTextField.delegate = self;
+    self.countryTextField.delegate = self;
     [self registerForKeyboardNotifications];
+    [self.address1TextField becomeFirstResponder];
 }
-
-
-
-
 
 
 #pragma mark - Keyboard interaction
@@ -33,7 +36,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -63,70 +65,33 @@
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    _scrollView.contentInset = contentInsets;
-    _scrollView.scrollIndicatorInsets = contentInsets;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-- (id)findFirstResponder
-{
-    if (self.isFirstResponder) {
-        return self;
-    }
-    for (UIView *subView in self.view.subviews) {
-        if ([subView isFirstResponder]) {
-            return subView;
-        }
-    }
-    return nil;
-}
 
 #pragma mark - Actions
-- (IBAction)address1DidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
+- (IBAction)textFieldDidBeginEditing:(UITextField *)sender {
+    self.activeField = sender;
 }
 
-- (IBAction)address1DidEndEditing:(UITextField *)sender {
-    _activeField = nil;
+- (IBAction)testFieldDidEndEditing:(UITextField *)sender {
+    self.activeField = nil;
 }
 
-- (IBAction)address2DidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
-    
+#pragma mark - UITextFieldDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
-
-- (IBAction)address2DidEndEditing:(UITextField *)sender {
-    _activeField = nil;
-}
-
-- (IBAction)cityDidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
-}
-
-- (IBAction)cityDidEndEditing:(UITextField *)sender {
-    _activeField = nil;
-}
-
-- (IBAction)stateDidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
-}
-
-- (IBAction)stateDidEndEditing:(UITextField *)sender {
-    _activeField = nil;
-}
-- (IBAction)zipDidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
-}
-
-- (IBAction)zipDidEndEditing:(UITextField *)sender {
-    _activeField = nil;
-}
-
-- (IBAction)countryDidBeginEditing:(UITextField *)sender {
-    _activeField = sender;
-}
-
-- (IBAction)countryDidEndEditing:(UITextField *)sender {
-    _activeField = nil;
-}
-
 @end
