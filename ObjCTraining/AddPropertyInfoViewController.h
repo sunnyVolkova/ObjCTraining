@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *zipTextField;
 @property (weak, nonatomic) IBOutlet UIView *countryTitle;
 @property (weak, nonatomic) IBOutlet UIView *countryTextField;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @end
