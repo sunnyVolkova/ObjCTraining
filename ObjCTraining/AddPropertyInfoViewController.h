@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 @property (weak, nonatomic) IBOutlet UIButton *buttonContinue;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end

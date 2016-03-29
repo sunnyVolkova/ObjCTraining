@@ -407,6 +407,7 @@
                         <outlet property="countryTextField" destination="DXu-cT-P1u" id="1v8-qK-shw"/>
                         <outlet property="countryTitle" destination="jY9-Wf-LEF" id="OZC-kF-XFm"/>
                         <outlet property="errorMessage" destination="Bv0-yy-9BL" id="Lpl-CX-ni5"/>
+                        <outlet property="navigationItem" destination="gXX-wQ-xGS" id="XfI-6U-WH3"/>
                         <outlet property="scrollView" destination="P29-gz-HTP" id="hLe-iw-MhC"/>
                         <outlet property="stateTextField" destination="zyb-nA-7e0" id="luc-Oc-c07"/>
                         <outlet property="stateTitle" destination="v4A-Mw-ch2" id="08N-W9-MrM"/>
@@ -527,6 +528,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

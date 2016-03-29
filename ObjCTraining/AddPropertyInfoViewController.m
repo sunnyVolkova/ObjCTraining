@@ -37,6 +37,7 @@ NSMutableDictionary *isFieldsWrong;
     self.stateTextField.delegate = self;
     self.zipTextField.delegate = self;
     self.countryTextField.delegate = self;
+    
     [self registerForKeyboardNotifications];
     [self.address1TextField becomeFirstResponder];
     
@@ -55,6 +56,10 @@ NSMutableDictionary *isFieldsWrong;
     isFieldsWrong[[NSNumber numberWithInt:StateFieldTag]] = @NO;
     isFieldsWrong[[NSNumber numberWithInt:ZipFieldTag]] = @NO;
     isFieldsWrong[[NSNumber numberWithInt:CountryFieldTag]] = @NO;
+    
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+    barButton.title = @"Back";
+    self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
 }
 
 
