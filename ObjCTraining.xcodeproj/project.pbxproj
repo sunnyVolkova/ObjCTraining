@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34FED5E1CAA5AD70012FD7D /* ValidationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A34FED5D1CAA5AD70012FD7D /* ValidationManager.m */; };
 		CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */; };
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A34FED5C1CAA5AD70012FD7D /* ValidationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationManager.h; sourceTree = "<group>"; };
+		A34FED5D1CAA5AD70012FD7D /* ValidationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationManager.m; sourceTree = "<group>"; };
 		CE557E461CA5894100A5614B /* AddPropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPropertyInfoViewController.h; sourceTree = "<group>"; };
 		CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPropertyInfoViewController.m; sourceTree = "<group>"; };
 		CE704DA11CA2824600098DE5 /* ObjCTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A34FED5B1CAA5A9C0012FD7D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A34FED5C1CAA5AD70012FD7D /* ValidationManager.h */,
+				A34FED5D1CAA5AD70012FD7D /* ValidationManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		CE704D981CA2824500098DE5 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A34FED5B1CAA5A9C0012FD7D /* Managers */,
 				CE704DE71CA401E600098DE5 /* Categories */,
 				CE704DE31CA2C8CF00098DE5 /* Models */,
 				CE704DE21CA2C8C100098DE5 /* Views */,
@@ -341,6 +354,7 @@
 				CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */,
 				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
+				A34FED5E1CAA5AD70012FD7D /* ValidationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
