@@ -141,29 +141,24 @@ NSMutableDictionary *isFieldsWrong;
     switch (sender.tag) {
         case Address1FieldTag:
             isCorrect = [self isAddress1Correct: sender.text];
-            [self updateField: self.address1TextField textLabel: self.address1Title isCorrect: isCorrect];
             break;
         case Address2FieldTag:
             isCorrect = [self isAddress2Correct: sender.text];
-            [self updateField: self.address2TextField textLabel: self.address2Title isCorrect: isCorrect];
             break;
         case CityFieldTag:
             isCorrect = [self isCityCorrect: sender.text];
-            [self updateField: self.cityTextField textLabel: self.cityTitle isCorrect: isCorrect];
             break;
         case StateFieldTag:
             isCorrect = [self isStateCorrect: sender.text];
-            [self updateField: self.stateTextField textLabel: self.stateTitle isCorrect: isCorrect];
             break;
         case ZipFieldTag:
             isCorrect = [self isZipCorrect: sender.text];
-            [self updateField: self.zipTextField textLabel: self.zipTitle isCorrect: isCorrect];
             break;
         case CountryFieldTag:
             isCorrect = [self isCountryCorrect: sender.text];
-            [self updateField: self.countryTextField textLabel: self.countryTitle isCorrect: isCorrect];
             break;
     }
+    [self invalidateFieldForTag: sender.tag isValid: isCorrect];
 }
 
 - (IBAction)buttonContinueTapped:(UIButton *)sender {
@@ -187,13 +182,15 @@ NSMutableDictionary *isFieldsWrong;
 
 #pragma mark - Validation
 - (BOOL) isAnyFieldEmpty {
+    BOOL isAnyfieldEmpty = NO;
     for (id key in isFieldsEmpty){
         //Address2Field could be empty
         if([[isFieldsEmpty objectForKey:key] boolValue] && [key integerValue] != Address2FieldTag){
-            return YES;
+            [self invalidateFieldForTag:[key integerValue] isValid:NO];
+            isAnyfieldEmpty = YES;
         }
     }
-    return NO;
+    return isAnyfieldEmpty;
 }
 
 - (BOOL) isAnyFieldWrong {
@@ -205,14 +202,34 @@ NSMutableDictionary *isFieldsWrong;
     return NO;
 }
 
+- (void) invalidateFieldForTag: (NSInteger) tag isValid: (BOOL) isValid {
+    switch (tag) {
+        case Address1FieldTag:
+            [self updateField: self.address1TextField textLabel: self.address1Title isCorrect: isValid];
+            break;
+        case Address2FieldTag:
+            [self updateField: self.address2TextField textLabel: self.address2Title isCorrect: isValid];
+            break;
+        case CityFieldTag:
+            [self updateField: self.cityTextField textLabel: self.cityTitle isCorrect: isValid];
+            break;
+        case StateFieldTag:
+            [self updateField: self.stateTextField textLabel: self.stateTitle isCorrect: isValid];
+            break;
+        case ZipFieldTag:
+            [self updateField: self.zipTextField textLabel: self.zipTitle isCorrect: isValid];
+            break;
+        case CountryFieldTag:
+            [self updateField: self.countryTextField textLabel: self.countryTitle isCorrect: isValid];
+            break;
+    }
+}
+
 - (BOOL) checkInputData {
     BOOL isFieldEmpty = [self isAnyFieldEmpty];
     BOOL isFieldWrong = [self isAnyFieldWrong];
-    
     if(isFieldEmpty || isFieldWrong) {
-        self.errorMessage.hidden = false;
-        self.errorMessage.text = [self creatErrorMessage];
-        self.ErrorMessageHeightConstraint.constant = 21;
+        [self showErroMessage: [self creatErrorMessage: isFieldEmpty isAnyFieldWrong: isFieldWrong]];
         return NO;
     } else {
         [self clearErroMessage];
@@ -223,6 +240,12 @@ NSMutableDictionary *isFieldsWrong;
 - (void) clearErroMessage {
     self.errorMessage.hidden = true;
     self.ErrorMessageHeightConstraint.constant = 0;
+}
+
+- (void) showErroMessage: (NSString *) errorMessage {
+    self.errorMessage.hidden = false;
+    self.errorMessage.text = errorMessage;
+    self.ErrorMessageHeightConstraint.constant = 21;
 }
 
 - (void) updateField: (UITextField *)textField textLabel: (UILabel *)textLabel isCorrect: (BOOL) isCorrect {
@@ -238,13 +261,10 @@ NSMutableDictionary *isFieldsWrong;
     }
 }
 
-- (NSString *) creatErrorMessage {
-    BOOL isFieldEmpty = [self isAnyFieldEmpty];
-    BOOL isFieldWrong = [self isAnyFieldWrong];
-    
-    if (isFieldEmpty) {
+- (NSString *) creatErrorMessage:(BOOL) isAnyFieldEmpty isAnyFieldWrong: (BOOL) isAnyFieldWrong{
+    if (isAnyFieldEmpty) {
         return emptyFieldErrorMessage;
-    } else if (isFieldWrong) {
+    } else if (isAnyFieldWrong) {
         return wrongFieldErrorMessage;
     }
     return @"";
