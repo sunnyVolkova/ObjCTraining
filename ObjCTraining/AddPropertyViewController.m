@@ -16,6 +16,7 @@
 
 @implementation AddPropertyViewController
 static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
+static NSString *continueCellIdentifier = @"ContinueCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,19 +29,38 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 
 
 #pragma mark - UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _datasource.count;
+    if (section == 0) {
+        return _datasource.count;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
-    HouseTypeDescription *desription = [_datasource objectAtIndex: indexPath.row];
-    [cell setCellValuesWithProperty: desription];
-    return cell;
+    if (indexPath.section == 0) {
+        PropertyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:houseTypeCellIdentifier forIndexPath:indexPath];
+        HouseTypeDescription *desription = [_datasource objectAtIndex: indexPath.row];
+        [cell setCellValuesWithProperty: desription];
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:continueCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 168;
+    if (indexPath.section == 0) {
+        return 168;
+    } else {
+        return 76;
+    }
 }
 
 #pragma mark - Actions
