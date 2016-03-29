@@ -7,6 +7,7 @@
 //
 
 #import "AddPropertyViewController.h"
+#import "AddPropertyinfoViewController.h"
 #import "PropertyTableViewCell.h"
 #import "HouseTypeDescription.h"
 
@@ -44,7 +45,8 @@ static NSString *coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProp
 
 #pragma mark - Actions
 - (IBAction)addYourOwnButtonPressed:(id)sender {
-    NSLog(@"addYourOwnButtonPressed");
+    AddPropertyInfoViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPropertyInfoViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)addFromButtonPressed:(id)sender {
