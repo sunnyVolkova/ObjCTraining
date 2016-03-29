@@ -111,6 +111,7 @@ NSMutableDictionary *isFieldsWrong;
 #pragma mark - Actions
 - (IBAction)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
+    [self clearErroMessage];
     switch (sender.tag) {
         case Address1FieldTag:
             [self updateField: self.address1TextField textLabel: self.address1Title isCorrect: YES];
@@ -214,10 +215,14 @@ NSMutableDictionary *isFieldsWrong;
         self.ErrorMessageHeightConstraint.constant = 21;
         return NO;
     } else {
-        self.errorMessage.hidden = true;
-        self.ErrorMessageHeightConstraint.constant = 0;
+        [self clearErroMessage];
         return YES;
     }
+}
+
+- (void) clearErroMessage {
+    self.errorMessage.hidden = true;
+    self.ErrorMessageHeightConstraint.constant = 0;
 }
 
 - (void) updateField: (UITextField *)textField textLabel: (UILabel *)textLabel isCorrect: (BOOL) isCorrect {

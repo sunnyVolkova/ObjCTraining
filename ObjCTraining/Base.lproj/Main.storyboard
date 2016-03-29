@@ -259,7 +259,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="wxb-QR-y9A"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                 <connections>
                                                     <action selector="testFieldDidEndEditing:" destination="F87-4k-X4r" eventType="editingDidEnd" id="E6w-xQ-PAM"/>
                                                     <action selector="textFieldDidBeginEditing:" destination="F87-4k-X4r" eventType="editingDidBegin" id="gDf-uA-1cD"/>
