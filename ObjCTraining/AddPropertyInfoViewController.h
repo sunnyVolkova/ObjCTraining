@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 @interface AddPropertyInfoViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ErrorMessageHeightConstraint;
-@property (weak, nonatomic) IBOutlet UILabel *address1Title;
-@property (weak, nonatomic) IBOutlet UITextField *address1TextField;
-@property (weak, nonatomic) IBOutlet UILabel *address2Title;
-@property (weak, nonatomic) IBOutlet UITextField *address2TextField;
+@property (weak, nonatomic) IBOutlet UILabel *firstAddressTitle;
+@property (weak, nonatomic) IBOutlet UITextField *firstAddressTextField;
+@property (weak, nonatomic) IBOutlet UILabel *secondAddressTitle;
+@property (weak, nonatomic) IBOutlet UITextField *secondAddressTextField;
 @property (weak, nonatomic) IBOutlet UILabel *cityTitle;
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UILabel *stateTitle;

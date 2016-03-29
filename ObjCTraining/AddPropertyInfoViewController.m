@@ -7,15 +7,20 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import "AddPropertyInfoViewController.h"
-#import "ValidationManager.h"
+#import "NSString+CheckInput.h"
 
 typedef NS_ENUM( NSInteger, InputFieldsEnum) {
-    Address1FieldTag = 1,
-    Address2FieldTag,
+    FirstAddressFieldTag = 1,
+    SecondAddressFieldTag,
     CityFieldTag,
     StateFieldTag,
     ZipFieldTag,
     CountryFieldTag
+};
+
+typedef NS_ENUM( NSInteger, TextFieldStyleEnum) {
+    correctFieldStyle = 1,
+    wrongFieldStyle
 };
 
 @interface AddPropertyInfoViewController()
@@ -23,43 +28,45 @@ typedef NS_ENUM( NSInteger, InputFieldsEnum) {
 @end
 
 @implementation AddPropertyInfoViewController
-BOOL isFieldEmpty = NO;
-NSString * emptyFieldErrorMessage = @"Please Enter Full Address";
-NSString * wrongFieldErrorMessage = @"Please Enter Correct Address";
+static NSString * const emptyFieldErrorMessage = @"Please Enter Full Address";
+static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address";
 
-NSMutableDictionary *isFieldsEmpty;
-NSMutableDictionary *isFieldsWrong;
+NSMutableDictionary *fieldsEmptinessDictionary;
+NSMutableDictionary *fieldsCorrectnessDictionary;
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.address1TextField.delegate = self;
-    self.address2TextField.delegate = self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.firstAddressTextField.delegate = self;
+    self.secondAddressTextField.delegate = self;
     self.cityTextField.delegate = self;
     self.stateTextField.delegate = self;
     self.zipTextField.delegate = self;
     self.countryTextField.delegate = self;
     
-    [self registerForKeyboardNotifications];
-    [self.address1TextField becomeFirstResponder];
+    fieldsEmptinessDictionary = [[NSMutableDictionary alloc] init];
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:FirstAddressFieldTag]] = @YES;
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:SecondAddressFieldTag]] = @YES;
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:CityFieldTag]] = @YES;
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:StateFieldTag]] = @YES;
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:ZipFieldTag]] = @YES;
+    fieldsEmptinessDictionary[[NSNumber numberWithInt:CountryFieldTag]] = @YES;
     
-    isFieldsEmpty = [[NSMutableDictionary alloc] init];
-    isFieldsEmpty[[NSNumber numberWithInt:Address1FieldTag]] = @YES;
-    isFieldsEmpty[[NSNumber numberWithInt:Address2FieldTag]] = @YES;
-    isFieldsEmpty[[NSNumber numberWithInt:CityFieldTag]] = @YES;
-    isFieldsEmpty[[NSNumber numberWithInt:StateFieldTag]] = @YES;
-    isFieldsEmpty[[NSNumber numberWithInt:ZipFieldTag]] = @YES;
-    isFieldsEmpty[[NSNumber numberWithInt:CountryFieldTag]] = @YES;
-
-    isFieldsWrong = [[NSMutableDictionary alloc] init];
-    isFieldsWrong[[NSNumber numberWithInt:Address1FieldTag]] = @NO;
-    isFieldsWrong[[NSNumber numberWithInt:Address2FieldTag]] = @NO;
-    isFieldsWrong[[NSNumber numberWithInt:CityFieldTag]] = @NO;
-    isFieldsWrong[[NSNumber numberWithInt:StateFieldTag]] = @NO;
-    isFieldsWrong[[NSNumber numberWithInt:ZipFieldTag]] = @NO;
-    isFieldsWrong[[NSNumber numberWithInt:CountryFieldTag]] = @NO;
+    fieldsCorrectnessDictionary = [[NSMutableDictionary alloc] init];
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:FirstAddressFieldTag]] = @NO;
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:SecondAddressFieldTag]] = @NO;
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:CityFieldTag]] = @NO;
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:StateFieldTag]] = @NO;
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:ZipFieldTag]] = @NO;
+    fieldsCorrectnessDictionary[[NSNumber numberWithInt:CountryFieldTag]] = @NO;
     
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
     barButton.title = @"Back";
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self registerForKeyboardNotifications];
+    [self.firstAddressTextField becomeFirstResponder];
 }
 
 
@@ -113,23 +120,23 @@ NSMutableDictionary *isFieldsWrong;
     self.activeField = sender;
     [self clearErroMessage];
     switch (sender.tag) {
-        case Address1FieldTag:
-            [self updateField: self.address1TextField textLabel: self.address1Title isCorrect: YES];
+        case FirstAddressFieldTag:
+            [self updateTextField: self.firstAddressTextField andLabel: self.firstAddressTitle withStyle: correctFieldStyle];
             break;
-        case Address2FieldTag:
-            [self updateField: self.address2TextField textLabel: self.address2Title isCorrect: YES];
+        case SecondAddressFieldTag:
+            [self updateTextField: self.secondAddressTextField andLabel: self.secondAddressTitle withStyle: correctFieldStyle];
             break;
         case CityFieldTag:
-            [self updateField: self.cityTextField textLabel: self.cityTitle isCorrect: YES];
+            [self updateTextField: self.cityTextField andLabel: self.cityTitle withStyle: correctFieldStyle];
             break;
         case StateFieldTag:
-            [self updateField: self.stateTextField textLabel: self.stateTitle isCorrect: YES];
+            [self updateTextField: self.stateTextField andLabel: self.stateTitle withStyle: correctFieldStyle];
             break;
         case ZipFieldTag:
-            [self updateField: self.zipTextField textLabel: self.zipTitle isCorrect: YES];
+            [self updateTextField: self.zipTextField andLabel: self.zipTitle withStyle: correctFieldStyle];
             break;
         case CountryFieldTag:
-            [self updateField: self.countryTextField textLabel: self.countryTitle isCorrect: YES];
+            [self updateTextField: self.countryTextField andLabel: self.countryTitle withStyle: correctFieldStyle];
             break;
     }
 }
@@ -139,23 +146,23 @@ NSMutableDictionary *isFieldsWrong;
     self.activeField = nil;
     
     switch (sender.tag) {
-        case Address1FieldTag:
-            isCorrect = [self isAddress1Correct: sender.text];
+        case FirstAddressFieldTag:
+            isCorrect = [self checkFirstAddress: sender.text];
             break;
-        case Address2FieldTag:
-            isCorrect = [self isAddress2Correct: sender.text];
+        case SecondAddressFieldTag:
+            isCorrect = [self checkSecondAddress: sender.text];
             break;
         case CityFieldTag:
-            isCorrect = [self isCityCorrect: sender.text];
+            isCorrect = [self checkCity: sender.text];
             break;
         case StateFieldTag:
-            isCorrect = [self isStateCorrect: sender.text];
+            isCorrect = [self checkState: sender.text];
             break;
         case ZipFieldTag:
-            isCorrect = [self isZipCorrect: sender.text];
+            isCorrect = [self checkZip: sender.text];
             break;
         case CountryFieldTag:
-            isCorrect = [self isCountryCorrect: sender.text];
+            isCorrect = [self checkCountry: sender.text];
             break;
     }
     [self invalidateFieldForTag: sender.tag isValid: isCorrect];
@@ -181,11 +188,11 @@ NSMutableDictionary *isFieldsWrong;
 }
 
 #pragma mark - Validation
-- (BOOL) isAnyFieldEmpty {
+- (BOOL) findIfAnyFieldEmpty {
     BOOL isAnyfieldEmpty = NO;
-    for (id key in isFieldsEmpty){
+    for (id key in fieldsEmptinessDictionary){
         //Address2Field could be empty
-        if([[isFieldsEmpty objectForKey:key] boolValue] && [key integerValue] != Address2FieldTag){
+        if([[fieldsEmptinessDictionary objectForKey:key] boolValue] && [key integerValue] != SecondAddressFieldTag){
             [self invalidateFieldForTag:[key integerValue] isValid:NO];
             isAnyfieldEmpty = YES;
         }
@@ -193,9 +200,9 @@ NSMutableDictionary *isFieldsWrong;
     return isAnyfieldEmpty;
 }
 
-- (BOOL) isAnyFieldWrong {
-    for (id key in isFieldsWrong){
-        if([[isFieldsWrong objectForKey:key] boolValue]){
+- (BOOL) findIfAnyFieldWrong {
+    for (id key in fieldsCorrectnessDictionary){
+        if([[fieldsCorrectnessDictionary objectForKey:key] boolValue]){
             return YES;
         }
     }
@@ -204,30 +211,30 @@ NSMutableDictionary *isFieldsWrong;
 
 - (void) invalidateFieldForTag: (NSInteger) tag isValid: (BOOL) isValid {
     switch (tag) {
-        case Address1FieldTag:
-            [self updateField: self.address1TextField textLabel: self.address1Title isCorrect: isValid];
+        case FirstAddressFieldTag:
+            [self updateTextField: self.firstAddressTextField andLabel: self.firstAddressTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
-        case Address2FieldTag:
-            [self updateField: self.address2TextField textLabel: self.address2Title isCorrect: isValid];
+        case SecondAddressFieldTag:
+            [self updateTextField: self.secondAddressTextField andLabel: self.secondAddressTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
         case CityFieldTag:
-            [self updateField: self.cityTextField textLabel: self.cityTitle isCorrect: isValid];
+            [self updateTextField: self.cityTextField andLabel: self.cityTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
         case StateFieldTag:
-            [self updateField: self.stateTextField textLabel: self.stateTitle isCorrect: isValid];
+            [self updateTextField: self.stateTextField andLabel: self.stateTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
         case ZipFieldTag:
-            [self updateField: self.zipTextField textLabel: self.zipTitle isCorrect: isValid];
+            [self updateTextField: self.zipTextField andLabel: self.zipTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
         case CountryFieldTag:
-            [self updateField: self.countryTextField textLabel: self.countryTitle isCorrect: isValid];
+            [self updateTextField: self.countryTextField andLabel: self.countryTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
             break;
     }
 }
 
 - (BOOL) checkInputData {
-    BOOL isFieldEmpty = [self isAnyFieldEmpty];
-    BOOL isFieldWrong = [self isAnyFieldWrong];
+    BOOL isFieldEmpty = [self findIfAnyFieldEmpty];
+    BOOL isFieldWrong = [self findIfAnyFieldWrong];
     if(isFieldEmpty || isFieldWrong) {
         [self showErroMessage: [self creatErrorMessage: isFieldEmpty isAnyFieldWrong: isFieldWrong]];
         return NO;
@@ -248,20 +255,23 @@ NSMutableDictionary *isFieldsWrong;
     self.ErrorMessageHeightConstraint.constant = 21;
 }
 
-- (void) updateField: (UITextField *)textField textLabel: (UILabel *)textLabel isCorrect: (BOOL) isCorrect {
-    if (isCorrect) {
-        textLabel.textColor = [UIColor colorWithRed:129.0f/255.0f green:129.0f/255.0f blue:129.0f/255.0f alpha:1.0f];
-        textField.layer.borderColor=[[UIColor clearColor]CGColor];
-    } else {
-        textLabel.textColor = [UIColor redColor];
-        textField.layer.cornerRadius=5.0f;
-        textField.layer.masksToBounds=YES;
-        textField.layer.borderColor=[[UIColor redColor]CGColor];
-        textField.layer.borderWidth= 1.0f;
+- (void) updateTextField: (UITextField *)textField andLabel: (UILabel *)textLabel withStyle: (TextFieldStyleEnum) style {
+    switch (style) {
+        case correctFieldStyle:
+            textLabel.textColor = [UIColor colorWithRed:129.0f/255.0f green:129.0f/255.0f blue:129.0f/255.0f alpha:1.0f];
+            textField.layer.borderColor = [[UIColor clearColor]CGColor];
+            break;
+        case wrongFieldStyle:
+            textLabel.textColor = [UIColor redColor];
+            textField.layer.cornerRadius = 5.0f;
+            textField.layer.masksToBounds = YES;
+            textField.layer.borderColor = [[UIColor redColor]CGColor];
+            textField.layer.borderWidth = 1.0f;
+            break;
     }
 }
 
-- (NSString *) creatErrorMessage:(BOOL) isAnyFieldEmpty isAnyFieldWrong: (BOOL) isAnyFieldWrong{
+- (NSString *) creatErrorMessage:(BOOL) isAnyFieldEmpty isAnyFieldWrong: (BOOL) isAnyFieldWrong {
     if (isAnyFieldEmpty) {
         return emptyFieldErrorMessage;
     } else if (isAnyFieldWrong) {
@@ -270,61 +280,55 @@ NSMutableDictionary *isFieldsWrong;
     return @"";
 }
 
-- (BOOL) isAddress1Correct:(NSString *)address1
-{
+- (BOOL) checkFirstAddress:(NSString *)address1 {
     BOOL isEmpty = (address1 == nil || address1.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:Address1FieldTag]];
-    BOOL isValid = [ValidationManager isAddressValid:address1];
-    [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:Address1FieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:FirstAddressFieldTag]];
+    BOOL isValid = [NSString isAddressValid:address1];
+    [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:FirstAddressFieldTag]];
     return !isEmpty && isValid;
 }
 
-- (BOOL) isAddress2Correct:(NSString *)address2
-{
+- (BOOL) checkSecondAddress:(NSString *)address2 {
     BOOL isEmpty = (address2 == nil || address2.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:Address2FieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:SecondAddressFieldTag]];
     if (!isEmpty) {
-        BOOL isValid = [ValidationManager isAddressValid:address2];
-        [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:Address2FieldTag]];
+        BOOL isValid = [NSString isAddressValid:address2];
+        [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:SecondAddressFieldTag]];
     } else {
-        [isFieldsWrong setObject: @NO forKey:[NSNumber numberWithInt:Address2FieldTag]];
+        [fieldsCorrectnessDictionary setObject: @NO forKey:[NSNumber numberWithInt:SecondAddressFieldTag]];
     }
     return YES; //address 2 field could be empty
 }
 
-- (BOOL) isCityCorrect:(NSString *)city
-{
+- (BOOL) checkCity:(NSString *)city {
     BOOL isEmpty = (city == nil || city.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CityFieldTag]];
-    BOOL isValid = [ValidationManager isCityValid:city];
-    [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:CityFieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CityFieldTag]];
+    BOOL isValid = [NSString isCityValid:city];
+    [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:CityFieldTag]];
     return !isEmpty && isValid;
 }
 
-- (BOOL) isStateCorrect:(NSString *)state
-{
+- (BOOL) checkState:(NSString *)state {
     BOOL isEmpty = (state == nil || state.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:StateFieldTag]];
-    BOOL isValid = [ValidationManager isStateValid:state];
-    [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:StateFieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:StateFieldTag]];
+    BOOL isValid = [NSString isStateValid:state];
+    [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:StateFieldTag]];
     return !isEmpty && isValid;
 }
 
-- (BOOL) isZipCorrect:(NSString *)zip
-{
+- (BOOL) checkZip:(NSString *)zip {
     BOOL isEmpty = (zip == nil || zip.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:ZipFieldTag]];
-    BOOL isValid = [ValidationManager isZipValid:zip];
-    [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:ZipFieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:ZipFieldTag]];
+    BOOL isValid = [NSString isZipValid:zip];
+    [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:ZipFieldTag]];
     return !isEmpty && isValid;
 }
 
-- (BOOL) isCountryCorrect:(NSString *)country
-{
+- (BOOL) checkCountry:(NSString *)country {
     BOOL isEmpty = (country == nil || country.length == 0);
-    [isFieldsEmpty setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CountryFieldTag]];
-    BOOL isValid = [ValidationManager isCountryValid:country];
-    [isFieldsWrong setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:CountryFieldTag]];
+    [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CountryFieldTag]];
+    BOOL isValid = [NSString isCountryValid:country];
+    [fieldsCorrectnessDictionary setObject: [NSNumber numberWithBool:!isValid] forKey:[NSNumber numberWithInt:CountryFieldTag]];
     return !isEmpty && isValid;
 }
 

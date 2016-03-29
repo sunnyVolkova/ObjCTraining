@@ -397,18 +397,18 @@
                     <navigationItem key="navigationItem" title="Create a Property" id="gXX-wQ-xGS"/>
                     <connections>
                         <outlet property="ErrorMessageHeightConstraint" destination="BJa-cR-pia" id="wKE-Da-h3a"/>
-                        <outlet property="address1TextField" destination="zCV-u1-Bxg" id="Yct-RE-cK3"/>
-                        <outlet property="address1Title" destination="TE4-KZ-ASX" id="s1Q-Lu-EGo"/>
-                        <outlet property="address2TextField" destination="OUr-td-McP" id="nxn-3H-6hp"/>
-                        <outlet property="address2Title" destination="Knt-39-TaB" id="yrP-lP-YoJ"/>
                         <outlet property="buttonContinue" destination="MWx-bb-fWb" id="IGN-Ln-4gM"/>
                         <outlet property="cityTextField" destination="7Gd-P4-40B" id="RaO-g7-146"/>
                         <outlet property="cityTitle" destination="m41-n1-pRE" id="SeH-t3-9Tk"/>
                         <outlet property="countryTextField" destination="DXu-cT-P1u" id="1v8-qK-shw"/>
                         <outlet property="countryTitle" destination="jY9-Wf-LEF" id="OZC-kF-XFm"/>
                         <outlet property="errorMessage" destination="Bv0-yy-9BL" id="Lpl-CX-ni5"/>
+                        <outlet property="firstAddressTextField" destination="zCV-u1-Bxg" id="CoA-gQ-pEh"/>
+                        <outlet property="firstAddressTitle" destination="TE4-KZ-ASX" id="rru-49-jgC"/>
                         <outlet property="navigationItem" destination="gXX-wQ-xGS" id="XfI-6U-WH3"/>
                         <outlet property="scrollView" destination="P29-gz-HTP" id="hLe-iw-MhC"/>
+                        <outlet property="secondAddressTextField" destination="OUr-td-McP" id="ar8-xN-7Yx"/>
+                        <outlet property="secondAddressTitle" destination="Knt-39-TaB" id="IcX-Y0-kSj"/>
                         <outlet property="stateTextField" destination="zyb-nA-7e0" id="luc-Oc-c07"/>
                         <outlet property="stateTitle" destination="v4A-Mw-ch2" id="08N-W9-MrM"/>
                         <outlet property="zipTextField" destination="NNg-K1-L2J" id="ydA-KH-7bH"/>
