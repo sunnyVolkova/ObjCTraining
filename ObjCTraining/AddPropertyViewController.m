@@ -15,9 +15,10 @@
 @property NSArray<HouseTypeDescription *> *datasource;
 @end
 
+static NSString * const houseTypeCellIdentifier = @"PropertyTableViewCell";
+static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProperty";
+
 @implementation AddPropertyViewController
-static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
-static NSString *coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProperty";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +56,7 @@ static NSString *coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProp
 
 - (IBAction)continueButtonPressed:(id)sender {
     NSLog(@"continueButtonPressed");
-    [self performSegueWithIdentifier: coontinueCreatePropertySegueIdentifier sender: self];
+    [self performSegueWithIdentifier: coontinueCreatePropertySegueIdentifier sender:self];
 }
 
 - (void) initDataSource {

@@ -24,15 +24,17 @@ typedef NS_ENUM( NSInteger, TextFieldStyleEnum) {
 };
 
 @interface AddPropertyInfoViewController()
+{
+    NSMutableDictionary *fieldsEmptinessDictionary;
+    NSMutableDictionary *fieldsCorrectnessDictionary;
+}
 @property UIView *activeField;
 @end
 
-@implementation AddPropertyInfoViewController
 static NSString * const emptyFieldErrorMessage = @"Please Enter Full Address";
 static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address";
 
-NSMutableDictionary *fieldsEmptinessDictionary;
-NSMutableDictionary *fieldsCorrectnessDictionary;
+@implementation AddPropertyInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +72,11 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
 }
 
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self deregisterForKeyboardNotifications];
+}
+
 #pragma mark - Keyboard interaction
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
@@ -81,6 +88,13 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+- (void)deregisterForKeyboardNotifications {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [center removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -107,8 +121,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
@@ -116,6 +129,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
 
 
 #pragma mark - Actions
+
 - (IBAction)textFieldDidBeginEditing:(UITextField *)sender {
     self.activeField = sender;
     [self clearErroMessage];
@@ -175,7 +189,8 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     NSInteger nextTag = textField.tag + 1;
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
@@ -188,9 +203,10 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
 }
 
 #pragma mark - Validation
-- (BOOL) findIfAnyFieldEmpty {
+
+- (BOOL)findIfAnyFieldEmpty {
     BOOL isAnyfieldEmpty = NO;
-    for (id key in fieldsEmptinessDictionary){
+    for (NSNumber *key in fieldsEmptinessDictionary){
         //Address2Field could be empty
         if([[fieldsEmptinessDictionary objectForKey:key] boolValue] && [key integerValue] != SecondAddressFieldTag){
             [self invalidateFieldForTag:[key integerValue] isValid:NO];
@@ -200,8 +216,8 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return isAnyfieldEmpty;
 }
 
-- (BOOL) findIfAnyFieldWrong {
-    for (id key in fieldsCorrectnessDictionary){
+- (BOOL)findIfAnyFieldWrong {
+    for (NSNumber *key in fieldsCorrectnessDictionary){
         if([[fieldsCorrectnessDictionary objectForKey:key] boolValue]){
             return YES;
         }
@@ -209,7 +225,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return NO;
 }
 
-- (void) invalidateFieldForTag: (NSInteger) tag isValid: (BOOL) isValid {
+- (void)invalidateFieldForTag: (NSInteger) tag isValid: (BOOL) isValid {
     switch (tag) {
         case FirstAddressFieldTag:
             [self updateTextField: self.firstAddressTextField andLabel: self.firstAddressTitle withStyle: isValid ? correctFieldStyle : wrongFieldStyle];
@@ -232,7 +248,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     }
 }
 
-- (BOOL) checkInputData {
+- (BOOL)checkInputData {
     BOOL isFieldEmpty = [self findIfAnyFieldEmpty];
     BOOL isFieldWrong = [self findIfAnyFieldWrong];
     if(isFieldEmpty || isFieldWrong) {
@@ -244,18 +260,18 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     }
 }
 
-- (void) clearErroMessage {
+- (void)clearErroMessage {
     self.errorMessage.hidden = true;
     self.ErrorMessageHeightConstraint.constant = 0;
 }
 
-- (void) showErroMessage: (NSString *) errorMessage {
+- (void)showErroMessage: (NSString *) errorMessage {
     self.errorMessage.hidden = false;
     self.errorMessage.text = errorMessage;
     self.ErrorMessageHeightConstraint.constant = 21;
 }
 
-- (void) updateTextField: (UITextField *)textField andLabel: (UILabel *)textLabel withStyle: (TextFieldStyleEnum) style {
+- (void)updateTextField: (UITextField *)textField andLabel: (UILabel *)textLabel withStyle: (TextFieldStyleEnum) style {
     switch (style) {
         case correctFieldStyle:
             textLabel.textColor = [UIColor colorWithRed:129.0f/255.0f green:129.0f/255.0f blue:129.0f/255.0f alpha:1.0f];
@@ -271,7 +287,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     }
 }
 
-- (NSString *) creatErrorMessage:(BOOL) isAnyFieldEmpty isAnyFieldWrong: (BOOL) isAnyFieldWrong {
+- (NSString *)creatErrorMessage:(BOOL) isAnyFieldEmpty isAnyFieldWrong: (BOOL) isAnyFieldWrong {
     if (isAnyFieldEmpty) {
         return emptyFieldErrorMessage;
     } else if (isAnyFieldWrong) {
@@ -280,7 +296,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return @"";
 }
 
-- (BOOL) checkFirstAddress:(NSString *)address1 {
+- (BOOL)checkFirstAddress:(NSString *)address1 {
     BOOL isEmpty = (address1 == nil || address1.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:FirstAddressFieldTag]];
     BOOL isValid = [NSString isAddressValid:address1];
@@ -288,7 +304,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return !isEmpty && isValid;
 }
 
-- (BOOL) checkSecondAddress:(NSString *)address2 {
+- (BOOL)checkSecondAddress:(NSString *)address2 {
     BOOL isEmpty = (address2 == nil || address2.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:SecondAddressFieldTag]];
     if (!isEmpty) {
@@ -300,7 +316,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return YES; //address 2 field could be empty
 }
 
-- (BOOL) checkCity:(NSString *)city {
+- (BOOL)checkCity:(NSString *)city {
     BOOL isEmpty = (city == nil || city.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CityFieldTag]];
     BOOL isValid = [NSString isCityValid:city];
@@ -308,7 +324,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return !isEmpty && isValid;
 }
 
-- (BOOL) checkState:(NSString *)state {
+- (BOOL)checkState:(NSString *)state {
     BOOL isEmpty = (state == nil || state.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:StateFieldTag]];
     BOOL isValid = [NSString isStateValid:state];
@@ -316,7 +332,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return !isEmpty && isValid;
 }
 
-- (BOOL) checkZip:(NSString *)zip {
+- (BOOL)checkZip:(NSString *)zip {
     BOOL isEmpty = (zip == nil || zip.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:ZipFieldTag]];
     BOOL isValid = [NSString isZipValid:zip];
@@ -324,7 +340,7 @@ NSMutableDictionary *fieldsCorrectnessDictionary;
     return !isEmpty && isValid;
 }
 
-- (BOOL) checkCountry:(NSString *)country {
+- (BOOL)checkCountry:(NSString *)country {
     BOOL isEmpty = (country == nil || country.length == 0);
     [fieldsEmptinessDictionary setObject: [NSNumber numberWithBool:isEmpty] forKey:[NSNumber numberWithInt:CountryFieldTag]];
     BOOL isValid = [NSString isCountryValid:country];
