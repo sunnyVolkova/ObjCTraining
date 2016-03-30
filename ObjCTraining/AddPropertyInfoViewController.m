@@ -91,7 +91,7 @@ static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address"
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    CGRect windowRect = self.view.window.frame;
+    CGRect windowRect = [self getScreenFrameForCurrentOrientation];
     CGFloat windowHeight = windowRect.size.height;
     CGFloat insetChange = self.scrollView.contentSize.height - windowHeight + kbSize.height;
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, insetChange, 0.0);
@@ -149,6 +149,28 @@ static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address"
     if ([self checkInputData]){
         NSLog(@"GO NEXT");
     }
+}
+
+#pragma mark - screen frame info
+
+- (CGRect)getScreenFrameForCurrentOrientation {
+    return [self getScreenFrameForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+- (CGRect)getScreenFrameForOrientation:(UIInterfaceOrientation)orientation {    
+    CGRect fullScreenRect = [[UIScreen mainScreen] bounds];
+    
+    // implicitly in Portrait orientation.
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        CGRect temp = CGRectZero;
+        temp.size.width = fullScreenRect.size.height;
+        temp.size.height = fullScreenRect.size.width;
+        fullScreenRect = temp;
+    }
+    
+    CGFloat statusBarHeight = 20;
+    fullScreenRect.size.height -= statusBarHeight;
+    return fullScreenRect;
 }
 
 #pragma mark - UITextFieldDelegate
