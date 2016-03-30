@@ -64,11 +64,12 @@ static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address"
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
     barButton.title = @"Back";
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self registerForKeyboardNotifications];
-    [self.firstAddressTextField becomeFirstResponder];
 }
 
 
@@ -78,6 +79,11 @@ static NSString * const wrongFieldErrorMessage = @"Please Enter Correct Address"
 }
 
 #pragma mark - Keyboard interaction
+
+- (void)dismissKeyboard {
+    [self.activeField resignFirstResponder];
+}
+
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
 {

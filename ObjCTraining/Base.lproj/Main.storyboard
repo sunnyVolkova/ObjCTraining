@@ -400,6 +400,7 @@
                         <outlet property="buttonContinue" destination="MWx-bb-fWb" id="IGN-Ln-4gM"/>
                         <outlet property="cityTextField" destination="7Gd-P4-40B" id="RaO-g7-146"/>
                         <outlet property="cityTitle" destination="m41-n1-pRE" id="SeH-t3-9Tk"/>
+                        <outlet property="containerView" destination="6tA-eL-SKz" id="2uX-0V-Zub"/>
                         <outlet property="countryTextField" destination="DXu-cT-P1u" id="1v8-qK-shw"/>
                         <outlet property="countryTitle" destination="jY9-Wf-LEF" id="OZC-kF-XFm"/>
                         <outlet property="errorMessage" destination="Bv0-yy-9BL" id="Lpl-CX-ni5"/>
