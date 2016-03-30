@@ -58,7 +58,7 @@ static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreat
 
 - (IBAction)continueButtonPressed:(id)sender {
     NSLog(@"continueButtonPressed");
-    [self performSegueWithIdentifier: coontinueCreatePropertySegueIdentifier sender:self];
+    [self performSegueWithIdentifier:coontinueCreatePropertySegueIdentifier sender:self];
 }
 
 - (void) initDataSource {
