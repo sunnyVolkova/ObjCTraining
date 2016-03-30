@@ -29,6 +29,7 @@ static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreat
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _datasource.count;
 }
@@ -45,6 +46,7 @@ static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreat
 }
 
 #pragma mark - Actions
+
 - (IBAction)addYourOwnButtonPressed:(id)sender {
     AddPropertyInfoViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPropertyInfoViewController"];
     [self.navigationController pushViewController:controller animated:YES];
