@@ -7,6 +7,7 @@
 //
 
 #import "AddPropertyViewController.h"
+#import "AddPropertyinfoViewController.h"
 #import "PropertyTableViewCell.h"
 #import "HouseTypeDescription.h"
 
@@ -14,8 +15,10 @@
 @property NSArray<HouseTypeDescription *> *datasource;
 @end
 
+static NSString * const houseTypeCellIdentifier = @"PropertyTableViewCell";
+static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProperty";
+
 @implementation AddPropertyViewController
-static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,9 +28,8 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
     self.tableView.delegate=self;
 }
 
-
-
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _datasource.count;
 }
@@ -46,7 +48,8 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 #pragma mark - Actions
 
 - (IBAction)addYourOwnButtonPressed:(id)sender {
-    NSLog(@"addYourOwnButtonPressed");
+    AddPropertyInfoViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPropertyInfoViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)addFromButtonPressed:(id)sender {
@@ -55,6 +58,7 @@ static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
 
 - (IBAction)continueButtonPressed:(id)sender {
     NSLog(@"continueButtonPressed");
+    [self performSegueWithIdentifier:coontinueCreatePropertySegueIdentifier sender:self];
 }
 
 - (void) initDataSource {
