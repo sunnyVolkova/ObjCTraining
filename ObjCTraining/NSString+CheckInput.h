@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (CheckInput)
-+ (BOOL)isAddressValid: (NSString *) address;
-+ (BOOL)isCityValid: (NSString *) city;
-+ (BOOL)isStateValid: (NSString *) state;
-+ (BOOL)isZipValid: (NSString *) zip;
-+ (BOOL)isCountryValid: (NSString *) country;
++ (BOOL)isAddressValid: (NSString *)address;
++ (BOOL)isCityValid: (NSString *)city;
++ (BOOL)isStateValid: (NSString *)state;
++ (BOOL)isZipValid: (NSString *)zip;
++ (BOOL)isCountryValid: (NSString *)country;
++ (BOOL)isEmailValid: (NSString *)email;
 @end

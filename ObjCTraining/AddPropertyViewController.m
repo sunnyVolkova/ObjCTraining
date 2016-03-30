@@ -18,6 +18,7 @@
 static NSString * const houseTypeCellIdentifier = @"PropertyTableViewCell";
 static NSString * const continueCellIdentifier = @"ContinueCell";
 static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProperty";
+static NSString * const contactUsSegueIdentifier = @"ContactUs";
 
 @implementation AddPropertyViewController
 
@@ -73,6 +74,7 @@ static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreat
 
 - (IBAction)addFromButtonPressed:(id)sender {
     NSLog(@"addFromButtonPressed");
+    [self performSegueWithIdentifier:contactUsSegueIdentifier sender:self];
 }
 
 - (IBAction)continueButtonPressed:(id)sender {
