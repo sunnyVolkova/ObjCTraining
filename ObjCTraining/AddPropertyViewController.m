@@ -7,6 +7,7 @@
 //
 
 #import "AddPropertyViewController.h"
+#import "AddPropertyinfoViewController.h"
 #import "PropertyTableViewCell.h"
 #import "HouseTypeDescription.h"
 
@@ -14,9 +15,11 @@
 @property NSArray<HouseTypeDescription *> *datasource;
 @end
 
+static NSString * const houseTypeCellIdentifier = @"PropertyTableViewCell";
+static NSString * const continueCellIdentifier = @"ContinueCell";
+static NSString * const coontinueCreatePropertySegueIdentifier = @"ContinueCreatingProperty";
+
 @implementation AddPropertyViewController
-static NSString *houseTypeCellIdentifier = @"PropertyTableViewCell";
-static NSString *continueCellIdentifier = @"ContinueCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,9 +29,8 @@ static NSString *continueCellIdentifier = @"ContinueCell";
     self.tableView.delegate=self;
 }
 
-
-
 #pragma mark - UITableViewDataSource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -52,7 +54,6 @@ static NSString *continueCellIdentifier = @"ContinueCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:continueCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,7 +67,8 @@ static NSString *continueCellIdentifier = @"ContinueCell";
 #pragma mark - Actions
 
 - (IBAction)addYourOwnButtonPressed:(id)sender {
-    NSLog(@"addYourOwnButtonPressed");
+    AddPropertyInfoViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPropertyInfoViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)addFromButtonPressed:(id)sender {
@@ -75,6 +77,7 @@ static NSString *continueCellIdentifier = @"ContinueCell";
 
 - (IBAction)continueButtonPressed:(id)sender {
     NSLog(@"continueButtonPressed");
+    [self performSegueWithIdentifier:coontinueCreatePropertySegueIdentifier sender:self];
 }
 
 - (void) initDataSource {
