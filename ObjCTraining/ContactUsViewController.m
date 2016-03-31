@@ -62,14 +62,14 @@ static NSRange const linkRange = {23, 13};
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     [self deregisterForKeyboardNotifications];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Keyboard interaction
 
 - (void)dismissKeyboard {
-    [self.activeField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 - (void)registerForKeyboardNotifications {
@@ -98,32 +98,29 @@ static NSRange const linkRange = {23, 13};
     CGRect keyboardFrameInWindow;
     [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrameInWindow];
     CGRect keyboardFrameInView = [self.view convertRect:keyboardFrameInWindow fromView:nil];
-    CGRect scrollViewKeyboardIntersection = CGRectIntersection(_scrollView.frame, keyboardFrameInView);
+    CGRect scrollViewKeyboardIntersection = CGRectIntersection(self.scrollView.frame, keyboardFrameInView);
     UIEdgeInsets newContentInsets = UIEdgeInsetsMake(0, 0, scrollViewKeyboardIntersection.size.height, 0);
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:[[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-    [UIView setAnimationCurve:[[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
-    _scrollView.contentInset = newContentInsets;
-    _scrollView.scrollIndicatorInsets = newContentInsets;
+
+    self.scrollView.contentInset = newContentInsets;
+    self.scrollView.scrollIndicatorInsets = newContentInsets;
     if (self.activeField) {
-        CGRect controlFrameInScrollView = [_scrollView convertRect:self.activeField.bounds fromView:self.activeField];
+        CGRect controlFrameInScrollView = [self.scrollView convertRect:self.activeField.bounds fromView:self.activeField];
         controlFrameInScrollView = CGRectInset(controlFrameInScrollView, 0, -10);
-        CGFloat controlVisualOffsetToTopOfScrollview = controlFrameInScrollView.origin.y - _scrollView.contentOffset.y;
+        CGFloat controlVisualOffsetToTopOfScrollview = controlFrameInScrollView.origin.y - self.scrollView.contentOffset.y;
         CGFloat controlVisualBottom = controlVisualOffsetToTopOfScrollview + controlFrameInScrollView.size.height;
-        CGFloat scrollViewVisibleHeight = _scrollView.frame.size.height - scrollViewKeyboardIntersection.size.height;
+        CGFloat scrollViewVisibleHeight = self.scrollView.frame.size.height - scrollViewKeyboardIntersection.size.height;
         
         if (controlVisualBottom > scrollViewVisibleHeight) {
-            CGPoint newContentOffset = _scrollView.contentOffset;
+            CGPoint newContentOffset = self.scrollView.contentOffset;
             newContentOffset.y += (controlVisualBottom - scrollViewVisibleHeight);
-            newContentOffset.y = MIN(newContentOffset.y, _scrollView.contentSize.height - scrollViewVisibleHeight);
-            [_scrollView setContentOffset:newContentOffset animated:NO];
-        } else if (controlFrameInScrollView.origin.y < _scrollView.contentOffset.y) {
-            CGPoint newContentOffset = _scrollView.contentOffset;
+            newContentOffset.y = MIN(newContentOffset.y, self.scrollView.contentSize.height - scrollViewVisibleHeight);
+            [self.scrollView setContentOffset:newContentOffset animated:YES];
+        } else if (controlFrameInScrollView.origin.y < self.scrollView.contentOffset.y) {
+            CGPoint newContentOffset = self.scrollView.contentOffset;
             newContentOffset.y = controlFrameInScrollView.origin.y;
-            [_scrollView setContentOffset:newContentOffset animated:NO];
+            [self.scrollView setContentOffset:newContentOffset animated:YES];
         }
     }
-    [UIView commitAnimations];
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification {
@@ -155,6 +152,8 @@ static NSRange const linkRange = {23, 13};
             break;
         case MessageFieldTag:
             break;
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected Field tag"];
     }
 }
 
@@ -174,30 +173,10 @@ static NSRange const linkRange = {23, 13};
                 break;
             case MessageFieldTag:
                 break;
+            default:
+                [NSException raise:NSGenericException format:@"Unexpected Field tag"];
         }
     }
-}
-
-#pragma mark - screen frame info
-
-- (CGRect)getScreenFrameForCurrentOrientation {
-    return [self getScreenFrameForOrientation:[UIApplication sharedApplication].statusBarOrientation];
-}
-
-- (CGRect)getScreenFrameForOrientation:(UIInterfaceOrientation)orientation {
-    CGRect fullScreenRect = [[UIScreen mainScreen] bounds];
-    
-    // implicitly in Portrait orientation.
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        CGRect temp = CGRectZero;
-        temp.size.width = fullScreenRect.size.height;
-        temp.size.height = fullScreenRect.size.width;
-        fullScreenRect = temp;
-    }
-    
-    CGFloat statusBarHeight = 20;
-    fullScreenRect.size.height -= statusBarHeight;
-    return fullScreenRect;
 }
 
 #pragma mark - UITextViewDelegate
@@ -246,6 +225,8 @@ static NSRange const linkRange = {23, 13};
             textField.layer.borderColor = [[UIColor redColor]CGColor];
             textField.layer.borderWidth = 1.0f;
             break;
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected style"];
     }
 }
 
@@ -269,6 +250,8 @@ static NSRange const linkRange = {23, 13};
             textView.layer.borderColor = [[UIColor redColor]CGColor];
             textView.layer.borderWidth = 1.0f;
             break;
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected style"];
     }
 }
 
@@ -299,6 +282,8 @@ static NSRange const linkRange = {23, 13};
         case MessageFieldTag:
             isCorrect = [self checkMessage: self.messageTextView.text];
             break;
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected Field Tag"];
     }
     return isCorrect;
 }
