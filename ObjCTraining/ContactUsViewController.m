@@ -304,8 +304,13 @@ static NSRange const linkRange = {23, 13};
 }
 
 - (void)invalidateFieldForTag:(NSInteger)tag isValid:(BOOL)isValid {
-    UITextField *textField = [self.scrollView viewWithTag:tag];
-    [self updateTextField: textField withStyle: isValid ? UnselectedFieldStyle : WrongFieldStyle];
+    __kindof UIView *field = [self.scrollView viewWithTag:tag];
+    if ([field isKindOfClass:[UITextField class]]) {
+        [self updateTextField: field withStyle: isValid ? UnselectedFieldStyle : WrongFieldStyle];
+    } else if ([field isKindOfClass:[UITextView class]]) {
+        [self updateTextView: field withStyle: isValid ? UnselectedFieldStyle : WrongFieldStyle];
+    }
+    
 }
 
 - (BOOL)checkName:(NSString *)name {
