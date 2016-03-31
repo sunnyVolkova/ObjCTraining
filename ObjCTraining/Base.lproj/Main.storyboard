@@ -207,11 +207,14 @@
                                                     <action selector="textFieldEditingDidEnd:" destination="IeZ-xN-BIF" eventType="editingDidEnd" id="EWQ-IV-J6n"/>
                                                 </connections>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-K3-Wbe" userLabel="Message Field">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-K3-Wbe" userLabel="Message Field">
                                                 <rect key="frame" x="38" y="251" width="524" height="136"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2E-xn-pID" userLabel="Name Field">
                                                 <rect key="frame" x="38" y="16" width="524" height="62"/>
@@ -232,11 +235,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-Ef-Iqy">
-                                                <rect key="frame" x="46" y="177" width="37" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-9E-otH">
                                                 <rect key="frame" x="46" y="256" width="43" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -251,6 +249,11 @@
                                                     <action selector="textFieldEditingDidEnd:" destination="IeZ-xN-BIF" eventType="editingDidEnd" id="gs6-V8-6Ge"/>
                                                 </connections>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-Ef-Iqy">
+                                                <rect key="frame" x="46" y="177" width="37" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -342,7 +345,9 @@
                     <connections>
                         <outlet property="emailField" destination="CTf-Xh-bLQ" id="hnw-q0-9D1"/>
                         <outlet property="emailLabel" destination="4lo-7Y-jdI" id="30S-AW-OqY"/>
+                        <outlet property="linkToUsLabel" destination="0H5-pM-jdP" id="Aai-G7-Q4h"/>
                         <outlet property="messageLabel" destination="Ch9-9E-otH" id="Anq-kd-rMW"/>
+                        <outlet property="messageTextView" destination="6uh-K3-Wbe" id="Qze-8Z-gOi"/>
                         <outlet property="nameField" destination="p2E-xn-pID" id="QiJ-xo-XZ3"/>
                         <outlet property="nameLabel" destination="kXl-6t-KVr" id="4eG-hO-Qcb"/>
                         <outlet property="scrollView" destination="Fla-6G-Ppy" id="zlI-Ie-WpA"/>

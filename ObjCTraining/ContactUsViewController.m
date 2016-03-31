@@ -24,9 +24,17 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     WrongFieldStyle
 };
 
-@interface ContactUsViewController ()
+@interface ContactUsViewController() {
+    //variables for text detection
+    NSLayoutManager *layoutManager;
+    NSTextContainer *textContainer;
+    NSTextStorage *textStorage;
+}
 @property UIView *activeField;
 @end
+
+static NSString * const linkToUsLabelText = @"Visit us on the web at streamloan.io";
+static NSRange const linkRange = {23, 13};
 
 @implementation ContactUsViewController
 
@@ -35,7 +43,7 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     self.nameField.delegate = self;
     self.emailField.delegate = self;
     self.subjectField.delegate = self;
-    self.messageField.delegate = self;
+    self.messageTextView.delegate = self;
 
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
     barButton.title = @"Back";
@@ -43,11 +51,13 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    [self initLabelWithLink];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self registerForKeyboardNotifications];
+    [self updateTextView:self.messageTextView withStyle:UnselectedFieldStyle];
 }
 
 
@@ -80,24 +90,40 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
 }
 
 - (void)keyboardWasShown:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    CGRect windowRect = [self getScreenFrameForCurrentOrientation];
-    CGFloat windowHeight = windowRect.size.height;
-    CGFloat insetChange = self.scrollView.contentSize.height - windowHeight + kbSize.height + self.titleLabel.frame.size.height;
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, insetChange, 0.0);
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    aRect.size.height += self.navigationController.navigationBar.frame.size.height;
-    
-    if (self.activeField != nil && !CGRectContainsPoint(aRect, self.activeField.frame.origin)) {
-        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+    if (!self.isViewLoaded || !self.view.window) {
+        return;
     }
+    
+    NSDictionary *userInfo = [aNotification userInfo];
+    CGRect keyboardFrameInWindow;
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrameInWindow];
+    CGRect keyboardFrameInView = [self.view convertRect:keyboardFrameInWindow fromView:nil];
+    CGRect scrollViewKeyboardIntersection = CGRectIntersection(_scrollView.frame, keyboardFrameInView);
+    UIEdgeInsets newContentInsets = UIEdgeInsetsMake(0, 0, scrollViewKeyboardIntersection.size.height, 0);
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:[[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+    [UIView setAnimationCurve:[[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
+    _scrollView.contentInset = newContentInsets;
+    _scrollView.scrollIndicatorInsets = newContentInsets;
+    if (self.activeField) {
+        CGRect controlFrameInScrollView = [_scrollView convertRect:self.activeField.bounds fromView:self.activeField];
+        controlFrameInScrollView = CGRectInset(controlFrameInScrollView, 0, -10);
+        CGFloat controlVisualOffsetToTopOfScrollview = controlFrameInScrollView.origin.y - _scrollView.contentOffset.y;
+        CGFloat controlVisualBottom = controlVisualOffsetToTopOfScrollview + controlFrameInScrollView.size.height;
+        CGFloat scrollViewVisibleHeight = _scrollView.frame.size.height - scrollViewKeyboardIntersection.size.height;
+        
+        if (controlVisualBottom > scrollViewVisibleHeight) {
+            CGPoint newContentOffset = _scrollView.contentOffset;
+            newContentOffset.y += (controlVisualBottom - scrollViewVisibleHeight);
+            newContentOffset.y = MIN(newContentOffset.y, _scrollView.contentSize.height - scrollViewVisibleHeight);
+            [_scrollView setContentOffset:newContentOffset animated:NO];
+        } else if (controlFrameInScrollView.origin.y < _scrollView.contentOffset.y) {
+            CGPoint newContentOffset = _scrollView.contentOffset;
+            newContentOffset.y = controlFrameInScrollView.origin.y;
+            [_scrollView setContentOffset:newContentOffset animated:NO];
+        }
+    }
+    [UIView commitAnimations];
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification {
@@ -128,7 +154,6 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
             self.emailLabel.hidden = true;
             break;
         case MessageFieldTag:
-            self.messageLabel.hidden = true;
             break;
     }
 }
@@ -148,7 +173,6 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
                 self.emailLabel.hidden = false;
                 break;
             case MessageFieldTag:
-                self.emailLabel.hidden = false;
                 break;
         }
     }
@@ -176,6 +200,22 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     return fullScreenRect;
 }
 
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *) textView {
+    self.activeField = textView;
+    [self updateTextView:textView withStyle:SelectedFieldStyle];
+    self.messageLabel.hidden = true;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    self.activeField = nil;
+    [self updateTextView:textView withStyle:UnselectedFieldStyle];
+    if (textView.text == nil || textView.text.length == 0) {
+        self.messageLabel.hidden = false;
+    }
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -184,15 +224,10 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     if (nextResponder) {
         [nextResponder becomeFirstResponder];
     }
-    
-    if(textField.tag == MessageFieldTag) {
-        return YES;
-    } else {
-        return NO;
-    }
+    return NO;
 }
 
-#pragma mark - TextField Style
+#pragma mark - Input Fields Style
 
 - (void)updateTextField:(UITextField *)textField withStyle:(TextFieldStyleEnum)style {
     switch (style) {
@@ -210,6 +245,29 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
             textField.layer.masksToBounds = YES;
             textField.layer.borderColor = [[UIColor redColor]CGColor];
             textField.layer.borderWidth = 1.0f;
+            break;
+    }
+}
+
+- (void)updateTextView:(UITextView *)textView withStyle:(TextFieldStyleEnum)style {
+    switch (style) {
+        case SelectedFieldStyle:
+            textView.layer.cornerRadius = 5.0f;
+            textView.layer.masksToBounds = YES;
+            textView.layer.borderColor = [[UIColor greenColor]CGColor];
+            textView.layer.borderWidth = 1.0f;
+            break;
+        case UnselectedFieldStyle:
+            textView.layer.cornerRadius = 5.0f;
+            textView.layer.masksToBounds = YES;
+            textView.layer.borderColor = [[UIColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:0.5f]CGColor];
+            textView.layer.borderWidth = 0.5f;
+            break;
+        case WrongFieldStyle:
+            textView.layer.cornerRadius = 5.0f;
+            textView.layer.masksToBounds = YES;
+            textView.layer.borderColor = [[UIColor redColor]CGColor];
+            textView.layer.borderWidth = 1.0f;
             break;
     }
 }
@@ -239,7 +297,7 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
             isCorrect = [self checkEMail: self.emailField.text];
             break;
         case MessageFieldTag:
-            isCorrect = [self checkMessage: self.messageField.text];
+            isCorrect = [self checkMessage: self.messageTextView.text];
             break;
     }
     return isCorrect;
@@ -270,4 +328,44 @@ typedef NS_ENUM(NSInteger, TextFieldStyleEnum) {
     BOOL isEmpty = (message == nil || message.length == 0);
     return !isEmpty;
 }
+
+#pragma mark - Label With Link Setup
+
+- (void)initLabelWithLink {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:linkToUsLabelText attributes:nil];
+    NSDictionary *linkAttributes = @{ NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) };
+    [attributedString setAttributes:linkAttributes range:linkRange];
+
+    self.linkToUsLabel.attributedText = attributedString;
+    self.linkToUsLabel.userInteractionEnabled = YES;
+    [self.linkToUsLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnLabel:)]];
+
+    layoutManager = [[NSLayoutManager alloc] init];
+    textContainer = [[NSTextContainer alloc] initWithSize:CGSizeZero];
+    textStorage = [[NSTextStorage alloc] initWithAttributedString:attributedString];
+
+    [layoutManager addTextContainer:textContainer];
+    [textStorage addLayoutManager:layoutManager];
+    
+    textContainer.lineFragmentPadding = 0.0;
+    textContainer.lineBreakMode = self.linkToUsLabel.lineBreakMode;
+    textContainer.maximumNumberOfLines = self.linkToUsLabel.numberOfLines;
+}
+
+- (void)handleTapOnLabel:(UITapGestureRecognizer *)tapGesture {
+    CGPoint locationOfTouchInLabel = [tapGesture locationInView:tapGesture.view];
+    CGSize labelSize = tapGesture.view.bounds.size;
+    CGRect textBoundingBox = [layoutManager usedRectForTextContainer:textContainer];
+    CGPoint textContainerOffset = CGPointMake((labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
+                                              (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+    CGPoint locationOfTouchInTextContainer = CGPointMake(locationOfTouchInLabel.x - textContainerOffset.x,
+                                                         locationOfTouchInLabel.y - textContainerOffset.y);
+    NSInteger indexOfCharacter = [layoutManager characterIndexForPoint:locationOfTouchInTextContainer
+                                                       inTextContainer:textContainer
+                              fractionOfDistanceBetweenInsertionPoints:nil];
+    if (NSLocationInRange(indexOfCharacter, linkRange)){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://streamloan.io/"]];
+    }
+}
+
 @end
