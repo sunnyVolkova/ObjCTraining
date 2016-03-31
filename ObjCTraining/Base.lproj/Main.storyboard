@@ -658,7 +658,7 @@
         <!--Third-->
         <scene sceneID="Oad-U5-eBF">
             <objects>
-                <viewController id="RXc-zt-NzD" userLabel="Third" sceneMemberID="viewController">
+                <viewController id="RXc-zt-NzD" userLabel="Third" customClass="NotificationsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RHo-lH-60y"/>
                         <viewControllerLayoutGuide type="bottom" id="EwM-Vl-DjV"/>
@@ -666,9 +666,31 @@
                     <view key="view" contentMode="scaleToFill" id="Xpf-QP-grz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
+                                <rect key="frame" x="200" y="20" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7EE-E3-HQU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.3711194797944849" green="1" blue="0.98621169908222217" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="200" placeholder="YES" id="BkU-qc-0FT"/>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="centerX" secondItem="Xpf-QP-grz" secondAttribute="centerX" id="Htr-3N-FZl"/>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="top" secondItem="RHo-lH-60y" secondAttribute="bottom" id="Jzb-eo-rNe"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="notificationsTabIcon" id="K5V-X9-5DK"/>
+                    <connections>
+                        <outlet property="progressBar" destination="qK5-8o-N7k" id="Vmc-eU-j5t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orL-9E-S2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
