@@ -26,7 +26,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.progressBar setCurrentStep:1 of:3];
+    [self.progressBar setCurrentStep:2 of:4];
 }
 /*
 #pragma mark - Navigation

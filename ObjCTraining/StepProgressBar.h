@@ -17,7 +17,4 @@
 - (int) currentStep;
 - (void)setCurrentStep:(int)currentStep;
 - (void)setCurrentStep:(int)currentStep of:(int)numberOfSteps;
-+ (UIImage*) drawText:(NSString*) text
-inImage:(UIImage*)  image
-atPoint:(CGPoint)   point;
 @end
