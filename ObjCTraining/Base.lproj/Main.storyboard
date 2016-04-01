@@ -679,17 +679,54 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-0S-SXH">
+                                <rect key="frame" x="20" y="135" width="94" height="29"/>
+                                <connections>
+                                    <action selector="currentStepValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="0Sa-xm-QJd"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D02-NM-QHH">
+                                <rect key="frame" x="170" y="100" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAt-nR-GtQ">
+                                <rect key="frame" x="20" y="100" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Mc-Sc-3UE">
+                                <rect key="frame" x="170" y="135" width="94" height="29"/>
+                                <connections>
+                                    <action selector="numberOfStepsValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="krL-rz-Maq"/>
+                                </connections>
+                            </stepper>
                         </subviews>
-                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gn8-0S-SXH" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="20" id="5ZJ-9S-Cfa"/>
+                            <constraint firstItem="ZAt-nR-GtQ" firstAttribute="leading" secondItem="gn8-0S-SXH" secondAttribute="leading" id="ADg-wL-g1X"/>
                             <constraint firstItem="qK5-8o-N7k" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="200" placeholder="YES" id="BkU-qc-0FT"/>
                             <constraint firstItem="qK5-8o-N7k" firstAttribute="centerX" secondItem="Xpf-QP-grz" secondAttribute="centerX" id="Htr-3N-FZl"/>
                             <constraint firstItem="qK5-8o-N7k" firstAttribute="top" secondItem="RHo-lH-60y" secondAttribute="bottom" constant="16" id="Jzb-eo-rNe"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="bottom" secondItem="gn8-0S-SXH" secondAttribute="bottom" id="Lrv-8M-A0a"/>
+                            <constraint firstItem="gn8-0S-SXH" firstAttribute="top" secondItem="D02-NM-QHH" secondAttribute="bottom" constant="14" id="SfI-9J-cwx"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="leading" secondItem="gn8-0S-SXH" secondAttribute="trailing" constant="56" id="UKO-6y-F0o"/>
+                            <constraint firstItem="D02-NM-QHH" firstAttribute="top" secondItem="Xpf-QP-grz" secondAttribute="top" constant="100" id="VnK-4H-QH1"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="leading" secondItem="D02-NM-QHH" secondAttribute="leading" id="aEi-Yh-IXG"/>
+                            <constraint firstItem="ZAt-nR-GtQ" firstAttribute="bottom" secondItem="D02-NM-QHH" secondAttribute="bottom" id="pHZ-3b-cwL"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="top" secondItem="D02-NM-QHH" secondAttribute="bottom" constant="14" id="vmQ-Xo-Hq8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="notificationsTabIcon" id="K5V-X9-5DK"/>
                     <connections>
+                        <outlet property="labelCurrentStep" destination="ZAt-nR-GtQ" id="f5V-6J-bD4"/>
+                        <outlet property="labelNumberOfSteps" destination="D02-NM-QHH" id="z2V-D3-cFN"/>
                         <outlet property="progressBar" destination="qK5-8o-N7k" id="Vmc-eU-j5t"/>
+                        <outlet property="stepperCurrentStep" destination="gn8-0S-SXH" id="1vr-at-xhE"/>
+                        <outlet property="stepperNumberOfSteps" destination="0Mc-Sc-3UE" id="WGb-IZ-ZRs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orL-9E-S2l" userLabel="First Responder" sceneMemberID="firstResponder"/>

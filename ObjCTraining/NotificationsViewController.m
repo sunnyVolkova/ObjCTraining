@@ -8,34 +8,34 @@
 
 #import "NotificationsViewController.h"
 
-@interface NotificationsViewController ()
-
-@end
+static const int initialCurrentStep = 2;
+static const int initialNumberofSteps = 4;
 
 @implementation NotificationsViewController
-
+//controller to test StepProgressbar
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.stepperCurrentStep.value = initialCurrentStep;
+    self.stepperNumberOfSteps.value = initialNumberofSteps;
+    NSString *text = [NSString stringWithFormat:@"%.0f", self.stepperNumberOfSteps.value];
+    self.labelNumberOfSteps.text = text;
+    NSString *text1 = [NSString stringWithFormat:@"%.0f", self.stepperCurrentStep.value];
+    self.labelCurrentStep.text = text1;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.progressBar setCurrentStep:2 of:4];
+    [self.progressBar setCurrentStep:initialCurrentStep of:initialNumberofSteps];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)numberOfStepsValueChanged:(UIStepper *)sender {
+    NSString *text = [NSString stringWithFormat:@"%.0f", sender.value];
+    self.labelNumberOfSteps.text = text;
+    [self.progressBar setNumberOfSteps:sender.value];
 }
-*/
 
+- (IBAction)currentStepValueChanged:(UIStepper *)sender {
+    NSString *text = [NSString stringWithFormat:@"%.0f", sender.value];
+    self.labelCurrentStep.text = text;
+    [self.progressBar setCurrentStep:sender.value];
+}
 @end

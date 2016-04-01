@@ -10,21 +10,19 @@
 #import "UIImageView+DrawShape.h"
 
 @interface StepProgressBar ()
-@property CGFloat circleLineWidth;
+@property UIColor *activeColor;
+@property UIColor *inactiveColor;
 @end
 
 static CGFloat const circleLineWidth = 1.5;
+static NSString *const checkmarkImageName = @"greenCheckmark";
 
 @implementation StepProgressBar
-@synthesize numberOfSteps = _numberOfSteps;
-@synthesize currentStep = _currentStep;
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        //default values
-        self.numberOfSteps = 1;
-        self.currentStep = 0;
+        [self setDefaultValues];
     }
     return self;
 }
@@ -32,15 +30,9 @@ static CGFloat const circleLineWidth = 1.5;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        //default values
-        self.numberOfSteps = 1;
-        self.currentStep = 0;
+        [self setDefaultValues];
     }
     return self;
-}
-
-- (int)numberOfSteps {
-    return _numberOfSteps;
 }
 
 - (void)setNumberOfSteps:(int)numberOfSteps {
@@ -49,10 +41,6 @@ static CGFloat const circleLineWidth = 1.5;
         self.currentStep = _numberOfSteps;
     }
     [self redrawViews];
-}
-
-- (int)currentStep {
-    return _currentStep;
 }
 
 - (void)setCurrentStep:(int)currentStep {
@@ -81,6 +69,15 @@ static CGFloat const circleLineWidth = 1.5;
     return CGSizeMake(width, height);
 }
 
+#pragma mark - set default values
+
+- (void)setDefaultValues {
+    self.numberOfSteps = 1;
+    self.currentStep = 0;
+    self.activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
+    self.inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
+}
+
 #pragma mark - update view
 
 - (void)redrawViews {
@@ -95,20 +92,19 @@ static CGFloat const circleLineWidth = 1.5;
 
     if (self.currentStep > 1) {
         //add line
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(imageWidth / 2, imageHeight / 2, (imageWidth + distanceBetweenImages) * (self.currentStep - 1), 1)];
-        lineView.backgroundColor = [UIColor greenColor];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(imageWidth / 2, imageHeight / 2, (imageWidth + distanceBetweenImages) * (self.currentStep - 1), 1.5f)];
+        lineView.backgroundColor = self.activeColor;
         [self addSubview:lineView];
     }
-    
+
     for (int i = 0; i < self.numberOfSteps; i++) {
         CGRect frame = CGRectMake((imageWidth + distanceBetweenImages) * i, 0, imageWidth, imageHeight);
 
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-        //imageView.backgroundColor = [UIColor whiteColor];
         if (i <= self.currentStep - 1) {
-            circleColor = [UIColor greenColor];
+            circleColor = self.activeColor;
         } else {
-            circleColor = [UIColor grayColor];
+            circleColor = self.inactiveColor;
         }
         [UIImageView drawCircleOnImageView:imageView withColor:circleColor lineWidth:circleLineWidth];
         [self addSubview:imageView];
@@ -126,7 +122,7 @@ static CGFloat const circleLineWidth = 1.5;
             //add image
             CGRect checkmarkFrame = CGRectMake((imageWidth + distanceBetweenImages) * i + imageWidth / 4, imageHeight / 4, imageWidth / 2, imageHeight / 2);
             UIImageView *checkmarkImageView = [[UIImageView alloc] initWithFrame:checkmarkFrame];
-            checkmarkImageView.image = [UIImage imageNamed:@"greenCheckmark"];
+            checkmarkImageView.image = [UIImage imageNamed:checkmarkImageName];
             checkmarkImageView.clipsToBounds = YES;
             [self addSubview:checkmarkImageView];
         }
