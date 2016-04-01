@@ -82,7 +82,7 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
     CGFloat distanceBetweenImages = [self calculateDistanceBetweenImages];
     UIColor *circleColor;
 
-    if (self.currentStep > 1) {
+    if (self.currentStep > 1 && self.numberOfSteps > 0) {
         //add line
         CGFloat lineWidth = (imageWidth + distanceBetweenImages) * (MIN(self.currentStep, self.numberOfSteps) - 1);
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(imageWidth / 2, imageHeight / 2, lineWidth, 1.5f)];
