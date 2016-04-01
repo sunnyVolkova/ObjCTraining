@@ -21,21 +21,18 @@ static const int initialNumberofSteps = 4;
     self.labelNumberOfSteps.text = text;
     NSString *text1 = [NSString stringWithFormat:@"%.0f", self.stepperCurrentStep.value];
     self.labelCurrentStep.text = text1;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self.progressBar setCurrentStep:initialCurrentStep of:initialNumberofSteps];
 }
+
 - (IBAction)numberOfStepsValueChanged:(UIStepper *)sender {
     NSString *text = [NSString stringWithFormat:@"%.0f", sender.value];
     self.labelNumberOfSteps.text = text;
-    [self.progressBar setNumberOfSteps:sender.value];
+    self.progressBar.numberOfSteps = sender.value;
 }
 
 - (IBAction)currentStepValueChanged:(UIStepper *)sender {
     NSString *text = [NSString stringWithFormat:@"%.0f", sender.value];
     self.labelCurrentStep.text = text;
-    [self.progressBar setCurrentStep:sender.value];
+    self.progressBar.currentStep = sender.value;
 }
 @end

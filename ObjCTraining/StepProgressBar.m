@@ -35,17 +35,17 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
     return self;
 }
 
-- (void)setNumberOfSteps:(int)numberOfSteps {
+- (void)setNumberOfSteps:(NSInteger)numberOfSteps {
     _numberOfSteps = numberOfSteps;
     [self redrawViews];
 }
 
-- (void)setCurrentStep:(int)currentStep {
+- (void)setCurrentStep:(NSInteger)currentStep {
     _currentStep = currentStep;
     [self redrawViews];
 }
 
-- (void)setCurrentStep:(int)currentStep of:(int)numberOfSteps {
+- (void)setCurrentStep:(NSInteger)currentStep of:(NSInteger)numberOfSteps {
     _numberOfSteps = numberOfSteps;
     _currentStep = currentStep;
     [self redrawViews];
@@ -63,10 +63,10 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
 #pragma mark - set default values
 
 - (void)setDefaultValues {
-    self.numberOfSteps = 1;
-    self.currentStep = 0;
-    self.activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
-    self.inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
+    _numberOfSteps = 1;
+    _currentStep = 0;
+    _activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
+    _inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
 }
 
 #pragma mark - update view
