@@ -44,19 +44,13 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
 }
 
 - (void)setCurrentStep:(int)currentStep {
-    if (currentStep <= self.numberOfSteps) {
-        _currentStep = currentStep;
-        [self redrawViews];
-    }
+    _currentStep = currentStep;
+    [self redrawViews];
 }
 
 - (void)setCurrentStep:(int)currentStep of:(int)numberOfSteps {
     _numberOfSteps = numberOfSteps;
-    if (currentStep <= self.numberOfSteps) {
-        _currentStep = currentStep;
-    } else {
-        _currentStep = 0;
-    }
+    _currentStep = currentStep;
     [self redrawViews];
 }
 
