@@ -9,17 +9,11 @@
 #import "StepProgressBar.h"
 #import "UIImageView+DrawShape.h"
 
-@interface StepProgressBar ()
-@property UIColor *activeColor;
-@property UIColor *inactiveColor;
-@end
-
 static CGFloat const circleLineWidth = 1.5;
 static NSString *const checkmarkImageName = @"greenCheckmark";
 
 @implementation StepProgressBar
-NSInteger lastNumberOfStepsDrawn = -1;
-NSInteger lastCurrentStepDrawn = -1;
+BOOL parameterUpdatedAndNotDrawn = NO;
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -39,23 +33,32 @@ NSInteger lastCurrentStepDrawn = -1;
 
 - (void)setNumberOfSteps:(NSInteger)numberOfSteps {
     _numberOfSteps = numberOfSteps;
+    parameterUpdatedAndNotDrawn = YES;
     [self setNeedsLayout];
 }
 
 - (void)setCurrentStep:(NSInteger)currentStep {
+    parameterUpdatedAndNotDrawn = YES;
     _currentStep = currentStep;
     [self setNeedsLayout];
 }
 
-- (void)setCurrentStep:(NSInteger)currentStep of:(NSInteger)numberOfSteps {
-    _numberOfSteps = numberOfSteps;
-    _currentStep = currentStep;
+- (void)setActiveColor:(UIColor *)activeColor {
+    _activeColor = activeColor;
+    parameterUpdatedAndNotDrawn = YES;
+    [self setNeedsLayout];
+}
+
+- (void)setInactiveColor:(UIColor *)inactiveColor {
+    _inactiveColor = inactiveColor;
+    parameterUpdatedAndNotDrawn = YES;
     [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
-    if (self.currentStep != lastCurrentStepDrawn || self.numberOfSteps != lastNumberOfStepsDrawn) {
+    if (parameterUpdatedAndNotDrawn) {
         [self redrawViews];
+        parameterUpdatedAndNotDrawn = NO;
     }
     [super layoutSubviews];
 }
@@ -76,6 +79,7 @@ NSInteger lastCurrentStepDrawn = -1;
     _currentStep = 0;
     _activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
     _inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
+    //self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 #pragma mark - update view
