@@ -668,13 +668,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
-                                <rect key="frame" x="200" y="36" width="200" height="30"/>
+                                <rect key="frame" x="135" y="36" width="330" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7EE-E3-HQU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -708,7 +711,6 @@
                         <constraints>
                             <constraint firstItem="gn8-0S-SXH" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="20" id="5ZJ-9S-Cfa"/>
                             <constraint firstItem="ZAt-nR-GtQ" firstAttribute="leading" secondItem="gn8-0S-SXH" secondAttribute="leading" id="ADg-wL-g1X"/>
-                            <constraint firstItem="qK5-8o-N7k" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="200" placeholder="YES" id="BkU-qc-0FT"/>
                             <constraint firstItem="qK5-8o-N7k" firstAttribute="centerX" secondItem="Xpf-QP-grz" secondAttribute="centerX" id="Htr-3N-FZl"/>
                             <constraint firstItem="qK5-8o-N7k" firstAttribute="top" secondItem="RHo-lH-60y" secondAttribute="bottom" constant="16" id="Jzb-eo-rNe"/>
                             <constraint firstItem="0Mc-Sc-3UE" firstAttribute="bottom" secondItem="gn8-0S-SXH" secondAttribute="bottom" id="Lrv-8M-A0a"/>

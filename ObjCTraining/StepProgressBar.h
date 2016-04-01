@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+IB_DESIGNABLE
 @interface StepProgressBar : UIView
-@property (nonatomic, assign) NSInteger numberOfSteps;
-@property (nonatomic, assign) NSInteger currentStep;
+@property (nonatomic, assign) IBInspectable NSInteger numberOfSteps;
+@property (nonatomic, assign) IBInspectable NSInteger currentStep;
 
 - (void)setCurrentStep:(NSInteger)currentStep of:(NSInteger)numberOfSteps;
 @end

@@ -113,7 +113,12 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
             //add image
             CGRect checkmarkFrame = CGRectMake((imageWidth + distanceBetweenImages) * i + imageWidth / 4, imageHeight / 4, imageWidth / 2, imageHeight / 2);
             UIImageView *checkmarkImageView = [[UIImageView alloc] initWithFrame:checkmarkFrame];
-            checkmarkImageView.image = [UIImage imageNamed:checkmarkImageName];
+#if !TARGET_INTERFACE_BUILDER
+            NSBundle *bundle = [NSBundle mainBundle];
+#else
+            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+#endif
+            checkmarkImageView.image = [UIImage imageNamed:checkmarkImageName inBundle:bundle compatibleWithTraitCollection:nil];
             checkmarkImageView.clipsToBounds = YES;
             [self addSubview:checkmarkImageView];
         }
