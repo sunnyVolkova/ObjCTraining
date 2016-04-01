@@ -67,6 +67,7 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
     _currentStep = 0;
     _activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
     _inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
 #pragma mark - update view
@@ -83,7 +84,8 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
 
     if (self.currentStep > 1) {
         //add line
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(imageWidth / 2, imageHeight / 2, (imageWidth + distanceBetweenImages) * (self.currentStep - 1), 1.5f)];
+        CGFloat lineWidth = (imageWidth + distanceBetweenImages) * (MIN(self.currentStep, self.numberOfSteps) - 1);
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(imageWidth / 2, imageHeight / 2, lineWidth, 1.5f)];
         lineView.backgroundColor = self.activeColor;
         [self addSubview:lineView];
     }
