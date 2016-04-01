@@ -37,9 +37,6 @@ static NSString *const checkmarkImageName = @"greenCheckmark";
 
 - (void)setNumberOfSteps:(int)numberOfSteps {
     _numberOfSteps = numberOfSteps;
-    if (self.currentStep > _numberOfSteps) {
-        self.currentStep = _numberOfSteps;
-    }
     [self redrawViews];
 }
 
