@@ -11,6 +11,4 @@ IB_DESIGNABLE
 @interface StepProgressBar : UIView
 @property (nonatomic, assign) IBInspectable NSInteger numberOfSteps;
 @property (nonatomic, assign) IBInspectable NSInteger currentStep;
-
-- (void)setCurrentStep:(NSInteger)currentStep of:(NSInteger)numberOfSteps;
 @end

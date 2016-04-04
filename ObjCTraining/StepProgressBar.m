@@ -18,8 +18,6 @@ static CGFloat const circleLineWidth = 1.5;
 static NSString *const checkmarkImageName = @"greenCheckmark";
 
 @implementation StepProgressBar
-NSInteger lastNumberOfStepsDrawn = -1;
-NSInteger lastCurrentStepDrawn = -1;
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
@@ -47,16 +45,8 @@ NSInteger lastCurrentStepDrawn = -1;
     [self setNeedsLayout];
 }
 
-- (void)setCurrentStep:(NSInteger)currentStep of:(NSInteger)numberOfSteps {
-    _numberOfSteps = numberOfSteps;
-    _currentStep = currentStep;
-    [self setNeedsLayout];
-}
-
 - (void)layoutSubviews {
-    if (self.currentStep != lastCurrentStepDrawn || self.numberOfSteps != lastNumberOfStepsDrawn) {
-        [self redrawViews];
-    }
+    [self redrawViews];
     [super layoutSubviews];
 }
 
@@ -76,6 +66,7 @@ NSInteger lastCurrentStepDrawn = -1;
     _currentStep = 0;
     _activeColor = [UIColor colorWithRed:42.0f / 255.0f green:181.0f / 255.0f blue:100.0f / 255.0f alpha:1.0f];
     _inactiveColor = [UIColor colorWithRed:221.0f / 255.0f green:221.0f / 255.0f blue:221.0f / 255.0f alpha:1.0f];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 #pragma mark - update view

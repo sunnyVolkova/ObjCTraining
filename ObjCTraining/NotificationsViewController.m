@@ -21,7 +21,8 @@ static const int initialNumberofSteps = 4;
     self.labelNumberOfSteps.text = text;
     NSString *text1 = [NSString stringWithFormat:@"%.0f", self.stepperCurrentStep.value];
     self.labelCurrentStep.text = text1;
-    [self.progressBar setCurrentStep:initialCurrentStep of:initialNumberofSteps];
+    self.progressBar.numberOfSteps = initialNumberofSteps;
+    self.progressBar.currentStep = initialCurrentStep;
 }
 
 - (IBAction)numberOfStepsValueChanged:(UIStepper *)sender {
