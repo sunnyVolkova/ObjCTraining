@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -658,17 +658,79 @@
         <!--Third-->
         <scene sceneID="Oad-U5-eBF">
             <objects>
-                <viewController id="RXc-zt-NzD" userLabel="Third" sceneMemberID="viewController">
+                <viewController id="RXc-zt-NzD" userLabel="Third" customClass="NotificationsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RHo-lH-60y"/>
                         <viewControllerLayoutGuide type="bottom" id="EwM-Vl-DjV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xpf-QP-grz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-0S-SXH">
+                                <rect key="frame" x="20" y="135" width="94" height="29"/>
+                                <connections>
+                                    <action selector="currentStepValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="0Sa-xm-QJd"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D02-NM-QHH">
+                                <rect key="frame" x="170" y="100" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAt-nR-GtQ">
+                                <rect key="frame" x="20" y="100" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Mc-Sc-3UE">
+                                <rect key="frame" x="170" y="135" width="94" height="29"/>
+                                <connections>
+                                    <action selector="numberOfStepsValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="krL-rz-Maq"/>
+                                </connections>
+                            </stepper>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
+                                <rect key="frame" x="53" y="36" width="270" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7EE-E3-HQU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gn8-0S-SXH" firstAttribute="leading" secondItem="Xpf-QP-grz" secondAttribute="leading" constant="20" id="5ZJ-9S-Cfa"/>
+                            <constraint firstItem="ZAt-nR-GtQ" firstAttribute="leading" secondItem="gn8-0S-SXH" secondAttribute="leading" id="ADg-wL-g1X"/>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="height" secondItem="Xpf-QP-grz" secondAttribute="height" multiplier="30:667" priority="999" id="Eec-2D-h8W"/>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="centerX" secondItem="Xpf-QP-grz" secondAttribute="centerX" id="Htr-3N-FZl"/>
+                            <constraint firstItem="qK5-8o-N7k" firstAttribute="top" secondItem="RHo-lH-60y" secondAttribute="bottom" constant="16" id="Jzb-eo-rNe"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="bottom" secondItem="gn8-0S-SXH" secondAttribute="bottom" id="Lrv-8M-A0a"/>
+                            <constraint firstItem="gn8-0S-SXH" firstAttribute="top" secondItem="D02-NM-QHH" secondAttribute="bottom" constant="14" id="SfI-9J-cwx"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="leading" secondItem="gn8-0S-SXH" secondAttribute="trailing" constant="56" id="UKO-6y-F0o"/>
+                            <constraint firstItem="D02-NM-QHH" firstAttribute="top" secondItem="Xpf-QP-grz" secondAttribute="top" constant="100" id="VnK-4H-QH1"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="leading" secondItem="D02-NM-QHH" secondAttribute="leading" id="aEi-Yh-IXG"/>
+                            <constraint firstItem="ZAt-nR-GtQ" firstAttribute="bottom" secondItem="D02-NM-QHH" secondAttribute="bottom" id="pHZ-3b-cwL"/>
+                            <constraint firstItem="0Mc-Sc-3UE" firstAttribute="top" secondItem="D02-NM-QHH" secondAttribute="bottom" constant="14" id="vmQ-Xo-Hq8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="notificationsTabIcon" id="K5V-X9-5DK"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="labelCurrentStep" destination="ZAt-nR-GtQ" id="f5V-6J-bD4"/>
+                        <outlet property="labelNumberOfSteps" destination="D02-NM-QHH" id="z2V-D3-cFN"/>
+                        <outlet property="progressBar" destination="qK5-8o-N7k" id="Vmc-eU-j5t"/>
+                        <outlet property="stepperCurrentStep" destination="gn8-0S-SXH" id="1vr-at-xhE"/>
+                        <outlet property="stepperNumberOfSteps" destination="0Mc-Sc-3UE" id="WGb-IZ-ZRs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orL-9E-S2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
