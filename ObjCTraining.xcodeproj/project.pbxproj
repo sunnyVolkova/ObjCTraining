@@ -26,6 +26,10 @@
 		CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */; };
 		CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */; };
 		CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */; };
+		CEECE8FF1CB27494005607EA /* LCFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE8FE1CB27494005607EA /* LCFeed.m */; };
+		CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */; };
+		CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */; };
+		CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,13 @@
 		CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertyTableViewCell+ConfigureForProperty.h"; sourceTree = "<group>"; };
 		CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertyTableViewCell+ConfigureForProperty.m"; sourceTree = "<group>"; };
 		CE704DEE1CA406D800098DE5 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		CEECE8FD1CB27494005607EA /* LCFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCFeed.h; sourceTree = "<group>"; };
+		CEECE8FE1CB27494005607EA /* LCFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCFeed.m; sourceTree = "<group>"; };
+		CEECE9021CB279C0005607EA /* ActivityFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedTableViewCell.h; sourceTree = "<group>"; };
+		CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedTableViewCell.m; sourceTree = "<group>"; };
+		CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityFeedTableViewCell.xib; sourceTree = "<group>"; };
+		CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActivityFeedTableViewCell+ConfigureForLCFeed.h"; sourceTree = "<group>"; };
+		CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActivityFeedTableViewCell+ConfigureForLCFeed.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +206,9 @@
 		CE704DE21CA2C8C100098DE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE9021CB279C0005607EA /* ActivityFeedTableViewCell.h */,
+				CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */,
+				CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */,
 				A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */,
 				A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */,
 				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
@@ -210,6 +224,8 @@
 				CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */,
 				CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */,
 				CE704DEE1CA406D800098DE5 /* Property.h */,
+				CEECE8FD1CB27494005607EA /* LCFeed.h */,
+				CEECE8FE1CB27494005607EA /* LCFeed.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -221,6 +237,8 @@
 				A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */,
 				CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */,
 				CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */,
+				CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.h */,
+				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
 			);
@@ -333,6 +351,7 @@
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
+				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
 				CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +381,7 @@
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
+				CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m in Sources */,
 				CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */,
 				A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */,
 				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,
@@ -370,7 +390,9 @@
 				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				A36DED4A1CAE515C00A7CDC2 /* UIImageView+DrawShape.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
+				CEECE8FF1CB27494005607EA /* LCFeed.m in Sources */,
 				A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */,
+				CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

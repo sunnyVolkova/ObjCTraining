@@ -691,7 +691,7 @@
                                     <action selector="numberOfStepsValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="krL-rz-Maq"/>
                                 </connections>
                             </stepper>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
                                 <rect key="frame" x="53" y="36" width="270" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7EE-E3-HQU"/>
@@ -768,9 +768,22 @@
                     <view key="view" contentMode="scaleToFill" id="usH-Je-yF1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0He-7e-vIq">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0He-7e-vIq" firstAttribute="leading" secondItem="usH-Je-yF1" secondAttribute="leading" id="8eX-v7-Zub"/>
+                            <constraint firstItem="0He-7e-vIq" firstAttribute="top" secondItem="oyI-tT-gt6" secondAttribute="bottom" id="U7T-oe-wtX"/>
+                            <constraint firstItem="EyB-4R-vAC" firstAttribute="top" secondItem="0He-7e-vIq" secondAttribute="bottom" id="WoU-An-QV7"/>
+                            <constraint firstAttribute="trailing" secondItem="0He-7e-vIq" secondAttribute="trailing" id="yd9-Ih-K3x"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="chatTabIcon" id="FuW-Q7-pUH"/>
+                    <navigationItem key="navigationItem" title="Activity Feed" id="Huq-Dx-PJc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBL-Ur-gfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="ActivityFeedTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="540" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="540" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-p2-X8X">
+                        <rect key="frame" x="106" y="0.0" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Ccg-oe-jZ3"/>
+                            <constraint firstAttribute="width" secondItem="qpd-p2-X8X" secondAttribute="height" id="Yhh-Yf-fdW"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I11-nh-TbS">
+                        <rect key="frame" x="80" y="0.0" width="2" height="87"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="hEb-Lf-7qo"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-9a-a7r">
+                        <rect key="frame" x="174" y="55" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="w7b-9a-a7r" secondAttribute="height" multiplier="1:1" id="Y13-I6-pWT"/>
+                            <constraint firstAttribute="height" constant="24" id="iP6-Zt-Xvf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkZ-Kk-fQH">
+                        <rect key="frame" x="206" y="55" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know buying a home can have its  ups and downs." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tu0-ov-5zt">
+                        <rect key="frame" x="174" y="0.0" width="350" height="47"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qpd-p2-X8X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KKQ-hM-INo"/>
+                    <constraint firstItem="I11-nh-TbS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M0E-9T-byG"/>
+                    <constraint firstItem="w7b-9a-a7r" firstAttribute="top" secondItem="tu0-ov-5zt" secondAttribute="bottom" constant="8" id="MKK-2t-PVo"/>
+                    <constraint firstAttribute="bottom" secondItem="I11-nh-TbS" secondAttribute="bottom" id="MOk-1Q-UH6"/>
+                    <constraint firstItem="I11-nh-TbS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="PyG-17-0rV"/>
+                    <constraint firstItem="tu0-ov-5zt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SXX-s6-1R1"/>
+                    <constraint firstAttribute="bottom" secondItem="w7b-9a-a7r" secondAttribute="bottom" constant="8" id="YEx-in-ubK"/>
+                    <constraint firstItem="OkZ-Kk-fQH" firstAttribute="top" secondItem="w7b-9a-a7r" secondAttribute="top" id="aJw-up-Z1U"/>
+                    <constraint firstItem="tu0-ov-5zt" firstAttribute="leading" secondItem="qpd-p2-X8X" secondAttribute="trailing" constant="8" id="bc9-Vg-JPF"/>
+                    <constraint firstItem="qpd-p2-X8X" firstAttribute="leading" secondItem="I11-nh-TbS" secondAttribute="trailing" constant="24" id="evJ-1o-tWp"/>
+                    <constraint firstItem="w7b-9a-a7r" firstAttribute="leading" secondItem="qpd-p2-X8X" secondAttribute="trailing" constant="8" id="v5N-kB-Wn2"/>
+                    <constraint firstAttribute="trailing" secondItem="tu0-ov-5zt" secondAttribute="trailing" constant="16" id="xRH-Zi-fEQ"/>
+                    <constraint firstItem="OkZ-Kk-fQH" firstAttribute="leading" secondItem="w7b-9a-a7r" secondAttribute="trailing" constant="8" id="xd1-hZ-EHW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionTextLabel" destination="tu0-ov-5zt" id="HBx-Rr-IqI"/>
+                <outlet property="imageView" destination="qpd-p2-X8X" id="SEi-OL-KnJ"/>
+                <outlet property="timeLabel" destination="OkZ-Kk-fQH" id="tr5-56-mJq"/>
+            </connections>
+            <point key="canvasLocation" x="586" y="414"/>
+        </tableViewCell>
+    </objects>
+</document>
