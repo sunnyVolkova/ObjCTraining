@@ -10,7 +10,16 @@
 
 @implementation ActivityFeedTableViewCell (ConfigureForLCFeed)
 - (void)setCellValuesWithLCFeed: (LCFeed*) lcFeed {
-    self.imageView.image = [UIImage imageNamed:lcFeed.imageName];
+    if(lcFeed == nil) {
+        NSLog(@"lcFeed is nil");
+        return;
+    }
+    if (lcFeed.imageName != nil) {
+        UIImage *image = [UIImage imageNamed:lcFeed.imageName];
+        if (image != nil) {
+            self.actionImageView.image = image;
+        }
+    }
     self.descriptionTextLabel.text = lcFeed.descriptionText;
     self.timeLabel.text = lcFeed.updatedDate.description;
 }

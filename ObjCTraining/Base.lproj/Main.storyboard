@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -691,7 +691,7 @@
                                     <action selector="numberOfStepsValueChanged:" destination="RXc-zt-NzD" eventType="valueChanged" id="krL-rz-Maq"/>
                                 </connections>
                             </stepper>
-                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-8o-N7k" customClass="StepProgressBar">
                                 <rect key="frame" x="53" y="36" width="270" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7EE-E3-HQU"/>
@@ -760,7 +760,7 @@
         <!--Fourth-->
         <scene sceneID="FRn-Z1-Mxq">
             <objects>
-                <viewController id="jvr-he-dGR" userLabel="Fourth" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityFeedViewController" id="jvr-he-dGR" userLabel="Fourth" customClass="ActivityFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oyI-tT-gt6"/>
                         <viewControllerLayoutGuide type="bottom" id="EyB-4R-vAC"/>
@@ -769,9 +769,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0He-7e-vIq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0He-7e-vIq">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeader" id="zyS-UU-UUI">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zyS-UU-UUI" id="4re-ED-UaQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5n6-K8-VHS">
+                                                    <rect key="frame" x="279" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.5725490196078431" green="0.83137254901960778" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="5n6-K8-VHS" firstAttribute="centerX" secondItem="4re-ED-UaQ" secondAttribute="centerX" id="FaW-b2-88D"/>
+                                                <constraint firstItem="5n6-K8-VHS" firstAttribute="centerY" secondItem="4re-ED-UaQ" secondAttribute="centerY" id="L4F-TT-da9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -784,6 +807,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="chatTabIcon" id="FuW-Q7-pUH"/>
                     <navigationItem key="navigationItem" title="Activity Feed" id="Huq-Dx-PJc"/>
+                    <connections>
+                        <outlet property="tableView" destination="0He-7e-vIq" id="E4u-Xh-iMB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBL-Ur-gfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

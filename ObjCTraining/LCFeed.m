@@ -4,7 +4,6 @@
 //
 
 #import "LCFeed.h"
-
 @implementation LCFeed
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
@@ -85,7 +84,7 @@
     [dateFormat setDateFormat:format];
     NSDate *date = [dateFormat dateFromString:dateStr];
     if (!date && dateStr.length > 0) {
-        DDLogVerbose(@"Date is nil = %@ %@",dateStr, format);
+        NSLog(@"Date is nil = %@ %@",dateStr, format);
     }
     return date;
 }

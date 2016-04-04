@@ -12,6 +12,8 @@
 		A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */; };
 		A36DED4A1CAE515C00A7CDC2 /* UIImageView+DrawShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */; };
 		A370506C1CAC0A0600D4DE80 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */; };
+		A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */; };
+		A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */ = {isa = PBXBuildFile; fileRef = A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */; };
 		CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */; };
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
@@ -60,6 +62,9 @@
 		A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DrawShape.m"; sourceTree = "<group>"; };
 		A370506A1CAC0A0600D4DE80 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		A3A56BD91CB2A0A500AAE832 /* ActivityFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedViewController.h; sourceTree = "<group>"; };
+		A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedViewController.m; sourceTree = "<group>"; };
+		A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityFeedsDataSource.json; sourceTree = "<group>"; };
 		CE557E461CA5894100A5614B /* AddPropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPropertyInfoViewController.h; sourceTree = "<group>"; };
 		CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPropertyInfoViewController.m; sourceTree = "<group>"; };
 		CE704DA11CA2824600098DE5 /* ObjCTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +150,7 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */,
 				CE704DE71CA401E600098DE5 /* Categories */,
 				CE704DE31CA2C8CF00098DE5 /* Models */,
 				CE704DE21CA2C8C100098DE5 /* Views */,
@@ -199,6 +205,8 @@
 				A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */,
 				A36C1C511CAD5DC300F057B9 /* NotificationsViewController.h */,
 				A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */,
+				A3A56BD91CB2A0A500AAE832 /* ActivityFeedViewController.h */,
+				A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -349,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
+				A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
 				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
@@ -381,6 +390,7 @@
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
+				A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */,
 				CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m in Sources */,
 				CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */,
 				A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */,
