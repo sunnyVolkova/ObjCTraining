@@ -760,12 +760,12 @@
         <!--Activity Feed-->
         <scene sceneID="FRn-Z1-Mxq">
             <objects>
-                <viewController storyboardIdentifier="ActivityFeedViewController" id="jvr-he-dGR" userLabel="Activity Feed" customClass="ActivityFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityFeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="jvr-he-dGR" userLabel="Activity Feed" customClass="ActivityFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oyI-tT-gt6"/>
                         <viewControllerLayoutGuide type="bottom" id="EyB-4R-vAC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="usH-Je-yF1">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="usH-Je-yF1">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -778,7 +778,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0He-7e-vIq" firstAttribute="leading" secondItem="usH-Je-yF1" secondAttribute="leading" id="8eX-v7-Zub"/>
-                            <constraint firstItem="EyB-4R-vAC" firstAttribute="top" secondItem="0He-7e-vIq" secondAttribute="bottom" id="WoU-An-QV7"/>
+                            <constraint firstItem="EyB-4R-vAC" firstAttribute="top" secondItem="0He-7e-vIq" secondAttribute="bottom" id="P8B-1I-s6B"/>
                             <constraint firstItem="0He-7e-vIq" firstAttribute="top" secondItem="oyI-tT-gt6" secondAttribute="bottom" id="rZk-sW-w5t"/>
                             <constraint firstAttribute="trailing" secondItem="0He-7e-vIq" secondAttribute="trailing" id="yd9-Ih-K3x"/>
                         </constraints>
