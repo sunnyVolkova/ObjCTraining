@@ -17,6 +17,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-p2-X8X">
                         <rect key="frame" x="57" y="29" width="30" height="30"/>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Ccg-oe-jZ3"/>
                             <constraint firstAttribute="width" secondItem="qpd-p2-X8X" secondAttribute="height" id="Yhh-Yf-fdW"/>
@@ -29,27 +30,31 @@
                             <constraint firstAttribute="width" constant="1" id="hEb-Lf-7qo"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-9a-a7r">
-                        <rect key="frame" x="97" y="45" width="12" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="w7b-9a-a7r" secondAttribute="height" multiplier="1:1" id="Y13-I6-pWT"/>
-                            <constraint firstAttribute="height" constant="12" id="iP6-Zt-Xvf"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkZ-Kk-fQH">
-                        <rect key="frame" x="117" y="45" width="0.0" height="0.0"/>
+                        <rect key="frame" x="117" y="67" width="0.0" height="0.0"/>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know buying a home can have its  ups and downs." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tu0-ov-5zt">
-                        <rect key="frame" x="97" y="8" width="427" height="29"/>
+                        <rect key="frame" x="97" y="8" width="427" height="51"/>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-9a-a7r">
+                        <rect key="frame" x="97" y="67" width="12" height="12"/>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="w7b-9a-a7r" secondAttribute="height" multiplier="1:1" id="Y13-I6-pWT"/>
+                            <constraint firstAttribute="height" constant="12" id="iP6-Zt-Xvf"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="w7b-9a-a7r" secondAttribute="bottom" constant="8" id="7Q0-dd-KCo"/>
                     <constraint firstItem="qpd-p2-X8X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JPV-GK-5e3"/>
                     <constraint firstItem="I11-nh-TbS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M0E-9T-byG"/>
                     <constraint firstItem="w7b-9a-a7r" firstAttribute="top" secondItem="tu0-ov-5zt" secondAttribute="bottom" constant="8" id="MKK-2t-PVo"/>

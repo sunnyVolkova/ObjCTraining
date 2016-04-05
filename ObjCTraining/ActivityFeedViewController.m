@@ -23,6 +23,7 @@ static int const sectionHeaderHeight = 46;
 @implementation ActivityFeedViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.estimatedRowHeight = cellHeight;
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityFeedTableViewCell" bundle:nil] forCellReuseIdentifier:activityFeedCellIdentifier];
     [self initDataSource];
     self.tableView.dataSource = self;
@@ -48,14 +49,14 @@ static int const sectionHeaderHeight = 46;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return cellHeight;
+    return UITableViewAutomaticDimension;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor colorWithRed:50.0f / 255.0f green:50.0f / 255.0f blue:50.0f / 255.0f alpha:1.0f]];
-    [label setBackgroundColor:[UIColor colorWithRed:146.0f / 255.0f green:212.0f / 255.0f blue:250.0f / 255.0f alpha:1.0f]];
+    [label setTextColor:[UIColor colorWithRed:50.0f/255.0f green:50.0f/255.0f blue:50.0f/255.0f alpha:1.0f]];
+    [label setBackgroundColor:[UIColor colorWithRed:146.0f/255.0f green:212.0f/255.0f blue:250.0f/255.0f alpha:1.0f]];
     [label setFont:[UIFont systemFontOfSize:17]];
     NSArray *lcFeedSection = [self.feeds objectAtIndex:section];
     if (lcFeedSection.count > 0) {
