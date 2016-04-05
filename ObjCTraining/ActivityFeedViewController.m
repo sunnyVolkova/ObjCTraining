@@ -13,7 +13,7 @@
 
 static NSString *const activityFeedCellIdentifier = @"ActivityFeedTableViewCell";
 static NSString *const sectionHeaderDateFormat = @"MMMM d, yyyy";
-static int const cellHeight = 70;
+static int const cellHeight = 40;
 static int const sectionHeaderHeight = 46;
 
 @interface ActivityFeedViewController ()
@@ -52,25 +52,23 @@ static int const sectionHeaderHeight = 46;
     return UITableViewAutomaticDimension;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor colorWithRed:50.0f/255.0f green:50.0f/255.0f blue:50.0f/255.0f alpha:1.0f]];
-    [label setBackgroundColor:[UIColor colorWithRed:146.0f/255.0f green:212.0f/255.0f blue:250.0f/255.0f alpha:1.0f]];
-    [label setFont:[UIFont systemFontOfSize:17]];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+        return @"";
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView *)view;
+    headerView.contentView.backgroundColor = [UIColor colorWithRed:146.0f/255.0f green:212.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
+    [headerView.textLabel setTextAlignment:NSTextAlignmentCenter];
+    [headerView.textLabel setTextColor:[UIColor colorWithRed:50.0f/255.0f green:50.0f/255.0f blue:50.0f/255.0f alpha:1.0f]];
+    [headerView.textLabel setFont:[UIFont systemFontOfSize:17]];
+    
     NSArray *lcFeedSection = [self.feeds objectAtIndex:section];
     if (lcFeedSection.count > 0) {
         LCFeed *lcFeed = [lcFeedSection objectAtIndex:0];
         NSDate *date = lcFeed.createdDate;
-        label.text = [self getDateStringFromDate:date];
+        headerView.textLabel.text = [self getDateStringFromDate:date];
     }
-    return label;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
