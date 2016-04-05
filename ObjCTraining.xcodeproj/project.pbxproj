@@ -31,7 +31,7 @@
 		CEECE8FF1CB27494005607EA /* LCFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE8FE1CB27494005607EA /* LCFeed.m */; };
 		CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */; };
 		CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */; };
-		CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */; };
+		CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +98,8 @@
 		CEECE9021CB279C0005607EA /* ActivityFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedTableViewCell.h; sourceTree = "<group>"; };
 		CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedTableViewCell.m; sourceTree = "<group>"; };
 		CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityFeedTableViewCell.xib; sourceTree = "<group>"; };
-		CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActivityFeedTableViewCell+ConfigureForLCFeed.h"; sourceTree = "<group>"; };
-		CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActivityFeedTableViewCell+ConfigureForLCFeed.m"; sourceTree = "<group>"; };
+		CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActivityFeedTableViewCell+ConfigureForFeed.h"; sourceTree = "<group>"; };
+		CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActivityFeedTableViewCell+ConfigureForFeed.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,8 +245,8 @@
 				A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */,
 				CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */,
 				CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */,
-				CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.h */,
-				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m */,
+				CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.h */,
+				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
 			);
@@ -391,7 +391,7 @@
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
 				A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */,
-				CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForLCFeed.m in Sources */,
+				CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m in Sources */,
 				CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */,
 				A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */,
 				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,

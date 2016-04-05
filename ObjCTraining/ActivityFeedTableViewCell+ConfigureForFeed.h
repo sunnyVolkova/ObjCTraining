@@ -8,6 +8,7 @@
 
 #import "ActivityFeedTableViewCell.h"
 #import "LCFeed.h"
-@interface ActivityFeedTableViewCell (ConfigureForLCFeed)
-- (void)setCellValuesWithLCFeed: (LCFeed*) lcFeed;
+
+@interface ActivityFeedTableViewCell (ConfigureForFeed)
+- (void)setCellValuesWithFeed:(LCFeed *)lcFeed;
 @end
