@@ -54,17 +54,42 @@
 
 - (void)initTabBarController {
     NSString *storyboardName = @"Main";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
     
     UINavigationController *homeNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
     UINavigationController *accountsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountsNavigationController"];
     UINavigationController *notificationsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NotificationsNavigationController"];
     UINavigationController *chatNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
     
-    NSArray *controllers = [NSArray arrayWithObjects:homeNavigationController, accountsNavigationController, notificationsNavigationController, chatNavigationController, nil];
+    NSArray *controllers = @[homeNavigationController, accountsNavigationController, notificationsNavigationController, chatNavigationController];
 
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [self.window setRootViewController:tabBarController];
     tabBarController.viewControllers = controllers;
+    
+    CGSize tabBarSize = [[tabBarController tabBar] bounds].size;
+    [[UITabBar appearance] setBackgroundImage:[self drawGradientImageWithWidth:tabBarSize.width height:tabBarSize.height]];
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+}
+
+- (UIImage *)drawGradientImageWithWidth:(CGFloat)width height:(CGFloat)height{
+    CGSize size = CGSizeMake(width, height);
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    
+    size_t gradientNumberOfLocations = 4;
+    CGFloat gradientLocations[4] = { 0.0, 0.1, 0.9, 1.0 };
+    CGFloat gradientComponents[16] = { 248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
+    248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
+    248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,};
+    
+    CGGradientRef gradient = CGGradientCreateWithColorComponents (colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
+    
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(size.width, 0), 0);
+    
+    return UIGraphicsGetImageFromCurrentImageContext();
 }
 @end

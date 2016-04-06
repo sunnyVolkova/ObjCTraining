@@ -62,6 +62,7 @@
                                                 <constraint firstItem="bU1-or-gpB" firstAttribute="top" secondItem="XgA-bz-j6b" secondAttribute="top" constant="8" id="yvw-R6-EYa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -865,13 +866,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="accountsTabIcon" width="22" height="22"/>
-        <image name="chatTabIcon" width="22" height="22"/>
+        <image name="accountsTabIcon" width="32" height="33"/>
+        <image name="chatTabIcon" width="32" height="32"/>
         <image name="checkMarkSelected" width="44" height="44"/>
         <image name="checkMarkTicked" width="44" height="44"/>
         <image name="checkMarkUnselected" width="44" height="44"/>
-        <image name="homeTabIcon" width="22" height="22"/>
-        <image name="notificationsTabIcon" width="22" height="22"/>
+        <image name="homeTabIcon" width="32" height="32"/>
+        <image name="notificationsTabIcon" width="32" height="32"/>
         <image name="zillow" width="85" height="22"/>
     </resources>
 </document>
