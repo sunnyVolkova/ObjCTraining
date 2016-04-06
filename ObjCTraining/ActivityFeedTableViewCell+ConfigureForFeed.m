@@ -8,8 +8,6 @@
 
 #import "ActivityFeedTableViewCell+ConfigureForFeed.h"
 
-static NSString *const createdTimeFormat = @"HH:mm:ss";
-
 @implementation ActivityFeedTableViewCell (ConfigureForFeed)
 - (void)setCellValuesWithFeed:(LCFeed *)feed {
     if (feed == nil) {
@@ -20,14 +18,6 @@ static NSString *const createdTimeFormat = @"HH:mm:ss";
     self.actionImageView.image = image;
 
     self.descriptionTextLabel.text = feed.descriptionText;
-    self.timeLabel.text = [self getTimeStringFromDate:feed.createdDate];
-}
-
-- (NSString *)getTimeStringFromDate:(NSDate *)date {
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    dateFormat.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    dateFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [dateFormat setDateFormat:createdTimeFormat];
-    return [dateFormat stringFromDate:date];
+    self.timeLabel.text = [NSDateFormatter localizedStringFromDate:feed.createdDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterMediumStyle];
 }
 @end

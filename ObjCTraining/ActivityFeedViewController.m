@@ -26,8 +26,6 @@ static int const sectionHeaderHeight = 46;
     self.tableView.estimatedRowHeight = cellHeight;
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityFeedTableViewCell" bundle:nil] forCellReuseIdentifier:activityFeedCellIdentifier];
     [self initDataSource];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -37,14 +35,14 @@ static int const sectionHeaderHeight = 46;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return ((NSMutableArray *) (self.feeds[section])).count;
+    return ((NSMutableArray *)(self.feeds[section])).count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ActivityFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityFeedCellIdentifier forIndexPath:indexPath];
-    NSArray *lcFeedSection = [self.feeds objectAtIndex:indexPath.section];
-    LCFeed *lcFeed = [lcFeedSection objectAtIndex:indexPath.row];
-    [cell setCellValuesWithFeed:lcFeed];
+    NSArray *feedsInSection = [self.feeds objectAtIndex:indexPath.section];
+    LCFeed *feed = [feedsInSection objectAtIndex:indexPath.row];
+    [cell setCellValuesWithFeed:feed];
     return cell;
 }
 
@@ -54,31 +52,21 @@ static int const sectionHeaderHeight = 46;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor colorWithRed:50.0f/255.0f green:50.0f/255.0f blue:50.0f/255.0f alpha:1.0f]];
-    [label setBackgroundColor:[UIColor colorWithRed:146.0f/255.0f green:212.0f/255.0f blue:250.0f/255.0f alpha:1.0f]];
-    [label setFont:[UIFont systemFontOfSize:17]];
-    NSArray *lcFeedSection = [self.feeds objectAtIndex:section];
-    if (lcFeedSection.count > 0) {
-        LCFeed *lcFeed = [lcFeedSection objectAtIndex:0];
-        NSDate *date = lcFeed.createdDate;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor colorWithRed:50.0f/255.0f green:50.0f/255.0f blue:50.0f/255.0f alpha:1.0f];
+    label.backgroundColor = [UIColor colorWithRed:146.0f/255.0f green:212.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
+    label.font = [UIFont systemFontOfSize:17];
+    NSArray *feedsInSection = [self.feeds objectAtIndex:section];
+    LCFeed *feed = [feedsInSection firstObject];
+    if (feed != nil) {
+        NSDate *date = feed.createdDate;
         label.text = [self getDateStringFromDate:date];
     }
     return label;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    return view;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return sectionHeaderHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1f; //can't set to 0.0
 }
 
 #pragma mark - Prepare data source
