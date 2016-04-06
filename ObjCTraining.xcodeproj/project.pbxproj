@@ -12,6 +12,8 @@
 		A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */; };
 		A36DED4A1CAE515C00A7CDC2 /* UIImageView+DrawShape.m in Sources */ = {isa = PBXBuildFile; fileRef = A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */; };
 		A370506C1CAC0A0600D4DE80 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */; };
+		A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */; };
+		A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */ = {isa = PBXBuildFile; fileRef = A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */; };
 		CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */; };
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
@@ -26,6 +28,10 @@
 		CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */; };
 		CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */; };
 		CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */; };
+		CEECE8FF1CB27494005607EA /* LCFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE8FE1CB27494005607EA /* LCFeed.m */; };
+		CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */; };
+		CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */; };
+		CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,9 @@
 		A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DrawShape.m"; sourceTree = "<group>"; };
 		A370506A1CAC0A0600D4DE80 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		A3A56BD91CB2A0A500AAE832 /* ActivityFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedViewController.h; sourceTree = "<group>"; };
+		A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedViewController.m; sourceTree = "<group>"; };
+		A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityFeedsDataSource.json; sourceTree = "<group>"; };
 		CE557E461CA5894100A5614B /* AddPropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPropertyInfoViewController.h; sourceTree = "<group>"; };
 		CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPropertyInfoViewController.m; sourceTree = "<group>"; };
 		CE704DA11CA2824600098DE5 /* ObjCTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +93,13 @@
 		CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PropertyTableViewCell+ConfigureForProperty.h"; sourceTree = "<group>"; };
 		CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PropertyTableViewCell+ConfigureForProperty.m"; sourceTree = "<group>"; };
 		CE704DEE1CA406D800098DE5 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		CEECE8FD1CB27494005607EA /* LCFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCFeed.h; sourceTree = "<group>"; };
+		CEECE8FE1CB27494005607EA /* LCFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCFeed.m; sourceTree = "<group>"; };
+		CEECE9021CB279C0005607EA /* ActivityFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedTableViewCell.h; sourceTree = "<group>"; };
+		CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedTableViewCell.m; sourceTree = "<group>"; };
+		CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityFeedTableViewCell.xib; sourceTree = "<group>"; };
+		CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActivityFeedTableViewCell+ConfigureForFeed.h"; sourceTree = "<group>"; };
+		CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActivityFeedTableViewCell+ConfigureForFeed.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +150,7 @@
 		CE704DA31CA2824600098DE5 /* ObjCTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */,
 				CE704DE71CA401E600098DE5 /* Categories */,
 				CE704DE31CA2C8CF00098DE5 /* Models */,
 				CE704DE21CA2C8C100098DE5 /* Views */,
@@ -188,6 +205,8 @@
 				A370506B1CAC0A0600D4DE80 /* ContactUsViewController.m */,
 				A36C1C511CAD5DC300F057B9 /* NotificationsViewController.h */,
 				A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */,
+				A3A56BD91CB2A0A500AAE832 /* ActivityFeedViewController.h */,
+				A3A56BDA1CB2A0A500AAE832 /* ActivityFeedViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +214,9 @@
 		CE704DE21CA2C8C100098DE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE9021CB279C0005607EA /* ActivityFeedTableViewCell.h */,
+				CEECE9031CB279C0005607EA /* ActivityFeedTableViewCell.m */,
+				CEECE9041CB279C0005607EA /* ActivityFeedTableViewCell.xib */,
 				A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */,
 				A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */,
 				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
@@ -210,6 +232,8 @@
 				CE704DE41CA2C90200098DE5 /* HouseTypeDescription.h */,
 				CE704DE51CA2C90200098DE5 /* HouseTypeDescription.m */,
 				CE704DEE1CA406D800098DE5 /* Property.h */,
+				CEECE8FD1CB27494005607EA /* LCFeed.h */,
+				CEECE8FE1CB27494005607EA /* LCFeed.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -221,6 +245,8 @@
 				A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */,
 				CE704DEB1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.h */,
 				CE704DEC1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m */,
+				CEECE9071CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.h */,
+				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
 			);
@@ -331,8 +357,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
+				A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
+				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
 				CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +390,8 @@
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
+				A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */,
+				CEECE9091CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m in Sources */,
 				CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */,
 				A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */,
 				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,
@@ -370,7 +400,9 @@
 				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
 				A36DED4A1CAE515C00A7CDC2 /* UIImageView+DrawShape.m in Sources */,
 				CE704DA61CA2824600098DE5 /* main.m in Sources */,
+				CEECE8FF1CB27494005607EA /* LCFeed.m in Sources */,
 				A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */,
+				CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
