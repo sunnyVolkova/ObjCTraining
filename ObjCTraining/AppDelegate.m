@@ -43,8 +43,7 @@
 }
 
 
-- (void)setStatusBarBackgroundColor: (UIColor *)color {
-    
+- (void)setStatusBarBackgroundColor: (UIColor *)color {   
     UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     
     if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
@@ -68,13 +67,11 @@
     tabBarController.viewControllers = controllers;
     
     CGSize tabBarSize = [[tabBarController tabBar] bounds].size;
-    [[UITabBar appearance] setBackgroundImage:[self drawGradientImageWithWidth:tabBarSize.width height:tabBarSize.height]];
+    [[UITabBar appearance] setBackgroundImage:[self drawGradientImageOfSize:tabBarSize]];
     [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 
-- (UIImage *)drawGradientImageWithWidth:(CGFloat)width height:(CGFloat)height{
-    CGSize size = CGSizeMake(width, height);
-    
+- (UIImage *)drawGradientImageOfSize:(CGSize)size{
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
@@ -83,13 +80,11 @@
     CGFloat gradientLocations[4] = { 0.0, 0.1, 0.9, 1.0 };
     CGFloat gradientComponents[16] = { 248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,
         248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
-    248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
-    248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,};
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f};
     
-    CGGradientRef gradient = CGGradientCreateWithColorComponents (colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
-    
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
     CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(size.width, 0), 0);
-    
     return UIGraphicsGetImageFromCurrentImageContext();
 }
 @end
