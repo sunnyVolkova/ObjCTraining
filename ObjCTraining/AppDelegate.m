@@ -14,8 +14,8 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self initTabBarController];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
@@ -48,7 +48,23 @@
     UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     
     if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-        statusBar.backgroundColor = [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
+        statusBar.backgroundColor = color;
     }
+}
+
+- (void)initTabBarController {
+    NSString *storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    
+    UINavigationController *homeNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+    UINavigationController *accountsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountsNavigationController"];
+    UINavigationController *notificationsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NotificationsNavigationController"];
+    UINavigationController *chatNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:homeNavigationController, accountsNavigationController, notificationsNavigationController, chatNavigationController, nil];
+
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [self.window setRootViewController:tabBarController];
+    tabBarController.viewControllers = controllers;
 }
 @end
