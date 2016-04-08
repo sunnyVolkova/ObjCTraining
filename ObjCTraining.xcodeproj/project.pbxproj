@@ -16,6 +16,7 @@
 		A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */ = {isa = PBXBuildFile; fileRef = A3A56BDC1CB2A6E700AAE832 /* ActivityFeedsDataSource.json */; };
 		CE4A94651CB7CE240086D75C /* UIColor+LCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A94641CB7CE240086D75C /* UIColor+LCAdditions.m */; };
 		CE4A94681CB7EE100086D75C /* ContactDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A94671CB7EE100086D75C /* ContactDetailsViewController.m */; };
+		CE4A946A1CB7F08F0086D75C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4A94691CB7F08F0086D75C /* OpenSans-Regular.ttf */; };
 		CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */; };
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
@@ -71,6 +72,7 @@
 		CE4A94641CB7CE240086D75C /* UIColor+LCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LCAdditions.m"; sourceTree = "<group>"; };
 		CE4A94661CB7EE100086D75C /* ContactDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailsViewController.h; sourceTree = "<group>"; };
 		CE4A94671CB7EE100086D75C /* ContactDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailsViewController.m; sourceTree = "<group>"; };
+		CE4A94691CB7F08F0086D75C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		CE557E461CA5894100A5614B /* AddPropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPropertyInfoViewController.h; sourceTree = "<group>"; };
 		CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPropertyInfoViewController.m; sourceTree = "<group>"; };
 		CE704DA11CA2824600098DE5 /* ObjCTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 		CE704D981CA2824500098DE5 = {
 			isa = PBXGroup;
 			children = (
+				CE4A94691CB7F08F0086D75C /* OpenSans-Regular.ttf */,
 				CE704DA31CA2824600098DE5 /* ObjCTraining */,
 				CE704DC01CA2824700098DE5 /* ObjCTrainingTests */,
 				CE704DCB1CA2824700098DE5 /* ObjCTrainingUITests */,
@@ -372,6 +375,7 @@
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
 				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
 				CE704DE01CA2A97A00098DE5 /* PropertyTableViewCell.xib in Resources */,
+				CE4A946A1CB7F08F0086D75C /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
