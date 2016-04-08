@@ -14,8 +14,8 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self initTabBarController];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
@@ -43,12 +43,48 @@
 }
 
 
-- (void)setStatusBarBackgroundColor: (UIColor *)color {
-    
+- (void)setStatusBarBackgroundColor: (UIColor *)color {   
     UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     
     if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-        statusBar.backgroundColor = [UIColor colorWithRed:0.0f green:128.0f/255.0f blue:1.0f alpha:1.0f];
+        statusBar.backgroundColor = color;
     }
+}
+
+- (void)initTabBarController {
+    NSString *storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *homeNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+    UINavigationController *accountsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountsNavigationController"];
+    UINavigationController *notificationsNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NotificationsNavigationController"];
+    UINavigationController *chatNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    
+    NSArray *controllers = @[homeNavigationController, accountsNavigationController, notificationsNavigationController, chatNavigationController];
+
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [self.window setRootViewController:tabBarController];
+    tabBarController.viewControllers = controllers;
+    
+    CGSize tabBarSize = [[tabBarController tabBar] bounds].size;
+    [[UITabBar appearance] setBackgroundImage:[self drawGradientImageOfSize:tabBarSize]];
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+}
+
+- (UIImage *)drawGradientImageOfSize:(CGSize)size{
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    
+    size_t gradientNumberOfLocations = 4;
+    CGFloat gradientLocations[4] = { 0.0, 0.1, 0.9, 1.0 };
+    CGFloat gradientComponents[16] = { 248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
+        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f};
+    
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(size.width, 0), 0);
+    return UIGraphicsGetImageFromCurrentImageContext();
 }
 @end
