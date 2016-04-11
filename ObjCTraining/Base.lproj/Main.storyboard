@@ -795,11 +795,12 @@
                     <navigationItem key="navigationItem" title="Contact Details" id="3S9-uP-fcR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="address" destination="50i-zI-FFh" id="hBa-ll-BOA"/>
-                        <outlet property="email" destination="8uz-Ov-oIV" id="SdF-pC-izC"/>
-                        <outlet property="name" destination="saw-eT-D7H" id="nrg-fT-6D0"/>
-                        <outlet property="phone" destination="5FC-KY-33b" id="vO7-7u-tGO"/>
-                        <outlet property="role" destination="EBN-K7-9ro" id="KcM-Ir-gQd"/>
+                        <outlet property="addressLabel" destination="50i-zI-FFh" id="UIg-pI-Hcc"/>
+                        <outlet property="avatarImageView" destination="Ca6-eL-LCT" id="Fef-Dx-GIh"/>
+                        <outlet property="emailLabel" destination="8uz-Ov-oIV" id="Lp1-fB-5EX"/>
+                        <outlet property="nameLabel" destination="saw-eT-D7H" id="ahX-S9-bnY"/>
+                        <outlet property="phoneLabel" destination="5FC-KY-33b" id="L1N-Pg-cXE"/>
+                        <outlet property="roleLabel" destination="EBN-K7-9ro" id="ZD3-dq-2x0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
