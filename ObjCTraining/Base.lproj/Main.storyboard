@@ -970,7 +970,7 @@
         <scene sceneID="tkU-gM-YkY">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CLj-O4-Ve6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="homeTabIcon" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ysf-N1-qDf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -996,7 +996,7 @@
         <scene sceneID="OTx-cO-FpN">
             <objects>
                 <navigationController storyboardIdentifier="ChatNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Ipi-Dw-u9t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="chatTabIcon" id="FuW-Q7-pUH"/>
+                    <tabBarItem key="tabBarItem" title="Chat" id="FuW-Q7-pUH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gpd-RQ-cwb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1022,7 +1022,7 @@
         <scene sceneID="7KW-B2-q1p">
             <objects>
                 <navigationController storyboardIdentifier="AccountsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JvD-7Y-81N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accounts" image="accountsTabIcon" selectedImage="accountsTabIcon" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Accounts" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Iwq-8k-IoE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1048,7 +1048,7 @@
         <scene sceneID="zy5-kG-FzK">
             <objects>
                 <navigationController storyboardIdentifier="NotificationsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fBe-ox-dAL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notificationsTabIcon" id="K5V-X9-5DK"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" id="K5V-X9-5DK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aB3-kf-uyv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1065,14 +1065,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="accountsTabIcon" width="32" height="33"/>
         <image name="avatar" width="120" height="120"/>
-        <image name="chatTabIcon" width="32" height="32"/>
         <image name="checkMarkSelected" width="44" height="44"/>
         <image name="checkMarkTicked" width="44" height="44"/>
         <image name="checkMarkUnselected" width="44" height="44"/>
-        <image name="homeTabIcon" width="32" height="32"/>
-        <image name="notificationsTabIcon" width="32" height="32"/>
         <image name="zillow" width="85" height="22"/>
     </resources>
 </document>

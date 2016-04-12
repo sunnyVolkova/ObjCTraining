@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UIColor+LCAdditions.h"
 
 @interface AppDelegate ()
 
@@ -67,25 +68,31 @@
     [self.window setRootViewController:tabBarController];
     tabBarController.viewControllers = controllers;
     
-    CGSize tabBarSize = [[tabBarController tabBar] bounds].size;
-    [[UITabBar appearance] setBackgroundImage:[self drawGradientImageOfSize:tabBarSize]];
-    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+    UITabBar *tabBar = [tabBarController tabBar];
+    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[UIView appearanceWhenContainedIn:[UITabBar class], nil] setTintColor:[UIColor lc_greyishColor]];
+    [[UITabBar appearance] setTintColor:[UIColor lc_darkSkyBlueColor]];
+    
+    UITabBarItem *itemHome = [tabBar.items objectAtIndex:0];
+    UITabBarItem *itemAccounts = [tabBar.items objectAtIndex:1];
+    UITabBarItem *itemNotifications = [tabBar.items objectAtIndex:2];
+    UITabBarItem *itemChat = [tabBar.items objectAtIndex:3];
+    
+    itemHome.title = @"Home";
+    itemHome.image  = [UIImage imageNamed:@"Home_Stroke"];
+    itemHome.selectedImage  = [UIImage imageNamed:@"Home_Filled"];
+    
+    itemAccounts.title = @"Accounts";
+    itemAccounts.image  = [UIImage imageNamed:@"Accounts_Stroke"];
+    itemAccounts.selectedImage  = [UIImage imageNamed:@"Accounts_Filled"];
+    
+    itemNotifications.title = @"Notifications";
+    itemNotifications.image  = [UIImage imageNamed:@"Notifications_Stroke"];
+    itemNotifications.selectedImage  = [UIImage imageNamed:@"Notifications_Filled"];
+    
+    itemChat.title = @"Chat";
+    itemChat.image  = [UIImage imageNamed:@"Chat_Stroke"];
+    itemChat.selectedImage  = [UIImage imageNamed:@"Chat_Filled"];
 }
 
-- (UIImage *)drawGradientImageOfSize:(CGSize)size{
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    
-    size_t gradientNumberOfLocations = 4;
-    CGFloat gradientLocations[4] = { 0.0, 0.1, 0.9, 1.0 };
-    CGFloat gradientComponents[16] = { 248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f,
-        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
-        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 1.0f,
-        248.0f/255.0f, 248.0f/255.0f, 248.0f/255.0f, 0.0f};
-    
-    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, gradientComponents, gradientLocations, gradientNumberOfLocations);
-    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(size.width, 0), 0);
-    return UIGraphicsGetImageFromCurrentImageContext();
-}
 @end
