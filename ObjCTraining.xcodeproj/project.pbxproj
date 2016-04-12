@@ -24,6 +24,7 @@
 		CE4A94781CBBA9E80086D75C /* ContactItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A94771CBBA9E80086D75C /* ContactItem.m */; };
 		CE4A947C1CBBABF80086D75C /* ContactListTableViewCell+ConfigureForContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A947B1CBBABF80086D75C /* ContactListTableViewCell+ConfigureForContactInfo.m */; };
 		CE4A947F1CBBB4B80086D75C /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A947E1CBBB4B80086D75C /* ContactListViewController.m */; };
+		CE4A94841CBD3A2B0086D75C /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4A94831CBD3A2B0086D75C /* OpenSans-Semibold.ttf */; };
 		CE557E481CA5894100A5614B /* AddPropertyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */; };
 		CE704DA61CA2824600098DE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA51CA2824600098DE5 /* main.m */; };
 		CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE704DA81CA2824600098DE5 /* AppDelegate.m */; };
@@ -94,6 +95,7 @@
 		CE4A947B1CBBABF80086D75C /* ContactListTableViewCell+ConfigureForContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContactListTableViewCell+ConfigureForContactInfo.m"; sourceTree = "<group>"; };
 		CE4A947D1CBBB4B80086D75C /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		CE4A947E1CBBB4B80086D75C /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		CE4A94831CBD3A2B0086D75C /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		CE557E461CA5894100A5614B /* AddPropertyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPropertyInfoViewController.h; sourceTree = "<group>"; };
 		CE557E471CA5894100A5614B /* AddPropertyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPropertyInfoViewController.m; sourceTree = "<group>"; };
 		CE704DA11CA2824600098DE5 /* ObjCTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 		CE704D981CA2824500098DE5 = {
 			isa = PBXGroup;
 			children = (
+				CE4A94831CBD3A2B0086D75C /* OpenSans-Semibold.ttf */,
 				CE4A94691CB7F08F0086D75C /* OpenSans-Regular.ttf */,
 				CE704DA31CA2824600098DE5 /* ObjCTraining */,
 				CE704DC01CA2824700098DE5 /* ObjCTrainingTests */,
@@ -426,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4A94841CBD3A2B0086D75C /* OpenSans-Semibold.ttf in Resources */,
 				CE4A94751CBB9BD40086D75C /* ContactListTableViewCell.xib in Resources */,
 				CE704DB71CA2824600098DE5 /* LaunchScreen.storyboard in Resources */,
 				A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */,
