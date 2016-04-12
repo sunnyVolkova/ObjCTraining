@@ -26,7 +26,7 @@
                             <constraint firstAttribute="height" constant="22" id="CVx-Ia-wrf"/>
                             <constraint firstAttribute="width" constant="22" id="qgz-ku-Rwy"/>
                         </constraints>
-                        <state key="normal" title="Button" image="info"/>
+                        <state key="normal" title="Button" image="detailDisclosure"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLY-Cx-Ph8">
                         <rect key="frame" x="292" y="25" width="22" height="22"/>
@@ -34,7 +34,7 @@
                             <constraint firstAttribute="width" constant="22" id="KFe-a1-TO0"/>
                             <constraint firstAttribute="height" constant="22" id="rhK-pi-sgi"/>
                         </constraints>
-                        <state key="normal" title="Button" image="phone"/>
+                        <state key="normal" title="Button" image="shape"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-JL-7jB">
                         <rect key="frame" x="15" y="14" width="44" height="44"/>
@@ -89,7 +89,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="info" width="44" height="44"/>
-        <image name="phone" width="44" height="44"/>
+        <image name="detailDisclosure" width="44" height="44"/>
+        <image name="shape" width="46" height="46"/>
     </resources>
 </document>
