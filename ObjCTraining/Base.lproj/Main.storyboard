@@ -193,6 +193,40 @@
             </objects>
             <point key="canvasLocation" x="812" y="24"/>
         </scene>
+        <!--Search Bar View Controller-->
+        <scene sceneID="u83-7Q-qkB">
+            <objects>
+                <viewController id="gmT-x5-pnn" customClass="SearchBarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N72-ys-nwR"/>
+                        <viewControllerLayoutGuide type="bottom" id="LU9-OK-D5J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HJt-oZ-9op">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="51m-ns-JGT">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="51m-ns-JGT" firstAttribute="leading" secondItem="HJt-oZ-9op" secondAttribute="leading" id="C6E-eu-Zmu"/>
+                            <constraint firstAttribute="trailing" secondItem="51m-ns-JGT" secondAttribute="trailing" id="OSa-Oq-o7S"/>
+                            <constraint firstItem="51m-ns-JGT" firstAttribute="top" secondItem="N72-ys-nwR" secondAttribute="bottom" id="Wfl-c4-bpV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hWi-Ac-KXm"/>
+                    <connections>
+                        <outlet property="searchBar" destination="51m-ns-JGT" id="IdK-HK-dbZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3oJ-Ga-9hT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-672"/>
+        </scene>
         <!--Contact Us-->
         <scene sceneID="B9l-3n-bkI">
             <objects>
@@ -925,7 +959,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orL-9E-S2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="-672"/>
+            <point key="canvasLocation" x="1538" y="-984"/>
         </scene>
         <!--Activity Feed-->
         <scene sceneID="FRn-Z1-Mxq">
@@ -1057,7 +1091,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="RXc-zt-NzD" kind="relationship" relationship="rootViewController" id="d7w-3c-mzc"/>
+                        <segue destination="gmT-x5-pnn" kind="relationship" relationship="rootViewController" id="dLU-5F-Blv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ah-9O-hLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
