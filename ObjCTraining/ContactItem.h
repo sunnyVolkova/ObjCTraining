@@ -10,10 +10,10 @@
 #import "ContactInfo.h"
 
 @interface ContactItem : NSObject<ContactInfo>
-@property NSString* name;
-@property NSString* role;
-@property NSString* phoneNumber;
-@property NSString* avatarImageUrl;
+@property (nonatomic, copy) NSString* name;
+@property (nonatomic, copy) NSString* role;
+@property (nonatomic, copy) NSString* phoneNumber;
+@property (nonatomic, copy) NSString* avatarImageUrl;
 
 - (instancetype)initWithName:(NSString*)name role:(NSString*)role;
 - (instancetype)initWithName:(NSString*)name role:(NSString*)role phoneNumber:(NSString*)phoneNumber avatarImageUrl:(NSString*)avatarImageUrl;

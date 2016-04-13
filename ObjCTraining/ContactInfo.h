@@ -11,11 +11,11 @@
 @protocol ContactInfo <NSObject>
 
 @required
-@property NSString* name;
-@property NSString* role;
+@property (nonatomic, copy) NSString* name;
+@property (nonatomic, copy) NSString* role;
 
 @optional
-@property NSString* avatarImageUrl;
-@property NSString* phoneNumber;
+@property (nonatomic, copy) NSString* avatarImageUrl;
+@property (nonatomic, copy) NSString* phoneNumber;
 
 @end
