@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="ContactListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfK-V2-65O">
+                        <rect key="frame" x="329" y="13" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="CVx-Ia-wrf"/>
+                            <constraint firstAttribute="width" constant="46" id="qgz-ku-Rwy"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                        <state key="normal" title="Button" image="detailDisclosure"/>
+                    </button>
+                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLY-Cx-Ph8">
+                        <rect key="frame" x="280" y="13" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="KFe-a1-TO0"/>
+                            <constraint firstAttribute="height" constant="46" id="rhK-pi-sgi"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                        <state key="normal" title="Button" image="shape"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-JL-7jB">
+                        <rect key="frame" x="15" y="14" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="40C-dY-StY"/>
+                            <constraint firstAttribute="width" constant="44" id="bI3-vR-axM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-1m-9LI">
+                        <rect key="frame" x="77" y="16" width="203" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="7gC-VZ-u1m"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogf-hc-A8K">
+                        <rect key="frame" x="77" y="37" width="203" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="60N-UJ-cRa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eLY-Cx-Ph8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7pd-gG-Hf2"/>
+                    <constraint firstItem="Ogf-hc-A8K" firstAttribute="trailing" secondItem="bKl-1m-9LI" secondAttribute="trailing" id="Bml-ff-EyD"/>
+                    <constraint firstItem="Ogf-hc-A8K" firstAttribute="top" secondItem="bKl-1m-9LI" secondAttribute="bottom" id="HUh-w5-azR"/>
+                    <constraint firstAttribute="trailing" secondItem="MfK-V2-65O" secondAttribute="trailing" id="Ub6-50-7Aw"/>
+                    <constraint firstItem="aEF-JL-7jB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Wfr-dZ-AN3"/>
+                    <constraint firstItem="eLY-Cx-Ph8" firstAttribute="leading" secondItem="bKl-1m-9LI" secondAttribute="trailing" id="XcX-a3-EB0"/>
+                    <constraint firstItem="bKl-1m-9LI" firstAttribute="top" secondItem="aEF-JL-7jB" secondAttribute="top" constant="2" id="haR-l0-bF4"/>
+                    <constraint firstItem="bKl-1m-9LI" firstAttribute="leading" secondItem="aEF-JL-7jB" secondAttribute="trailing" constant="18" id="iKa-xw-JbX"/>
+                    <constraint firstItem="bKl-1m-9LI" firstAttribute="leading" secondItem="Ogf-hc-A8K" secondAttribute="leading" id="lSt-xJ-7zv"/>
+                    <constraint firstItem="MfK-V2-65O" firstAttribute="leading" secondItem="eLY-Cx-Ph8" secondAttribute="trailing" constant="3" id="o7P-TN-qKH"/>
+                    <constraint firstItem="MfK-V2-65O" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qzm-eX-6pR"/>
+                    <constraint firstItem="aEF-JL-7jB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rsf-fv-xf4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+            <connections>
+                <outlet property="avatarImageView" destination="aEF-JL-7jB" id="5N7-xX-a22"/>
+                <outlet property="infoButton" destination="MfK-V2-65O" id="EQl-mR-eCb"/>
+                <outlet property="nameLabel" destination="bKl-1m-9LI" id="85u-aw-ioF"/>
+                <outlet property="phoneButton" destination="eLY-Cx-Ph8" id="Fgd-rX-7Vl"/>
+                <outlet property="roleLabel" destination="Ogf-hc-A8K" id="Fue-bS-YFt"/>
+            </connections>
+            <point key="canvasLocation" x="395.5" y="513"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="detailDisclosure" width="44" height="44"/>
+        <image name="shape" width="46" height="46"/>
+    </resources>
+</document>
