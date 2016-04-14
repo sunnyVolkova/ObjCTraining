@@ -7,6 +7,9 @@
 //
 
 #import "MenuViewController.h"
+#import "UIView+AddBorder.h"
+#import "UIColor+LCAdditions.h"
+
 typedef NS_ENUM(NSInteger, MenuItem) {
     MenuItemSettings = 0,
     MenuItemProfile,
@@ -18,6 +21,7 @@ typedef NS_ENUM(NSInteger, MenuItem) {
 };
 
 static NSString * const menuCellIdentifier = @"MenuCell";
+static NSString * const logOutCellIdentifier = @"LogOutCell";
 static int const additionalSeparatorTag = 59;
 
 @implementation MenuViewController
@@ -25,8 +29,6 @@ static int const additionalSeparatorTag = 59;
 - (void)viewDidLoad {
     self.menuTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.menuTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
-
-//
     [self.menuTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:menuCellIdentifier];
     self.menuTableView.separatorColor = [UIColor redColor];
 }
@@ -54,9 +56,8 @@ static int const additionalSeparatorTag = 59;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier forIndexPath:indexPath];
     if(indexPath.section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier forIndexPath:indexPath];
         [cell.textLabel.leadingAnchor constraintEqualToAnchor:cell.leadingAnchor constant:41.0f];
         cell.textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:16.0];
         cell.textLabel.textColor = [UIColor whiteColor];
@@ -71,19 +72,14 @@ static int const additionalSeparatorTag = 59;
         }
 
         cell.textLabel.text = [[self class] nameForMenuItem:indexPath.row];
+        return cell;
     } else {
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:16.0];
-        cell.textLabel.textColor = [UIColor blackColor];
-        NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-        cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Logout"
-                                                                 attributes:underlineAttribute];
-        UIView *additionalSeparator = [cell.contentView viewWithTag:additionalSeparatorTag];
-        if (additionalSeparator != nil) {
-            [additionalSeparator removeFromSuperview];
-        }
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:logOutCellIdentifier forIndexPath:indexPath];
+        [[cell.contentView viewWithTag:5] addTopBorderWithColor:[UIColor lc_greyishColor] andWidth:2.0f];
+        [[cell.contentView viewWithTag:5] addBottomBorderWithColor:[UIColor lc_greyishColor] andWidth:2.0f];
+        return cell;
     }
-    return cell;
+    
 }
 
 #pragma mark - UITableViewDelegate
@@ -116,9 +112,10 @@ static int const additionalSeparatorTag = 59;
             default:
                 [NSException raise:NSGenericException format:@"Unexpected menu item"];
         }
-    } else {
-        //logout
     }
+}
+- (IBAction)logOutButtonPressed:(id)sender {
+    NSLog(@"logout");
 }
 
 
