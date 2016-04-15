@@ -17,7 +17,6 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
-            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -60,40 +59,12 @@
                                     <constraint firstItem="FLc-mx-coJ" firstAttribute="centerX" secondItem="wZg-q3-Hfj" secondAttribute="centerX" id="Slw-lp-NrS"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="POz-cM-Tf2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="POz-cM-Tf2">
                                 <rect key="frame" x="0.0" y="221" width="600" height="379"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogOutCell" rowHeight="118" id="VfB-kO-LcX">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="118"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VfB-kO-LcX" id="42e-1p-bcZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="118"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URi-rt-DBX">
-                                                    <rect key="frame" x="0.0" y="30" width="600" height="52"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="52" id="Vk5-O4-rc7"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                    <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                                    <state key="normal" title="Log Out">
-                                                        <color key="titleColor" red="0.80000000000000004" green="0.062745098039215685" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="logOutButtonPressed:" destination="nfE-N4-pTS" eventType="touchUpInside" id="q7b-Z7-QjF"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="URi-rt-DBX" secondAttribute="trailing" id="5ls-XB-Fdt"/>
-                                                <constraint firstItem="URi-rt-DBX" firstAttribute="top" secondItem="42e-1p-bcZ" secondAttribute="top" constant="30" id="7Lb-a7-y2X"/>
-                                                <constraint firstItem="URi-rt-DBX" firstAttribute="leading" secondItem="42e-1p-bcZ" secondAttribute="leading" id="e6K-ye-f0d"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="430" id="mcg-F1-Agr"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="nfE-N4-pTS" id="E3l-tc-yuL"/>
                                     <outlet property="delegate" destination="nfE-N4-pTS" id="xPY-eM-LwY"/>
@@ -110,7 +81,7 @@
                             <constraint firstItem="wZg-q3-Hfj" firstAttribute="leading" secondItem="hAf-ff-HAo" secondAttribute="leading" id="dfb-9e-B7g"/>
                             <constraint firstAttribute="trailing" secondItem="wZg-q3-Hfj" secondAttribute="trailing" id="f88-mZ-H1o"/>
                             <constraint firstAttribute="trailing" secondItem="POz-cM-Tf2" secondAttribute="trailing" id="l8Y-F0-LhH"/>
-                            <constraint firstItem="wZg-q3-Hfj" firstAttribute="height" secondItem="hAf-ff-HAo" secondAttribute="height" multiplier="348/1334" id="nOR-WM-xid"/>
+                            <constraint firstItem="wZg-q3-Hfj" firstAttribute="height" relation="greaterThanOrEqual" secondItem="hAf-ff-HAo" secondAttribute="height" multiplier="348/1334" id="nOR-WM-xid"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
