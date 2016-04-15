@@ -8,9 +8,7 @@
 
 #import "MenuViewController.h"
 #import "MenuItemTableViewCell.h"
-#import "MenuItemTableViewCell+ConfigureForTitle.h"
 #import "BottomButtonTableViewCell.h"
-#import "BottomButtonTableViewCell+ConfigureForTitle.h"
 #import "UIColor+LCAdditions.h"
 
 typedef NS_ENUM(NSInteger, MenuItem) {
@@ -59,14 +57,14 @@ static NSString * const logOutCellIdentifier = @"LogOutCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
         MenuItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier forIndexPath:indexPath];
-        [cell configureWithTitle: [[self class] nameForMenuItem:indexPath.row]];
+        cell.titleTextLabel.text =[MenuViewController nameForMenuItem:indexPath.row];
         return cell;
     } else {
         BottomButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:logOutCellIdentifier forIndexPath:indexPath];
-        [cell configureWithTitle:@"Log Out"];
-        [cell setCellDidSelectBlock:^(id sender) {
+        [cell.button setTitle:@"Log Out" forState:UIControlStateNormal&UIControlStateHighlighted&UIControlStateSelected];
+        cell.cellDidSelectBlock = ^(id sender) {
             NSLog(@"logout");
-        }];
+        };
         return cell;
     }
 }
@@ -103,19 +101,25 @@ static NSString * const logOutCellIdentifier = @"LogOutCell";
 
 #pragma mark - Menu Items processing
 
-+ (NSDictionary *)menuItemNames
-{
-    return @{@(MenuItemSettings) : @"Settings",
-             @(MenuItemProfile) : @"Profile",
-             @(MenuItemContacts) : @"Contacts",
-             @(MenuItemActivityFeed) : @"Activity Feed",
-             @(MenuItemContactUs) : @"Contact Us",
-             @(MenuItemTutorials) : @"Tutorials"};
-}
-
 + (NSString *)nameForMenuItem:(MenuItem)menuItem
 {
-    return [[self class] menuItemNames][@(menuItem)];
+    switch(menuItem) {
+        case MenuItemSettings:
+            return @"Settings";
+        case MenuItemProfile:
+            return @"Profile";
+        case MenuItemContacts:
+            return @"Contacts";
+        case MenuItemActivityFeed:
+            return @"Activity Feed";
+        case MenuItemContactUs:
+            return @"Contact Us";
+        case MenuItemTutorials:
+            return @"Tutorials";
+        default:
+            [NSException raise:NSGenericException format:@"Unexpected menu item"];
+            return @"";
+    }
 }
 
 @end

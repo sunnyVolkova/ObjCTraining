@@ -10,10 +10,8 @@
 		258F2F7FAE10D0A470F913DC /* libPods-ObjCTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032271DD2E39666163B6AC7 /* libPods-ObjCTraining.a */; };
 		6A002CF11CC0E2200020D5D8 /* MenuItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */; };
 		6A002CF21CC0E2200020D5D8 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */; };
-		6A002CF51CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A002CF41CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.m */; };
 		6A4FBB0E1CC0E92400700B35 /* BottomButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */; };
 		6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */; };
-		6A4FBB121CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB111CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.m */; };
 		A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */; };
 		A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */; };
 		A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */; };
@@ -74,13 +72,9 @@
 		6A002CEE1CC0E2200020D5D8 /* MenuItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemTableViewCell.h; sourceTree = "<group>"; };
 		6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableViewCell.m; sourceTree = "<group>"; };
 		6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
-		6A002CF31CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MenuItemTableViewCell+ConfigureForTitle.h"; sourceTree = "<group>"; };
-		6A002CF41CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MenuItemTableViewCell+ConfigureForTitle.m"; sourceTree = "<group>"; };
 		6A4FBB0B1CC0E92400700B35 /* BottomButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomButtonTableViewCell.h; sourceTree = "<group>"; };
 		6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomButtonTableViewCell.m; sourceTree = "<group>"; };
 		6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomButtonTableViewCell.xib; sourceTree = "<group>"; };
-		6A4FBB101CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BottomButtonTableViewCell+ConfigureForTitle.h"; sourceTree = "<group>"; };
-		6A4FBB111CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BottomButtonTableViewCell+ConfigureForTitle.m"; sourceTree = "<group>"; };
 		A34FED5C1CAA5AD70012FD7D /* NSString+CheckInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckInput.h"; sourceTree = "<group>"; };
 		A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CheckInput.m"; sourceTree = "<group>"; };
 		A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepProgressBar.h; sourceTree = "<group>"; };
@@ -338,10 +332,6 @@
 				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
-				6A002CF31CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.h */,
-				6A002CF41CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.m */,
-				6A4FBB101CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.h */,
-				6A4FBB111CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -570,8 +560,6 @@
 				A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */,
 				CE4A94681CB7EE100086D75C /* ContactDetailsViewController.m in Sources */,
 				CEECE9051CB279C0005607EA /* ActivityFeedTableViewCell.m in Sources */,
-				6A4FBB121CC0EC1F00700B35 /* BottomButtonTableViewCell+ConfigureForTitle.m in Sources */,
-				6A002CF51CC0E5DD0020D5D8 /* MenuItemTableViewCell+ConfigureForTitle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
