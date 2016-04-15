@@ -23,14 +23,12 @@ typedef NS_ENUM(NSInteger, MenuItem) {
 static NSString * const menuCellIdentifier = @"MenuCell";
 static NSString * const logOutCellIdentifier = @"LogOutCell";
 static int const additionalSeparatorTag = 59;
+static int const logOutButtonTag = 5;
 
 @implementation MenuViewController
 
 - (void)viewDidLoad {
-    self.menuTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.menuTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.menuTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:menuCellIdentifier];
-    self.menuTableView.separatorColor = [UIColor redColor];
 }
 
 #pragma mark - UITableViewDataSource
@@ -51,7 +49,7 @@ static int const additionalSeparatorTag = 59;
     if(indexPath.section == 0){
         return 52;
     } else {
-        return 93;
+        return 116;
     }
 }
 
@@ -75,11 +73,10 @@ static int const additionalSeparatorTag = 59;
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:logOutCellIdentifier forIndexPath:indexPath];
-        [[cell.contentView viewWithTag:5] addTopBorderWithColor:[UIColor lc_greyishColor] andWidth:2.0f];
-        [[cell.contentView viewWithTag:5] addBottomBorderWithColor:[UIColor lc_greyishColor] andWidth:2.0f];
+        [[cell.contentView viewWithTag:logOutButtonTag] addTopBorderWithColor:[UIColor lc_greyishColor] andWidth:1.0f];
+        [[cell.contentView viewWithTag:logOutButtonTag] addBottomBorderWithColor:[UIColor lc_greyishColor] andWidth:1.0f];
         return cell;
     }
-    
 }
 
 #pragma mark - UITableViewDelegate
@@ -114,10 +111,12 @@ static int const additionalSeparatorTag = 59;
         }
     }
 }
+
 - (IBAction)logOutButtonPressed:(id)sender {
     NSLog(@"logout");
 }
 
+#pragma mark - Menu Items processing
 
 + (NSDictionary *)MenuItemNames
 {

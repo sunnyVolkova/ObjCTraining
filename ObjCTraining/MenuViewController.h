@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
-
 @end
