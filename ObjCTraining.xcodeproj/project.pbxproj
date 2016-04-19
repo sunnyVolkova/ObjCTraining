@@ -14,7 +14,6 @@
 		6A4FBB0E1CC0E92400700B35 /* BottomButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */; };
 		6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */; };
 		6A4FBB151CC129BA00700B35 /* SteppedSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB141CC129BA00700B35 /* SteppedSlider.m */; };
-		6A4FBB171CC129DF00700B35 /* SteppedSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */; };
 		A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */; };
 		A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */; };
 		A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */; };
@@ -82,7 +81,6 @@
 		6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomButtonTableViewCell.xib; sourceTree = "<group>"; };
 		6A4FBB131CC129BA00700B35 /* SteppedSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteppedSlider.h; sourceTree = "<group>"; };
 		6A4FBB141CC129BA00700B35 /* SteppedSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteppedSlider.m; sourceTree = "<group>"; };
-		6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SteppedSlider.xib; sourceTree = "<group>"; };
 		A34FED5C1CAA5AD70012FD7D /* NSString+CheckInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckInput.h"; sourceTree = "<group>"; };
 		A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CheckInput.m"; sourceTree = "<group>"; };
 		A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepProgressBar.h; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 				CE4A94731CBB9BD40086D75C /* ContactListTableViewCell.xib */,
 				6A4FBB131CC129BA00700B35 /* SteppedSlider.h */,
 				6A4FBB141CC129BA00700B35 /* SteppedSlider.m */,
-				6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */,
 				A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */,
 				A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */,
 				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
@@ -427,6 +424,7 @@
 				TargetAttributes = {
 					CE704DA01CA2824500098DE5 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8X676Z47A4;
 					};
 					CE704DBC1CA2824700098DE5 = {
 						CreatedOnToolsVersion = 7.2;
@@ -469,7 +467,6 @@
 				6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */,
 				6A002CF21CC0E2200020D5D8 /* MenuItemTableViewCell.xib in Resources */,
 				A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */,
-				6A4FBB171CC129DF00700B35 /* SteppedSlider.xib in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
 				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
@@ -717,11 +714,14 @@
 			baseConfigurationReference = E7318DDDF6BCAD651D0EDE6B /* Pods-ObjCTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -730,11 +730,14 @@
 			baseConfigurationReference = C935AEFB1D71811AE185E9FC /* Pods-ObjCTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ObjCTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weezlabs.ObjCTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

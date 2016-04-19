@@ -23,6 +23,15 @@ static const int initialNumberofSteps = 4;
     self.labelCurrentStep.text = text1;
     self.progressBar.numberOfSteps = initialNumberofSteps;
     self.progressBar.currentStep = initialCurrentStep;
+    
+    NSNumberFormatter *currentValueFormatter = [[NSNumberFormatter alloc] init];
+    [currentValueFormatter setPositiveFormat:@"$##,###"];
+    self.steppedSlider.currentValueFormatter = currentValueFormatter;
+    
+    NSNumberFormatter *scaleFormatter = [[NSNumberFormatter alloc] init];
+    [scaleFormatter setMultiplier:[NSNumber numberWithDouble:0.001]];
+    [scaleFormatter setPositiveFormat:@"#,###0"];
+    self.steppedSlider.scaleFormatter = scaleFormatter;
 }
 
 - (IBAction)numberOfStepsValueChanged:(UIStepper *)sender {

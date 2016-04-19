@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "StepProgressBar.h"
+#import "SteppedSlider.h"
 
 @interface NotificationsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIStepper *stepperNumberOfSteps;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperCurrentStep;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberOfSteps;
 @property (weak, nonatomic) IBOutlet UILabel *labelCurrentStep;
+@property (weak, nonatomic) IBOutlet SteppedSlider *steppedSlider;
 @property (weak, nonatomic) IBOutlet StepProgressBar *progressBar;
 @end

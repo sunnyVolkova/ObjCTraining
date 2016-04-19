@@ -974,26 +974,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-9N-fDZ" customClass="SteppedSlider">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-9N-fDZ" customClass="SteppedSlider">
                                 <rect key="frame" x="0.0" y="237" width="600" height="126"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="deltaValue">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="5"/>
+                                        <integer key="value" value="1000"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="scalePointsNumber">
-                                        <real key="value" value="3"/>
+                                        <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="dfgdfgdgfdgf"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Credit Score"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                        <real key="value" value="8"/>
+                                        <real key="value" value="250000"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="90000"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMinStrict" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMaxStrict" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -1021,6 +1023,7 @@
                         <outlet property="labelCurrentStep" destination="ZAt-nR-GtQ" id="f5V-6J-bD4"/>
                         <outlet property="labelNumberOfSteps" destination="D02-NM-QHH" id="z2V-D3-cFN"/>
                         <outlet property="progressBar" destination="qK5-8o-N7k" id="Vmc-eU-j5t"/>
+                        <outlet property="steppedSlider" destination="WB6-9N-fDZ" id="MMC-vB-9D3"/>
                         <outlet property="stepperCurrentStep" destination="gn8-0S-SXH" id="1vr-at-xhE"/>
                         <outlet property="stepperNumberOfSteps" destination="0Mc-Sc-3UE" id="WGb-IZ-ZRs"/>
                     </connections>
