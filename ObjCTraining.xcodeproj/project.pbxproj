@@ -10,8 +10,11 @@
 		258F2F7FAE10D0A470F913DC /* libPods-ObjCTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032271DD2E39666163B6AC7 /* libPods-ObjCTraining.a */; };
 		6A002CF11CC0E2200020D5D8 /* MenuItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */; };
 		6A002CF21CC0E2200020D5D8 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */; };
+		6A1811671CC50C8400866A71 /* UIImage+DrawShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */; };
 		6A4FBB0E1CC0E92400700B35 /* BottomButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */; };
 		6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */; };
+		6A4FBB151CC129BA00700B35 /* SteppedSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB141CC129BA00700B35 /* SteppedSlider.m */; };
+		6A4FBB171CC129DF00700B35 /* SteppedSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */; };
 		A34FED5E1CAA5AD70012FD7D /* NSString+CheckInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */; };
 		A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */; };
 		A36C1C531CAD5DC300F057B9 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36C1C521CAD5DC300F057B9 /* NotificationsViewController.m */; };
@@ -72,9 +75,14 @@
 		6A002CEE1CC0E2200020D5D8 /* MenuItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemTableViewCell.h; sourceTree = "<group>"; };
 		6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableViewCell.m; sourceTree = "<group>"; };
 		6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		6A1811651CC50C8400866A71 /* UIImage+DrawShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DrawShape.h"; sourceTree = "<group>"; };
+		6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DrawShape.m"; sourceTree = "<group>"; };
 		6A4FBB0B1CC0E92400700B35 /* BottomButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomButtonTableViewCell.h; sourceTree = "<group>"; };
 		6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomButtonTableViewCell.m; sourceTree = "<group>"; };
 		6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomButtonTableViewCell.xib; sourceTree = "<group>"; };
+		6A4FBB131CC129BA00700B35 /* SteppedSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteppedSlider.h; sourceTree = "<group>"; };
+		6A4FBB141CC129BA00700B35 /* SteppedSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteppedSlider.m; sourceTree = "<group>"; };
+		6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SteppedSlider.xib; sourceTree = "<group>"; };
 		A34FED5C1CAA5AD70012FD7D /* NSString+CheckInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckInput.h"; sourceTree = "<group>"; };
 		A34FED5D1CAA5AD70012FD7D /* NSString+CheckInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CheckInput.m"; sourceTree = "<group>"; };
 		A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepProgressBar.h; sourceTree = "<group>"; };
@@ -285,13 +293,16 @@
 				CE4A94711CBB9BD40086D75C /* ContactListTableViewCell.h */,
 				CE4A94721CBB9BD40086D75C /* ContactListTableViewCell.m */,
 				CE4A94731CBB9BD40086D75C /* ContactListTableViewCell.xib */,
-				A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */,
+				6A4FBB131CC129BA00700B35 /* SteppedSlider.h */,
+				6A4FBB141CC129BA00700B35 /* SteppedSlider.m */,
+				6A4FBB161CC129DF00700B35 /* SteppedSlider.xib */,
 				A36C1C4D1CAD2CE500F057B9 /* StepProgressBar.m */,
+				A36C1C4C1CAD2CE500F057B9 /* StepProgressBar.h */,
 				CE704DDC1CA2A97A00098DE5 /* PropertyTableViewCell.h */,
 				CE704DDD1CA2A97A00098DE5 /* PropertyTableViewCell.m */,
+				6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */,
 				CE704DDE1CA2A97A00098DE5 /* PropertyTableViewCell.xib */,
 				6A002CEE1CC0E2200020D5D8 /* MenuItemTableViewCell.h */,
-				6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */,
 				6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */,
 				6A4FBB0B1CC0E92400700B35 /* BottomButtonTableViewCell.h */,
 				6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */,
@@ -332,6 +343,8 @@
 				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
+				6A1811651CC50C8400866A71 /* UIImage+DrawShape.h */,
+				6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -456,6 +469,7 @@
 				6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */,
 				6A002CF21CC0E2200020D5D8 /* MenuItemTableViewCell.xib in Resources */,
 				A3A56BDD1CB2A6E700AAE832 /* ActivityFeedsDataSource.json in Resources */,
+				6A4FBB171CC129DF00700B35 /* SteppedSlider.xib in Resources */,
 				CE704DB41CA2824600098DE5 /* Assets.xcassets in Resources */,
 				CE704DB21CA2824600098DE5 /* Main.storyboard in Resources */,
 				CEECE9061CB279C0005607EA /* ActivityFeedTableViewCell.xib in Resources */,
@@ -536,6 +550,7 @@
 				CE4A947C1CBBABF80086D75C /* ContactListTableViewCell+ConfigureForContactInfo.m in Sources */,
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
+				6A1811671CC50C8400866A71 /* UIImage+DrawShape.m in Sources */,
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
 				A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */,
@@ -547,6 +562,7 @@
 				CE704DED1CA4030500098DE5 /* PropertyTableViewCell+ConfigureForProperty.m in Sources */,
 				A370506C1CAC0A0600D4DE80 /* ContactUsViewController.m in Sources */,
 				CE704DDF1CA2A97A00098DE5 /* PropertyTableViewCell.m in Sources */,
+				6A4FBB151CC129BA00700B35 /* SteppedSlider.m in Sources */,
 				CE4A947F1CBBB4B80086D75C /* ContactListViewController.m in Sources */,
 				6A002CF11CC0E2200020D5D8 /* MenuItemTableViewCell.m in Sources */,
 				CE704DAC1CA2824600098DE5 /* AddPropertyViewController.m in Sources */,
