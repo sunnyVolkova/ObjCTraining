@@ -12,7 +12,7 @@ static const int initialCurrentStep = 2;
 static const int initialNumberofSteps = 4;
 
 @implementation NotificationsViewController
-//controller to test StepProgressbar
+//controller to test StepProgressbar and SteppedSlider
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.stepperCurrentStep.value = initialCurrentStep;

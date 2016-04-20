@@ -11,6 +11,7 @@
 #import "UIImage+DrawShape.h"
 
 @interface SteppedSlider ()
+
 @property (nonatomic) UIView *thumbView;
 @property (nonatomic) UIView *thumbInteractionView;
 @property (nonatomic) UILabel *titleLabel;
@@ -24,7 +25,9 @@
 @property (nonatomic) UIColor *titleColor;
 @property (nonatomic) UIColor *currentValueColor;
 @property (nonatomic) UIColor *buttonsColor;
+
 @end
+
 //minimal distance between minimum and maximum value
 static CGFloat const minDistance = 10.0;
 
@@ -37,6 +40,7 @@ static int const buttonDecreaseTag = 2;
 
 //parameters for subviews layout
 static CGFloat const buttonDiameter = 60.0;
+static CGFloat const buttonInset = 15.0;
 static CGFloat const sliderHeight = 126.0;
 static CGFloat const buttonMargin = 0;
 static CGFloat const titleLeadingSpace = 15.0;
@@ -54,6 +58,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 
 
 @implementation SteppedSlider
+
 @synthesize currentValueFormatter = _currentValueFormatter;
 @synthesize scaleFormatter = _scaleFormatter;
 
@@ -91,6 +96,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     self.maximumValue = 6.0f;
     self.value = 3.0f;
     self.scalePointsNumber = 2.0;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)setUpViews {
@@ -109,18 +115,18 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     
     //Init decreaseButton
     self.decreaseButton = [[UIButton alloc] init];
-    [self.decreaseButton setTitle:@"-" forState:UIControlStateNormal];
     [self.decreaseButton setTitleColor:self.buttonsColor forState:UIControlStateNormal];
-    [self.decreaseButton setBackgroundImage:[UIImage imageByDrawingCircleOfRadius:30.0 color:self.buttonsColor lineWidth:2.0f] forState:UIControlStateNormal];
+    [self.decreaseButton setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+    self.decreaseButton.imageEdgeInsets = UIEdgeInsetsMake(buttonInset, buttonInset, buttonInset, buttonInset);
     [self.decreaseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.decreaseButton.tag = buttonDecreaseTag;
     [self addSubview:self.decreaseButton];
     
     //Init increaseButton
     self.increaseButton = [[UIButton alloc] init];
-    [self.increaseButton setTitle:@"+" forState:UIControlStateNormal];
     [self.increaseButton setTitleColor:self.buttonsColor forState:UIControlStateNormal];
-    [self.increaseButton setBackgroundImage:[UIImage imageByDrawingCircleOfRadius:30.0 color:self.buttonsColor lineWidth:2.0f] forState:UIControlStateNormal];
+    [self.increaseButton setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    self.increaseButton.imageEdgeInsets = UIEdgeInsetsMake(buttonInset, buttonInset, buttonInset, buttonInset);
     [self.increaseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.increaseButton.tag = buttonIncreaseTag;
     [self addSubview:self.increaseButton];
@@ -221,31 +227,19 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 - (void)handlePan:(UIPanGestureRecognizer *)gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan || gesture.state == UIGestureRecognizerStateChanged) {
-        //[self bringSubviewToFront:self.thumbView];
-        
         CGPoint translation = [gesture translationInView:self];
         CGFloat trackRange = self.maximumValue - self.minimumValue;
         CGFloat width = CGRectGetWidth(self.trackView.frame) - CGRectGetWidth(self.thumbView.frame);
-        
         self.value += round((translation.x / width * trackRange) / self.deltaValue) * self.deltaValue;
         [gesture setTranslation:CGPointZero inView:self];
     }
 }
 
 - (void)handleSingleTap:(UIPanGestureRecognizer *)gesture {
-    NSLog(@"handleSingleTap");
-    //if (gesture.state == UIGestureRecognizerStateBegan || gesture.state == UIGestureRecognizerStateChanged) {
-        //[self bringSubviewToFront:self.thumbView];
-        
         CGPoint location = [gesture locationInView:self.trackView];
         CGFloat trackRange = self.maximumValue - self.minimumValue;
         CGFloat width = CGRectGetWidth(self.trackView.frame) - CGRectGetWidth(self.thumbView.frame);
-        
         self.value = round((location.x / width * trackRange) / self.deltaValue) * self.deltaValue;
-        
-        //[gesture setTranslation:CGPointZero inView:self];
-    //}
-    
 }
 
 #pragma mark - Buttons interaction
@@ -303,7 +297,6 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     }
     _value = value;
     self.currentValueLabel.text = [self.currentValueFormatter stringFromNumber:[NSNumber numberWithDouble:value]];
-    [self updateScaleLabelsText];
     [self setNeedsLayout];
 }
 

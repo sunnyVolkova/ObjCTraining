@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//IB_DESIGNABLE
+IB_DESIGNABLE
 @interface SteppedSlider : UIView
 @property (nonatomic, assign) IBInspectable CGFloat minimumValue;
 @property (nonatomic, assign) IBInspectable CGFloat maximumValue;
