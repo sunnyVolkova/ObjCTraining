@@ -8,7 +8,6 @@
 
 #import "SteppedSlider.h"
 #import "UIColor+LCAdditions.h"
-#import "UIImage+DrawShape.h"
 
 @interface SteppedSlider ()
 

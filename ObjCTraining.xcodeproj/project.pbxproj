@@ -10,7 +10,6 @@
 		258F2F7FAE10D0A470F913DC /* libPods-ObjCTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0032271DD2E39666163B6AC7 /* libPods-ObjCTraining.a */; };
 		6A002CF11CC0E2200020D5D8 /* MenuItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */; };
 		6A002CF21CC0E2200020D5D8 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */; };
-		6A1811671CC50C8400866A71 /* UIImage+DrawShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */; };
 		6A4FBB0E1CC0E92400700B35 /* BottomButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */; };
 		6A4FBB0F1CC0E92400700B35 /* BottomButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */; };
 		6A4FBB151CC129BA00700B35 /* SteppedSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FBB141CC129BA00700B35 /* SteppedSlider.m */; };
@@ -74,8 +73,6 @@
 		6A002CEE1CC0E2200020D5D8 /* MenuItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemTableViewCell.h; sourceTree = "<group>"; };
 		6A002CEF1CC0E2200020D5D8 /* MenuItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableViewCell.m; sourceTree = "<group>"; };
 		6A002CF01CC0E2200020D5D8 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
-		6A1811651CC50C8400866A71 /* UIImage+DrawShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DrawShape.h"; sourceTree = "<group>"; };
-		6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DrawShape.m"; sourceTree = "<group>"; };
 		6A4FBB0B1CC0E92400700B35 /* BottomButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomButtonTableViewCell.h; sourceTree = "<group>"; };
 		6A4FBB0C1CC0E92400700B35 /* BottomButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomButtonTableViewCell.m; sourceTree = "<group>"; };
 		6A4FBB0D1CC0E92400700B35 /* BottomButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -340,8 +337,6 @@
 				CEECE9081CB2849C005607EA /* ActivityFeedTableViewCell+ConfigureForFeed.m */,
 				A36DED481CAE515C00A7CDC2 /* UIImageView+DrawShape.h */,
 				A36DED491CAE515C00A7CDC2 /* UIImageView+DrawShape.m */,
-				6A1811651CC50C8400866A71 /* UIImage+DrawShape.h */,
-				6A1811661CC50C8400866A71 /* UIImage+DrawShape.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -547,7 +542,6 @@
 				CE4A947C1CBBABF80086D75C /* ContactListTableViewCell+ConfigureForContactInfo.m in Sources */,
 				CE704DAF1CA2824600098DE5 /* SecondViewController.m in Sources */,
 				CE704DE61CA2C90200098DE5 /* HouseTypeDescription.m in Sources */,
-				6A1811671CC50C8400866A71 /* UIImage+DrawShape.m in Sources */,
 				A36C1C4E1CAD2CE500F057B9 /* StepProgressBar.m in Sources */,
 				CE704DA91CA2824600098DE5 /* AppDelegate.m in Sources */,
 				A3A56BDB1CB2A0A500AAE832 /* ActivityFeedViewController.m in Sources */,
