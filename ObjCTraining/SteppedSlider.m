@@ -9,24 +9,6 @@
 #import "SteppedSlider.h"
 #import "UIColor+LCAdditions.h"
 
-@interface SteppedSlider ()
-
-@property (nonatomic) UIView *thumbView;
-@property (nonatomic) UIView *thumbInteractionView;
-@property (nonatomic) UILabel *titleLabel;
-@property (nonatomic) UILabel *currentValueLabel;
-@property (nonatomic) UIButton *decreaseButton;
-@property (nonatomic) UIButton *increaseButton;
-@property (nonatomic) UIView *trackView;
-@property (nonatomic) UIView *trackInteractionView;
-@property (nonatomic) NSMutableArray *scaleLabels;
-
-@property (nonatomic) UIColor *titleColor;
-@property (nonatomic) UIColor *currentValueColor;
-@property (nonatomic) UIColor *buttonsColor;
-
-@end
-
 //minimal distance between minimum and maximum value
 static CGFloat const minDistance = 10.0;
 
@@ -34,8 +16,8 @@ static CGFloat const titleFontSize = 12.0;
 static CGFloat const currentValueFontSize = 25.0;
 static CGFloat const labelFontSize = 12.0;
 
-static int const buttonIncreaseTag = 1;
-static int const buttonDecreaseTag = 2;
+static NSInteger const buttonIncreaseTag = 1;
+static NSInteger const buttonDecreaseTag = 2;
 
 //parameters for subviews layout
 static CGFloat const buttonDiameter = 60.0;
@@ -55,6 +37,23 @@ static CGFloat const thumbInteractionDiameter = 50.0;
 static CGFloat const scaleLabelTopSpace = 14.0;
 static CGFloat const scaleLabelHorizontalMargin = 10.0;
 
+@interface SteppedSlider ()
+
+@property (nonatomic) UIView *thumbView;
+@property (nonatomic) UIView *thumbInteractionView;
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *currentValueLabel;
+@property (nonatomic) UIButton *decreaseButton;
+@property (nonatomic) UIButton *increaseButton;
+@property (nonatomic) UIView *trackView;
+@property (nonatomic) UIView *trackInteractionView;
+@property (nonatomic) NSMutableArray *scaleLabels;
+
+@property (nonatomic) UIColor *titleColor;
+@property (nonatomic) UIColor *currentValueColor;
+@property (nonatomic) UIColor *buttonsColor;
+
+@end
 
 @implementation SteppedSlider
 
@@ -63,8 +62,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 
 #pragma mark - Initialization
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setDefaults];
@@ -73,8 +71,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setDefaults];
@@ -85,16 +82,16 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 
 #pragma mark - Configuration
 
-- (void)setDefaults
-{
+- (void)setDefaults {
     self.scaleLabels = [NSMutableArray array];
     self.titleColor = [UIColor blackColor];
     self.currentValueColor = [UIColor colorWithRed:101.0/255.0 green:101.0/255.0  blue:101.0/255.0  alpha:1.0];
     self.buttonsColor = [UIColor lc_darkSkyBlueColor];
     self.minimumValue = 0.0f;
-    self.maximumValue = 6.0f;
-    self.value = 3.0f;
-    self.scalePointsNumber = 2.0;
+    self.maximumValue = 100.0f;
+    self.value = 50.0f;
+    self.deltaValue = 5.0f;
+    self.scalePointsNumber = 5.0;
     self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
@@ -117,7 +114,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     [self.decreaseButton setTitleColor:self.buttonsColor forState:UIControlStateNormal];
     [self.decreaseButton setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
     self.decreaseButton.imageEdgeInsets = UIEdgeInsetsMake(buttonInset, buttonInset, buttonInset, buttonInset);
-    [self.decreaseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.decreaseButton addTarget:self action:@selector(decrease) forControlEvents:UIControlEventTouchUpInside];
     self.decreaseButton.tag = buttonDecreaseTag;
     [self addSubview:self.decreaseButton];
     
@@ -126,7 +123,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     [self.increaseButton setTitleColor:self.buttonsColor forState:UIControlStateNormal];
     [self.increaseButton setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     self.increaseButton.imageEdgeInsets = UIEdgeInsetsMake(buttonInset, buttonInset, buttonInset, buttonInset);
-    [self.increaseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.increaseButton addTarget:self action:@selector(increase) forControlEvents:UIControlEventTouchUpInside];
     self.increaseButton.tag = buttonIncreaseTag;
     [self addSubview:self.increaseButton];
     
@@ -165,8 +162,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     return CGSizeMake(width, height);
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat height = CGRectGetHeight(self.frame);
     
@@ -189,13 +185,13 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     self.trackInteractionView.frame = CGRectMake(trackX, trackInteractionY, trackWidth, trackInteractionHeight);
     
     //buttons
-    CGFloat buttonsY = trackY + trackHeight/2 - buttonDiameter/2;
+    CGFloat buttonsY = round(trackY + trackHeight/2 - buttonDiameter/2);
     self.decreaseButton.frame = CGRectMake(buttonMargin, buttonsY, buttonDiameter, buttonDiameter);
     self.increaseButton.frame = CGRectMake(width - buttonMargin - buttonDiameter, buttonsY, buttonDiameter, buttonDiameter);
     
     //thumb
     CGFloat thumbY = self.trackView.center.y;
-    CGFloat thumbOffset = thumbDiameter/2 + (self.value - self.minimumValue) * (trackWidth - thumbDiameter) / (self.maximumValue - self.minimumValue);
+    CGFloat thumbOffset = round(thumbDiameter/2 + (self.value - self.minimumValue) * (trackWidth - thumbDiameter) / (self.maximumValue - self.minimumValue));
     CGFloat thumbX = CGRectGetMinX(self.trackView.frame) + thumbOffset;
     self.thumbView.frame = CGRectMake(thumbX, thumbY, thumbDiameter, thumbDiameter);
     self.thumbView.center = CGPointMake(thumbX , thumbY);
@@ -205,20 +201,19 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
     self.thumbInteractionView.center = CGPointMake(thumbX , thumbY);
     
     //scale labels
-    int labelsCount = (int)self.scaleLabels.count;
+    NSInteger labelsCount = self.scaleLabels.count;
     CGFloat distance = 0;
     if (labelsCount > 1) {
         distance = (trackWidth - scaleLabelHorizontalMargin * 2) / (labelsCount - 1);
     }
     CGFloat labelY = trackY + trackHeight + scaleLabelTopSpace;
     CGSize maxLabelSize = CGSizeMake(distance, 18.0);
-    for (int i = 0; i < labelsCount; i++) {
+    for (NSInteger i = 0; i < labelsCount; i++) {
         UILabel *label = self.scaleLabels[i];
         CGFloat labelX = trackX + scaleLabelHorizontalMargin + distance * i;
         CGRect actualLabelSize = [label.text boundingRectWithSize:maxLabelSize options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:label.font} context:nil];
-        label.frame = CGRectMake(labelX - actualLabelSize.size.width / 2, labelY, actualLabelSize.size.width, actualLabelSize.size.height);
+        label.frame = CGRectMake(round(labelX - actualLabelSize.size.width / 2), labelY, actualLabelSize.size.width, actualLabelSize.size.height);
     }
-    
 }
 
 #pragma mark - Gesture recognition
@@ -226,7 +221,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 - (void)handlePan:(UIPanGestureRecognizer *)gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan || gesture.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [gesture translationInView:self];
+        CGPoint translation = [gesture translationInView:self.trackInteractionView];
         CGFloat trackRange = self.maximumValue - self.minimumValue;
         CGFloat width = CGRectGetWidth(self.trackView.frame) - CGRectGetWidth(self.thumbView.frame);
         self.value += round((translation.x / width * trackRange) / self.deltaValue) * self.deltaValue;
@@ -235,31 +230,25 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 }
 
 - (void)handleSingleTap:(UIPanGestureRecognizer *)gesture {
-        CGPoint location = [gesture locationInView:self.trackView];
-        CGFloat trackRange = self.maximumValue - self.minimumValue;
-        CGFloat width = CGRectGetWidth(self.trackView.frame) - CGRectGetWidth(self.thumbView.frame);
-        self.value = round((location.x / width * trackRange) / self.deltaValue) * self.deltaValue;
+    CGPoint location = [gesture locationInView:self.trackInteractionView];
+    CGFloat trackRange = self.maximumValue - self.minimumValue;
+    CGFloat width = CGRectGetWidth(self.trackView.frame) - CGRectGetWidth(self.thumbView.frame);
+    self.value = round((location.x / width * trackRange) / self.deltaValue) * self.deltaValue;
 }
 
 #pragma mark - Buttons interaction
 
-- (void)buttonTapped:(UIButton *)sender {
-    switch(sender.tag) {
-        case buttonIncreaseTag:
-            self.value = self.value + self.deltaValue;
-            break;
-        case buttonDecreaseTag:
-            self.value = self.value - self.deltaValue;
-            break;
-        default:
-            break;
-    }
+- (void)increase {
+    self.value = self.value + self.deltaValue;
+}
+
+- (void)decrease {
+    self.value = self.value - self.deltaValue;
 }
 
 #pragma mark - Setters
 
-- (void)setMinimumValue:(CGFloat)minimumValue
-{
+- (void)setMinimumValue:(CGFloat)minimumValue {
     if (minimumValue >= self.maximumValue) {
         _maximumValue = minimumValue + minDistance;
     }
@@ -268,11 +257,9 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
         self.value = minimumValue;
     }
     [self updateScaleLabelsText];
-    [self setNeedsLayout];
 }
 
-- (void)setMaximumValue:(CGFloat)maximumValue
-{
+- (void)setMaximumValue:(CGFloat)maximumValue {
     if (maximumValue <= self.minimumValue) {
         _minimumValue = maximumValue - minDistance;
     }
@@ -282,12 +269,9 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
         self.value = maximumValue;
     }
     [self updateScaleLabelsText];
-    [self setNeedsLayout];
 }
 
-
-- (void)setValue:(CGFloat)value
-{
+- (void)setValue:(CGFloat)value {
     if (value < self.minimumValue) {
         value = self.minimumValue;
     }
@@ -316,7 +300,6 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
         [self addSubview:label];
     }
     [self updateScaleLabelsText];
-    [self setNeedsLayout];
 }
 
 - (void) setCurrentValueFormatter:(NSNumberFormatter *)currentValueFormatter {
@@ -327,7 +310,7 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 - (void) setScaleFormatter:(NSNumberFormatter *)scaleFormatter {
     _scaleFormatter = scaleFormatter;
     [self updateScaleLabelsText];
-    [self setNeedsLayout];
+    
 }
 
 - (void) setIsMaxStrict:(BOOL)isMaxStrict {
@@ -367,12 +350,12 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
 }
 
 - (void)updateScaleLabelsText {
-    int labelsCount = (int)self.scaleLabels.count;
+    NSInteger labelsCount = self.scaleLabels.count;
     CGFloat step = 0;
     if (labelsCount > 1) {
         step = (self.maximumValue - self.minimumValue) / (labelsCount - 1);
     }
-    for (int i = 0; i < labelsCount; i++) {
+    for (NSInteger i = 0; i < labelsCount; i++) {
         CGFloat value = self.minimumValue + step * i;
         UILabel *label = self.scaleLabels[i];
         label.text = [self.scaleFormatter stringFromNumber:[NSNumber numberWithDouble:value]];
@@ -389,5 +372,6 @@ static CGFloat const scaleLabelHorizontalMargin = 10.0;
         [mutableText appendString:@"-"];
         label.text = [NSString stringWithString:mutableText];
     }
+    [self setNeedsLayout];
 }
 @end

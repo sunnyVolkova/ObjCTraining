@@ -24,6 +24,11 @@ static const int initialNumberofSteps = 4;
     self.progressBar.numberOfSteps = initialNumberofSteps;
     self.progressBar.currentStep = initialCurrentStep;
     
+    self.steppedSlider.minimumValue = 0;
+    self.steppedSlider.maximumValue = 250000;
+    self.steppedSlider.value = 90000;
+    self.steppedSlider.deltaValue = 5000;
+    self.steppedSlider.scalePointsNumber = 6;
     NSNumberFormatter *currentValueFormatter = [[NSNumberFormatter alloc] init];
     [currentValueFormatter setPositiveFormat:@"$##,###"];
     self.steppedSlider.currentValueFormatter = currentValueFormatter;
