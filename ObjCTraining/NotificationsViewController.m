@@ -12,7 +12,7 @@ static const int initialCurrentStep = 2;
 static const int initialNumberofSteps = 4;
 
 @implementation NotificationsViewController
-//controller to test StepProgressbar
+//controller to test StepProgressbar and SteppedSlider
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.stepperCurrentStep.value = initialCurrentStep;
@@ -23,6 +23,20 @@ static const int initialNumberofSteps = 4;
     self.labelCurrentStep.text = text1;
     self.progressBar.numberOfSteps = initialNumberofSteps;
     self.progressBar.currentStep = initialCurrentStep;
+    
+    self.steppedSlider.minimumValue = 0;
+    self.steppedSlider.maximumValue = 250000;
+    self.steppedSlider.value = 90000;
+    self.steppedSlider.deltaValue = 5000;
+    self.steppedSlider.scalePointsNumber = 6;
+    NSNumberFormatter *currentValueFormatter = [[NSNumberFormatter alloc] init];
+    [currentValueFormatter setPositiveFormat:@"$##,###"];
+    self.steppedSlider.currentValueFormatter = currentValueFormatter;
+    
+    NSNumberFormatter *scaleFormatter = [[NSNumberFormatter alloc] init];
+    [scaleFormatter setMultiplier:[NSNumber numberWithDouble:0.001]];
+    [scaleFormatter setPositiveFormat:@"#,###0"];
+    self.steppedSlider.scaleFormatter = scaleFormatter;
 }
 
 - (IBAction)numberOfStepsValueChanged:(UIStepper *)sender {
