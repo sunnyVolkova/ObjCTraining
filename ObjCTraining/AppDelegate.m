@@ -18,6 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initTabBarController];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //setup navigation bar
+    [[UIBarButtonItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"OpenSans" size:16.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"OpenSans-Semibold" size:16.0], NSFontAttributeName, nil]];
     return YES;
 }
 
@@ -92,9 +95,6 @@
     itemChat.title = @"Chat";
     itemChat.image  = [UIImage imageNamed:@"Chat_Stroke"];
     itemChat.selectedImage  = [UIImage imageNamed:@"Chat_Filled"];
-    
-    [[UIBarButtonItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"OpenSans" size:16.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"OpenSans-Semibold" size:16.0], NSFontAttributeName, nil]];
 }
 
 @end
